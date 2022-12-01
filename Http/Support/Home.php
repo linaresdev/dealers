@@ -1,4 +1,4 @@
-<?php
+<?php namespace Delta\Http\Support;
 
 /*
  *---------------------------------------------------------
@@ -8,9 +8,14 @@
 */
 
 
-/*
-* VIEWS */
-$this->loadViewsFrom(__DIR__.'/Views', 'delta');
+class Home {
+	
+	public function home() {
 
+		$data = [];
 
-/* End of helper App.php */
+		return $data;
+	}
+}
+
+/* End of providers Home.php */
