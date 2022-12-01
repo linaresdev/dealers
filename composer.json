@@ -1,0 +1,26 @@
+{    
+    "name": "linaresdev/dealers",
+    "description": "Aplicativo para los dealers",
+    "keywords": ["package", "app"],
+    "license": "Privado",
+    "type": "package",
+    "authors": [
+        {
+            "name": "Ing. Ramón A Linares Febles",
+            "email": "rlinares4381@gmail.com"
+        }        
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Delta\\": "System/",
+            "Delta\\Http\\": "Http/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev"
+}
