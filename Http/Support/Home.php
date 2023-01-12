@@ -9,10 +9,12 @@
 
 
 class Home {
+
+
 	
 	public function home() {
 
-		$data = [];
+		$data["title"] = "Home";
 
 		return $data;
 	}

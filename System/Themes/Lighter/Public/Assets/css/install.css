@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+body {
+	--tw-bg-opacity: 1;
+	background-color: rgb(243 244 246 / .1);	
+}
+
+[role=install] {
+	padding-top: 60px;
+}
+[role=install] textarea[name=env] {
+	min-height: 300px;
+}
+[role=install] .brand {
+	border-top: 1px solid #ddd;
+	color: #996;
+	padding: 5px 15px 10px 15px;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+[role=install] .brand strong {
+	color: red;
+}

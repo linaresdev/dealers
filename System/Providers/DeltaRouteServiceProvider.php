@@ -20,9 +20,17 @@ class DeltaRouteServiceProvider extends ServiceProvider {
     }
     
     public function map() {
-		Route::namespace($this->namespace)->group(
-			__DEALER__."/Http/Route/app.php"
-		);
+
+        if( (env("APP_STATE") == NULL) OR (env("APP_STATE") == false) ) {
+            Route::namespace($this->namespace)->group(
+                __DEALER__."/Http/Route/env.php"
+            );
+        }
+        else {            
+    		Route::middleware("iweb")->namespace($this->namespace)->group(
+    			__DEALER__."/Http/Route/app.php"
+    		);
+        }
     }
 }
 

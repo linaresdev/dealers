@@ -21,6 +21,7 @@ class Controller extends BaseController {
 	protected $path = "delta::app.";
 
 	public function boot( $support=null, $data=[] ) {
+		
 		$this->support = $support;
 
 		$data["title"]       = "Theme Title";
@@ -34,6 +35,19 @@ class Controller extends BaseController {
 		$this->share($data);
 	}
 
+	public function setConfig($data) {
+		if( !empty($data) && is_array($data) ) {
+
+			foreach($data as $key => $value) {
+				app("config")->set($key, $value);
+			}
+		}
+	}
+
+	public function user() {
+		return auth("web")->user();
+	}
+
 	public function share($data) {
 		if(!empty($data) && is_array($data) ) {
 			view()->share($data);
@@ -41,12 +55,11 @@ class Controller extends BaseController {
 	}
 
 	public function render($view=NULL, $data=[], $mergeData=[]) {
+		if(view()->exists(($path = $this->path.$view))) {
+			return view($path, $data, $mergeData);
+		}
 
-	if(view()->exists(($path = $this->path.$view))) {
-	  return view($path, $data, $mergeData);
-	}
-
-	abort(500, "La vista {$path} no existe");
+		abort(500, "La vista {$path} no existe");
 	}
 
 }
