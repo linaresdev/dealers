@@ -8,22 +8,31 @@ namespace Delta\Http\Support\Admin;
  *---------------------------------------------------------
 */
 
+use Delta\Model\User;
 
 class HomeSupport {	
 
-	protected $app;
+	protected $user;
 
-	public function __construct() {
+	public function __construct( User $user) {
+		$this->user = $user;
 	}
 
 	public function share() {
 		return [
-			"layout" => "layout-lg"
+			"layout" => "layout-md"
 		];
 	}
 
+	public function getUser($perpage=10) {
+		$data = $this->user->orderBY("id", "DESC");
+
+		return $data->paginate($perpage);
+	}
+
 	public function home() {
-		$data['title'] = __("words.administration");
+		$data['title'] 	= __("words.administration");
+		$data["users"]	= $this->getUser();
 
 		return $data;
 	}

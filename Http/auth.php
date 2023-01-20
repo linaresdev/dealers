@@ -7,6 +7,9 @@
  *---------------------------------------------------------
 */
 
+## AUTH USER CONFIGS
+$user->loadConfig();
+
 ## LOAD MENU AUTH
 foreach( (new \Delta\Http\Menu\Handler())->menu() as $menu ) {
     if( !empty($menu) ) {

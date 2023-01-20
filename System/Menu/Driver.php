@@ -1,4 +1,5 @@
 <?php
+
 namespace Delta\Menu;
 
 /*
@@ -34,7 +35,7 @@ class Driver {
 
    public function providers() {
      return [
-        \Delta\Menu\Provider\ServiceProvider::class,
+        \Delta\Menu\Provider\MenuServiceProvider::class,
      ];
    }
 

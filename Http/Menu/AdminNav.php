@@ -16,86 +16,71 @@ class AdminNav extends Accessor {
 
 	protected $login;
 
-	public function __construct( $login ) {
-		
+	public function __construct( $login ) {		
 		$this->login = $login;
-
 		$this->authorize( $login );
 	}
 
-	public function authorize( $login ) {
-		
-		if( $login->isRol("dealers") ) {
+	public function header($label, $index=4) {
+		$html = __tab($index);
+		$html .= '<div class="nav-header">'."\n";
 
-			$this->item(10,[
-				"icon"	=> "mdi-storefront-outline",
-				"label" => "words.dealer",
-				"url"	=> "/dealer/__dealer"
-			]);
-		}		
+			$html .= __tab($index+8);
+			$html .= '<div class="row">'."\n";
+
+				$html .= __tab($index+12);
+				$html .= '<div class="col-auto">'."\n";
+
+				$html .= __tab($index+16);
+				$html .= '<span class="subtitle">'.$label."</span>\n";
+
+				$html .= __tab($index+12);
+				$html .= "</div>\n";
+
+				$html .= __tab($index+12);
+				$html .= '<div class="col">';
+				$html .= '<hr class="divider" />';
+				$html .= "</div>\n";
+
+			$html .= __tab($index+8);
+			$html .= "</div>\n";
+
+		$html .= __tab($index+4);
+		$html .= "</div>\n";
+
+		return $html;
+	}
+
+	public function authorize( $login ) {
+
+		$this->item(10,[
+			"icon"	=> "mdi-home",
+			"label" => __("words.home"),
+			"url"	=> "/__admin"
+		]);
 
 		if( $login->isRol("admin") ) {
-			$this->item(50,[
-				"icon"	=> "mdi-cog",
-				"label" => "admin.slug",
-				"url"	=> "__admin/"
+
+			$this->item(20,[
+				"icon"	=> "mdi-account-circle",
+				"label" => __("words.users"),
+				"url"	=> "/__admin/users"
 			]);
+
 		}
-	}
-
-	public function tab($multiplier=0, $input=" ") {
-		return str_repeat($input, $multiplier);
-	}
-
-	public function icon($icon=NULL) {
-
-		if( empty($icon) ):
-			return NULL;
-		elseif($icon == "toggle"):
-			return '<i class="mdi mdi-segment"></i> ';
-		elseif( preg_match('/^mdi/', $icon) ) :
-			return '<i class="mdi '.$icon.'"></i> ';
-		elseif( preg_match('/^glyphicon/', $icon) ):
-			return '<span class="'.$icon.'"></span> ';
-		elseif ( preg_match('/[jpg|png|svg|gif]/i', $icon) ):
-			return '<img src="'.__url($icon).'" class="navicon" alt="Image"> ';
-		endif;
-
-		return NULL;
-	}
-
-	public function link($item, $index=8) {
-
-		$tag=$this->tb($index);
-
-		$tag .= '<a href="';
-		$tag .= __url($item["url"]);
-		$tag .= '" class="nav-lens">';
-		$tag .= "\n";
-
-		$tag .= $this->tab($index+4);
-		$tag .= $this->icon($item["icon"]);
-		$tag .= "<br />";
-		$tag .= __($item["label"]);
-		$tag .= "\n";
-
-		$tag .= $this->tab($index);
-		$tag .= "</a>";
-
-		return $tag;
 	}
 
 	public function items( $index=4 ) {
-		if( !empty($this->stors) ) {
 
-			$item = null;
+		$skin = $this->skins["bs5"];
+      	$skin = new $skin();
 
-			foreach($this->stors as $stor ) {
-				$item .= $this->link($stor, 24);
-			}
+      	$skin->addFilterStyle("match", [
+        	":node0" => "nav flex-column nav-light",
+      	]);
 
-			return $item;
-		}
+      	$skin->addItems($this->get("stors"));
+      	return $skin->nav(12);
 	}
 }
 

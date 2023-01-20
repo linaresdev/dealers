@@ -71,12 +71,10 @@ class Accessor {
 
       if( $opt == "item" ) {
          if( empty($args[0]) ) {
-            $this->stors[] = $args[1];
+           $this->stors[] = $args[1];
          }
          else {
             $this->stors[$args[0]] = $args[1];
-
-            sort($this->stors);
          }
       }
    }

@@ -5,16 +5,11 @@ define("__THEME__", __DEALER__."/System/Themes/");
 
 $this->mergeConfigFrom(__DIR__."/app.php", "admin");
 
-/*
-* IoC */
-$this->app->bind( "Menu", function($app) {
-  return new \Delta\Menu\Support\Factory($app);
-});
 
 /*
-* FACADE */
-$this->loadAlias([
-   "Menu" => \Delta\Menu\Facade\Menu::class
+* DRIVERS */
+$this->loadDrivers([
+   \Delta\Menu\Driver::class,
 ]);
 
 

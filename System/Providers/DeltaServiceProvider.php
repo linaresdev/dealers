@@ -43,15 +43,41 @@ class DeltaServiceProvider extends ServiceProvider {
 	}
 
 	/*
-	* ALIASES
-	* Load Alias */
-	public function loadAlias( $alias=NULL ) {
-		if(!empty($alias) && is_array($alias)) {
-			foreach ($alias as $alia => $class) {
-				AliasLoader::getInstance()->alias($alia, $class);
+	* DRIVERS
+	* Load Drivers */
+	public function loadDrivers( $drivers ) {
+		foreach( $drivers as $driver ) {
+
+			if( class_exists($driver) ) {
+				$driver = new $driver;
+
+				/* Providers */
+				if( method_exists($driver, "providers") ) {
+					foreach( $driver->providers() as $provider ) {
+						$this->app->register($provider);
+					}
+				}
+
+				/* Alias */
+				if( method_exists($driver, "alias") ) {
+					foreach( $driver->alias() as $alia => $facade ) {
+						AliasLoader::getInstance()->alias($alia, $facade);
+					}
+				}
 			}
 		}
 	}
+
+	/*
+	* ALIASES
+	* Load Alias */
+	// public function loadAlias( $alias=NULL ) {
+	// 	if(!empty($alias) && is_array($alias)) {
+	// 		foreach ($alias as $alia => $class) {
+	// 			AliasLoader::getInstance()->alias($alia, $class);
+	// 		}
+	// 	}
+	// }
 
 	public function loadThemeDriver($theme) {
 		require_once(__THEME__.$theme);

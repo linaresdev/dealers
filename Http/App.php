@@ -13,6 +13,13 @@
 $this->loadGrammary($LANG, "esDO");
 
 /*
+* MACRO PATH */
+app("urls")->addTag("paths", [
+    "__meta"   => __DEALER__."/System/Meta",
+]);
+
+
+/*
 * MACRO URLS */
 app("urls")->addTag("urls", [
     "__admin"   => config("admin.slug"),

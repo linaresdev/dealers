@@ -57,6 +57,36 @@ class User extends Authenticatable {
 		return $this->hasMany(UserMeta::class, "user_id");
 	}
 
+	public function hasMeta( $type, $key) {
+		return(
+			$this->meta()->where("type", $type)
+				 ->where("key", $key)->count() > 0
+		);
+	}
+
+	public function saveMeta( $type, $key, $value ) {
+		$meta = $this->meta();
+
+		if( $this->hasMeta($type, $key) ) {
+			$meta->where("type", $type)->where("key", $key)->update([
+				"value" => $value
+			]);
+		}
+		else {
+			$meta->create(["type" => $type, "key" => $key, "value" => $value]);
+		}
+	}
+
+	public function loadConfig() {
+
+		$file = "auth".$this->id."_config_meta.php";
+
+		if( app("files")->exists(__path("__meta/$file")) ) {	
+			dd(app("files")->getRequire(__path("__meta/$file")));
+		}
+
+	}
+
 	public function groups() {
 		return $this->belongsToMany( Group::class, "users_groups_pivots", "user_id", "group_id")->withPivot(
 		  "view", "insert", "update", "delete"
