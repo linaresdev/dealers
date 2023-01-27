@@ -18,9 +18,14 @@ return new class extends Migration {
 
             $table->integer("parent")->default(0);
 
+            $table->string("type", 30)->default("rol");
+
             $table->string("slug", 100);
 
             $table->text("group")->nullable();
+
+            $table->boolean("access")->default(0);
+            $table->string("icon", 30)->default("link");
 
             $table->boolean("activated")->default(1);
 

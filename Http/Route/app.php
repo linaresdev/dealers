@@ -18,7 +18,7 @@ Route::prefix(config("admin.slug"))->namespace("Admin")->group(
 
 
 
-Route::prefix("dealer")->middleware("dealer")->group( function($route) {
+Route::prefix("app")->middleware("dealer")->group( function($route) {
 	/*
 	* Ajax */
 	Route::get("/ajax/zone/{zone?}", "DealerController@zoneSrc");

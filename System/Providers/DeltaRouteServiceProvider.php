@@ -26,7 +26,10 @@ class DeltaRouteServiceProvider extends ServiceProvider {
                 __DEALER__."/Http/Route/env.php"
             );
         }
-        else {            
+        else {
+
+            require_once(__DEALER__."/Http/binding.php");
+                        
     		Route::middleware("iweb")->namespace($this->namespace)->group(
     			__DEALER__."/Http/Route/app.php"
     		);

@@ -24,21 +24,11 @@ class App extends Accessor {
 	}
 
 	public function authorize( $login ) {
-		
-		if( $login->isRol("dealers") ) {
-
-			$this->item(10,[
-				"icon"	=> "mdi-storefront-outline",
-				"label" => "words.dealer",
-				"url"	=> "/dealer/__dealer"
-			]);
-		}		
-
-		if( $login->isRol("admin") ) {
-			$this->item(50,[
-				"icon"	=> "mdi-cog",
-				"label" => "admin.slug",
-				"url"	=> "__admin/"
+		foreach($login->groups->where("type", "organization") as $key => $row ) {
+			$this->item($key, [
+				"icon" 	=> "mdi-".$row->icon,
+				"label" => $row->group,
+				"url"	=> $row->slug
 			]);
 		}
 	}
@@ -86,16 +76,15 @@ class App extends Accessor {
 	}
 
 	public function items( $index=4 ) {
-		if( !empty($this->stors) ) {
+		$skin = $this->skins["bs5"];
+      	$skin = new $skin();
 
-			$item = null;
+      	$skin->addFilterStyle("match", [
+        	":node0" => "nav flex-column",
+      	]);
 
-			foreach($this->stors as $stor ) {
-				$item .= $this->link($stor, 24);
-			}
-
-			return $item;
-		}
+      	$skin->addItems($this->get("stors"));
+      	return $skin->nav(12);
 	}
 }
 

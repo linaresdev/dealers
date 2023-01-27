@@ -104,7 +104,7 @@
 
 					<div class="form-group pb-3">
 
-						{!! $hasError("password") !!}
+						{!! $hasError("pwd") !!}
 
 						<div class="form-floating">
 							<input type="password" 

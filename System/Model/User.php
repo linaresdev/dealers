@@ -112,6 +112,22 @@ class User extends Authenticatable {
     				->first() ?? null;
     }
 
+    public function orgID( $slug ) {
+
+    	$ORG = new Group;
+    	$ORG->where("type", "organization");
+    	$ORG->where("slug", $slug);
+    	$ORG->first() ?? NULL;
+
+    	if( ($data = $ORG->first()) ?? FALSE  ) {
+    		return $data->id;
+    	}
+    }
+
+    public function orgSync( $ID ) {
+    	$this->groups()->attach($ID);
+    }
+
     public function syncGroup( $group, $rols ) {
     	if( is_numeric( ($ID = $this->groupID($group)) ) ) {
 	    	$this->groups()->attach([$this->groupID($group) => $rols]);    		
@@ -131,7 +147,6 @@ class User extends Authenticatable {
 			return $business->dealer();
 		}
 	}
-
 }
 
 /* End of Model User.php */

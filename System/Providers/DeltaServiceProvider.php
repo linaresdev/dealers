@@ -7,6 +7,7 @@
  *---------------------------------------------------------
 */
 
+use Delta\Facade\Org;
 use Delta\Menu\Facade\Menu;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Translation\Translator;
@@ -24,6 +25,13 @@ class DeltaServiceProvider extends ServiceProvider {
 	}
 
 	public function register() {
+
+		$this->app->bind("Org", function($app){
+			return new \Delta\Support\Org($app);
+		});
+
+		$this->app["org"] = Org::load();
+
 		require_once(__DIR__."/../Common.php");
 	}
 

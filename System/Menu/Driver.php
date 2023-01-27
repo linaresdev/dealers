@@ -1,5 +1,4 @@
 <?php
-
 namespace Delta\Menu;
 
 /*

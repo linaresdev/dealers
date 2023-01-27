@@ -29,8 +29,12 @@ class LoginMiddleware {
 
     	if( $this->stableApp() ) return redirect("install");
 
-        if( $this->listenerWebAccess( $request, $guard ) ) {
-            return redirect("login");
+        if( Auth::guard($guard)->guest() ) {
+            foreach( app('org')->getSections() as $org ) {
+                if( __segment(1, $org["slug"]) && ($org["access"] == 1) ) {
+                    return redirect("login");
+                }
+            }
         }
 
         if( $auth->check() ) {
@@ -62,6 +66,14 @@ class LoginMiddleware {
         }
         
         return false;
+    }
+
+    public function getOrganizations() {
+
+        $group = app("db")->table("users_groups");
+        $group->where("type", "organization");
+
+        return $group->get() ?? NULL;
     }
 
 }

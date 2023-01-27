@@ -18,8 +18,12 @@ class Group extends Model {
       "id",
       "user_id",
       "parent",
+      "type",
       "slug",
-      "group"
+      "group",
+      "access",
+      "icon",
+      "activated"
    ];
 
    public $timestamps = false;
@@ -63,6 +67,20 @@ class Group extends Model {
       return $this;
    }
 
+   public function getMeta($slug) {
+      if( ($data = ($this->meta()->where("slug", $slug)->first() ?? null)) ) {
+         return $data->value;
+      }
+   }
+
+   public function updateMeta($type, $data) {
+      foreach($data as $slug => $value) {
+         $this->meta()->where("type", $type)->where("slug", $slug)->update([
+            "value" => $value
+         ]);
+      }
+   }
+
    public function datasheet() {
       $data=null;
 
@@ -88,4 +106,7 @@ class Group extends Model {
    public function dealer() {
       return $this->where("parent", $this->id)->first() ?? null;
    }
+
+   /*
+   * ORGANIZATIONS */
 }

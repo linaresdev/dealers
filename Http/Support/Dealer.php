@@ -23,7 +23,8 @@ class Dealer {
 		];
 	}
 
-	public function index( $user, $dealer ) {		
+	public function index( $user, $dealer ) {	
+		
 		$data["title"] 		= "Dealer";
 		$data["user"]		= $user;
 		$data["dealer"] 	= $dealer;

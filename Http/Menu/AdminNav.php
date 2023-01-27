@@ -58,15 +58,21 @@ class AdminNav extends Accessor {
 			"label" => __("words.home"),
 			"url"	=> "/__admin"
 		]);
+		
 
 		if( $login->isRol("admin") ) {
+
+			$this->item(21,[
+				"icon"	=> "mdi-bank",
+				"label" => __("words.organization"),
+				"url"	=> "/__admin/organizations"
+			]);
 
 			$this->item(20,[
 				"icon"	=> "mdi-account-circle",
 				"label" => __("words.users"),
 				"url"	=> "/__admin/users"
 			]);
-
 		}
 	}
 

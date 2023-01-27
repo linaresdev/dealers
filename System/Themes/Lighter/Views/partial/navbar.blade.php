@@ -18,7 +18,7 @@
 	      <ul class="nav ms-auto">
 
 	      	@if(auth("web")->check())
-	      	<li class="nav-item nav-app dropdown">
+	      	<li class="nav-item dropdown">
 
 	      		<a href="#" class="nav-link dropdown-toggle"
 	      				data-bs-toggle="dropdown">

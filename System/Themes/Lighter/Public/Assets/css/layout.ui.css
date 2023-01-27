@@ -557,13 +557,37 @@ form .error {
 	vertical-align: middle;
 	font-size: 14px;
 }
+.box.box-light .box-body .table .descriptor [class*="mdi mdi"] {
+	font-size: 22px;
+	line-height: 90%;
+	position: relative;
+	bottom: -3px;
+}
 .box.box-light .box-body .table .action .btn.dropdown-toggle {
 	padding: 0 5px;
 }
 .box.box-light .box-body .table .action .btn.dropdown-toggle::before  {
-	margin-top: -10px;
+	margin-top: -8px;
 }
 
+/*
+* Box Light Dropdown */
+.box.box-light .box-body .dropdown.simple .dropdown-toggle {
+	color: #777;
+	text-decoration: none;
+} 
+.box.box-light .box-body .action .dropdown .dropdown-menu .dropdown-header [class*="mdi mdi-"] {
+	font-size: 20px;
+	line-height: 100%;
+	position: relative;
+	bottom: -2px;
+}
+.box.box-light .box-body .action .dropdown .dropdown-menu .dropdown-item {
+	font-size: 14px;
+}
+.box.box-light .box-body .action .dropdown .dropdown-menu .dropdown-item.ident {
+	padding-left: 30px;
+}
 /*
 * Box Group */
 .box-group .box {

@@ -20,10 +20,10 @@ class Register extends FormRequest {
         return [
         	"firstname"		=> "required",
         	"lastname"		=> "required",
-        	"email"			=> "required",
+        	"email"			=> "required|unique:users,email",
         	"rnc"			=> "required",
         	"pwd"			=> "required",
-        	"passconfirm"	=> "same:pwd",
+        	"passconfirm"	=> "required|same:pwd",
 
         ];
     }

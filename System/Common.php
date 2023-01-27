@@ -9,6 +9,7 @@ $this->mergeConfigFrom(__DIR__."/app.php", "admin");
 /*
 * DRIVERS */
 $this->loadDrivers([
+   \Delta\Driver::class,
    \Delta\Menu\Driver::class,
 ]);
 

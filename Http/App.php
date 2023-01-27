@@ -7,6 +7,8 @@
  *---------------------------------------------------------
 */
 
+//dd(Org::getSections());
+
 /*
 * GRAMMARIES */
 
@@ -29,6 +31,14 @@ app("urls")->addTag("urls", [
     "__ajaxD"   => "dealer/ajax/zone"
 ]);
 
+/*
+* ADMIN MACRO URLS */
+app("urls")->addTag("urls", [
+    "__admin"           => config("admin.slug"),
+    "__organization"    => "__admin/organizations",
+    "__users"           => "__admin/users",
+    "__groups"          => "__users/groups",
+]);
 
 /*
 * ROUTE BINDING */
@@ -86,7 +96,5 @@ if( __segment(1, "admin") ) {
 $this->publishes([
     __DEALER__."/System/Assets" => base_path("public/apps/")
 ], "dealer");
-
-
 
 /* End of helper App.php */

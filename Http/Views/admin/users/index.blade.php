@@ -40,13 +40,13 @@
 		<article class="box box-light">
 			<header class="box-header">
 				<div class="btn-group">
-					<a href="{{__url("__admin/users/register")}}" 
+					<a href="{{__url("__users/register")}}" 
 						class="btn btn-outline-secondary btn-sm">
 						{!! __mdi("account-plus") !!} {{__("user.new")}}
 					</a>
-					<a href="#" class="btn btn-outline-secondary btn-sm">
+					<a href="{{__url('__groups/')}}" class="btn btn-outline-secondary btn-sm">
 						{!! __mdi("account-group") !!} 
-						{{__("user.group")}}
+						{{__("words.groups")}}
 					</a>					
 				</div>
 			</header>
@@ -89,10 +89,42 @@
 
 										<div class="dropdown-menu">
 											<div class="dropdown-header">
-												Menu
+												{!! __mdi("account-cog") !!}
+												{{ __("words.mantenance") }}
 											</div>
-											<a href="#" class="dropdown-item">
-												Link 0
+											<a href="{{__url("__users/$user->id")}}" 
+												class="dropdown-item ident">
+												{{__("edit.credentials")}}
+											</a>
+											<a href="{{__url("__users/$user->id")}}" 
+												class="dropdown-item ident">
+												{{__("edit.password")}}
+											</a>
+											<a href="{{__url("__users/$user->id")}}" 
+												class="dropdown-item ident">
+												{{__("request.edit-password")}}
+											</a>
+											<a href="{{__url("__users/$user->id")}}" 
+												class="dropdown-item ident">
+												{{__("send.edit-password")}}
+											</a>
+
+											<div class="dropdown-header">
+												{!! __mdi("account-group") !!}
+												{{ __("user.groups") }}
+											</div>
+											<a href="{{__url("__groups/$user->id")}}" 
+												class="dropdown-item ident">
+												{{__("admin.groups")}}
+											</a>
+
+											<div class="dropdown-header">
+												{!! __mdi("shield-account") !!}
+												{{ __("words.security") }}
+											</div>
+											<a href="{{__url("__groups/$user->id")}}" 
+												class="dropdown-item ident">
+												{{__("words.access")}}
 											</a>
 										</div>
 									</div>
