@@ -23,3 +23,13 @@ Route::bind("__orgID", function($ID){
         return (new \Delta\Model\Group)->find($ID) ?? abort(404); 
     }
 });
+
+Route::bind("__slug", function($slug){
+    if( is_string($slug) ) {
+        return (new \Delta\Model\Group)->where("slug", $slug)->first() ?? abort(404); 
+    }
+});
+
+Route::bind("idRol", function($ID){
+    return (new \Delta\Model\Group)->find($ID) ?? abort(404);
+});

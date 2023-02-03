@@ -51,6 +51,10 @@ class Group extends Model {
       );
    }
 
+   public function syncUser($ID) {
+      $this->users()->attach($ID);
+   }
+
    /*
    * RELATIONS */
    public function meta() {

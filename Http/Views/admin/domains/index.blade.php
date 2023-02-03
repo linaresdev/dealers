@@ -19,16 +19,18 @@
 	</article>
 
 	<article class="box box-light">
+		
 		<header class="box-header">
 			<a href="{{__url('__admin/organizations/new')}}" 
 				class="btn btn-primary btn-sm">
-				{!! __mdi('bank-plus') !!}
+				{!! __mdi('domain-plus') !!}
 				{{__("organization.new")}}
 			</a>
 		</header>
+
 		<section class="box-body">
 			<article class="block">
-				<table class="table">
+				<table class="table table-hover">
 					<thead>
 						<tr>
 							<th class="ftool">
@@ -48,8 +50,10 @@
 						<tr>
 							<td class="ftool"> <input type="checkbox"> </td>
 							<td class="descriptor">
-								{!! __mdi($org->icon) !!}
-								{{ $org->group }}
+								<a href="{{__url('__organization/'.$org->slug)}}">
+									{!! __mdi($org->icon) !!}
+									{{ $org->group }}
+								</a>
 							</td>
 							<td>
 								@if($org->access)
@@ -73,7 +77,7 @@
 											{{__("words.organization")}} {{$org->group}}
 										</div>
 
-										<a href="{{__url('__organization/'.$org->id)}}" 
+										<a href="{{__url('__organization/'.$org->slug)}}" 
 											class="dropdown-item ">
 											{!! __mdi("cog") !!}
 											{{__("words.manager")}}

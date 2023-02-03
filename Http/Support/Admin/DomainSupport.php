@@ -45,7 +45,7 @@ class DomainSupport {
 	public function index() {
 
 		$data["title"] 		= __("words.organizations");
-		$data["brand"] 		= "mdi-bank";
+		$data["brand"] 		= "mdi-domain";
 		$data["domains"]	= $this->getOrganization(10);
 
 		return $data;
@@ -61,7 +61,7 @@ class DomainSupport {
 	public function new() {
 
 		$data["title"] 		= __("organization.new");
-		$data["brand"] 		= "mdi-bank-plus";
+		$data["brand"] 		= "mdi-domain-plus";
 
 		return $data;
 	}

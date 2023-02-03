@@ -36,6 +36,7 @@ app("urls")->addTag("urls", [
 app("urls")->addTag("urls", [
     "__admin"           => config("admin.slug"),
     "__organization"    => "__admin/organizations",
+    "__entity"          => "__organization/".__segment(3),
     "__users"           => "__admin/users",
     "__groups"          => "__users/groups",
 ]);

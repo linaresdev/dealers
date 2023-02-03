@@ -36,6 +36,10 @@ class esDO {
 			"client.rnc"			=> "RNC del cliente",
 			"client.cellphone"		=> "Numero de telefono celular del cliente",
 			"client.sector"			=> "Sector",
+			"content.empty"			=> "Sin contenido",
+
+			"dealer.new"			=> "Nuevo dealer",
+			"description.short"		=> "Descripción corta",
 
 			"domain.new"			=> "Nuevo dominio",
 
@@ -61,12 +65,16 @@ class esDO {
 			"group.data"		=> "Información del grupo",
 			"group.domain"		=> "Organización o Grupo",
 			"group.meta"		=> "Meta data del grupo",
+			"group.remove"		=> "Remover del grupo",
+			"group.rols"		=> "Grupo de trabajo",
 			"group.type"		=> "Tipo de grupo",
 
 			"icon.mdi"			=> "Icon Material Dedesing",
 
 			"last.access"	=> "Último acceso",
+			"load.logo"		=> "Cargar logo",
 
+			"user.add"			=> "Agregar usuario",
 			"user.create"		=> "Crear usuario",
 			"user.form"			=> "Formulario de usuario",
 			"user.groups"		=> "Mis grupos de usuarios",
@@ -82,6 +90,8 @@ class esDO {
 
 			"request.edit-password" => "Solicitar cambio de contraseña",
 
+			"rol.form"				=> "Formulario de funciones",
+
 			"organization.new"		=> "Nueva organización",
 			"organization.name"		=> "Nombre de la organización",
 			"organization.update"	=> "Actualizar organización",
@@ -92,7 +102,9 @@ class esDO {
 			"warranty.form"		=> "Formulario de Garantía",
 			"warranty.update"	=> "Actualizar garantía",
 
+			"words.add"			=> "Agregar",
 			"words.access"		=> "Accesos",
+			"words.authorize"	=> "Permisos",
 			"words.address"		=> "Dirección",
 			"words.domain"		=> "Dominio",
 			"words.to-access"	=> "Acceder",
@@ -103,7 +115,9 @@ class esDO {
 			"words.clients"		=> "Clientes",
 			"words.close"     	=> "Cerrar",
 			"words.credentials"	=> "Credenciales",
-			"words.dealer"		=> "Dealer",
+			"words.create"		=> "Crear",
+			"words.dealer"		=> "Dealer",			
+			"words.dealers"		=> "Dealers",
 			"words.delete"		=> "Eliminar",
 			"words.description"	=> "Descripción",
 			"words.edit"		=> "Editar",
@@ -112,14 +126,17 @@ class esDO {
 			"words.entities"	=> "Entidades",
 			"words.finder"		=> "Buscar",
 			"words.firstname"	=> "Nombre",
+			"words.functions"	=> "Funciones",
 			"words.group"		=> "Grupo",
 			"words.groups"		=> "Grupos",
 			"words.home"		=> "Inicio",
 			"words.icon"		=> "Icono",
 			"words.information"	=> "Información",
+			"words.insert"		=> "Insertar",
 			"words.last-access"	=> "Último acceso",
 			"words.lastname"	=> "Apellidos",	
 			"words.login"     	=> "Acceso",
+			"words.logo"		=> "Logo",
 			"words.manager"		=> "Administrar",
 			"words.mantenance"	=> "Mantenimiento",
 			"words.name"		=> "Nombre",
@@ -128,7 +145,8 @@ class esDO {
 			"words.phone"		=> "Teléfono",
 			"words.password"  	=> "Contraseña",
 			"words.public"		=> "Público",
-			"words.private"		=> "Privado",	
+			"words.private"		=> "Privado",
+			"words.rols"		=> "Funciones",	
 			"words.rnc"			=> "RNC",
 			"words.reference"	=> "Referencia",
 			"words.register"	=> "Registrar",
@@ -137,6 +155,7 @@ class esDO {
 			"words.user"      	=> "Usuario",
 			"words.users"      	=> "Usuarios",
 			"words.update"		=> "Actualizar",
+			"words.view"		=> "Vista",
 			"words.sector"		=> "Sector",
 			"words.send"      	=> "Enviar",
 			"words.state"		=> "Estado",
@@ -144,11 +163,14 @@ class esDO {
 			"words.warranties"	=> "Garantías",
 			"words.save"		=> "Guardar",
 			"words.security"	=> "Seguridad",
-			"words.slug"			=> "Nombre amigable",
+			"words.slug"		=> "Nombre amigable",
+			"words.seller"		=> "Vendedor",
 
 			"works.group"		=> "Grupo de trabajo",
 
-			"send.edit-password"	=> "Enviar cambio de contraseña."
+			"send.edit-password"	=> "Enviar cambio de contraseña.",
+			"search.users"			=> "Buscar usuarios",
+
 
     	];
 	}

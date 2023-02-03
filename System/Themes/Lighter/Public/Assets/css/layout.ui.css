@@ -27,6 +27,21 @@ form .error {
 .avatar.avatar-circle {
 	border-radius: 50% 50%;
 }
+.avatar.avatar-36px{height: 36px; width: 36px;}
+.avatar.avatar-48px{height: 48px; width: 48px;}
+.avatar.avatar-64px{height: 64px; width: 64px;}
+
+.linkcheck a {
+	color: #777;
+	display: block;
+	text-decoration: none;
+}
+.linkcheck a [class*="mdi mdi-"] {
+	font-size: 20px;
+	line-height: 90%;
+	position: relative;
+	bottom: -3px;
+}
 
 /*
 * Login */
@@ -509,6 +524,26 @@ form .error {
 }
 
 /*
+* BX */
+.bx .bx-title {
+	font-size: 18px;
+}
+.bx .bx-form {
+	margin-bottom: 15px;
+}
+.bx .nav-bx {
+	border: solid 1px #ddd;
+	border-bottom: none;
+	border-radius: 3px 3px;
+	flex-direction: column !important;
+}
+.bx .bx-form .show {	
+}
+.bx .nav-bx .nav-item {
+	border-bottom: 1px solid #ddd;
+}
+
+/*
 * BOX */
 .box {
 	border-radius: 4px 4px;
@@ -537,9 +572,19 @@ form .error {
 	display: block;
 }
 
+.box .box-header .nav.nav-tabs {
+	margin: 0 -15px 15px -15px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
 .box .box-body{}
 .box .box-body .block {
 	padding: 0 15px 15px 15px;
+}
+.box .box-body .block h4 {
+	color: #777;
+	font-size: 18px;
 }
 
 /*
@@ -554,8 +599,13 @@ form .error {
 	padding: 0 0;
 }
 .box.box-light .box-body .table td {
+	color: #777;
 	vertical-align: middle;
 	font-size: 14px;
+}
+.box.box-light .box-body .table .descriptor a {
+	color: #777;
+	text-decoration: none;
 }
 .box.box-light .box-body .table .descriptor [class*="mdi mdi"] {
 	font-size: 22px;
@@ -563,6 +613,7 @@ form .error {
 	position: relative;
 	bottom: -3px;
 }
+
 .box.box-light .box-body .table .action .btn.dropdown-toggle {
 	padding: 0 5px;
 }
@@ -605,5 +656,34 @@ form .error {
 }
 .box-group .box:last-child .box-body {
 	padding: 20px 0 0 0;
+}
+
+/*
+* Panel */
+.panel {
+	border-radius: 3px 3px;
+	padding: 15px 15px;
+}
+.panel .bt-close {
+	color: #999;
+	float: right;
+	font-size: 24px;
+	display: none;
+}
+.panel.panel-hover:hover {
+	background: rgba(0,0,0, .02);
+}
+.panel.panel-hover:hover .bt-close {
+	display: block;
+}
+.panel .title {
+	color: #777;
+	font-size: 14px;
+	margin: 0 0;
+	text-transform: capitalize;
+}
+.panel .description {
+	font-size: 11px;
+	margin: 0 0;
 }
 
