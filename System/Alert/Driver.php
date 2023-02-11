@@ -1,5 +1,5 @@
 <?php
-namespace Delta;
+namespace Delta\Alert;
 
 /*
  *---------------------------------------------------------
@@ -12,40 +12,41 @@ class Driver {
 
    public function info() {
       return [
-        "name"			 => "Dealer",
+        "name"			 => "Alert",
         "author"		 => "Ing. Ramón A Linares Febles",
         "email"			 => "rlinareslf@gmail.com",
         "license"		 => "MIT",
         "support"		 => "http://www.iipec.net",
         "version"		 => "V-1.0",
-        "description"    => "Dealer V-1.0",
+        "description"    => "Alert V-1.0",
       ];
    }
 
    public function app() {
       return [
-      	"type"			=> "package",
-      	"slug"			=> "dealer",
-      	"driver"		=> \Delta\Driver::class,
+      	"type"			=> "library",
+      	"slug"			=> "alert",
+      	"driver"		=> \Delta\Alert\Driver::class,
       	"token"			=> NULL,
       	"activated" 	=> 1,
       ];
    }
 
-   public function providers() {
-      return [
-      ];
-   }
+	public function providers() {		
+		return [
+			\Delta\Alert\AlertServiceProvider::class
+		];
+	}
 
-   public function alias() {
-      return [
-      	"Org" => \Delta\Facade\Org::class,
-      ];
-   }
+	public function alias() {
+		return [
+			"Alert" => \Delta\Alert\Facade\Alert::class,
+		];
+	}
 
-   public function install( $app ) {
-   }
+	public function install( $app ) {
+	}
 
-   public function uninstall( $app ) {
-   }
+	public function uninstall( $app ) {
+	}
 }

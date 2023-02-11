@@ -9,6 +9,7 @@ namespace Delta\Http\Middleware;
 */
 
 use Closure;
+use Delta\Alert\Facade\Alert;
 use Illuminate\Support\Facades\Auth;
 
 class DealerMiddleware {
@@ -19,14 +20,18 @@ class DealerMiddleware {
     public function handle($request, Closure $next, $guard = "web") {
         
         $auth   = Auth::guard("web");
-        $user   = $auth->user();        
+        $user   = $auth->user(); 
 
-        if( __segment(1, "dealer") && !$user->isRol("dealers") ) {
+        if( !$user->isRol("dealers") ) {
+            Alert::prefix("system")->danger(__("access.deny"));
+
             return redirect("/");
-        }
-        else {
-            if( empty( $dealer = $user->dealer()) ) {
-                return redirect("/");
+        } else {
+            $dealer = $user->org("dealers");
+            
+            if( !$user->hasRol("seller") ) {
+                Alert::prefix("system")->info(__("dealer.redirect"));
+                return redirect("dealers/warranty");
             }
         }
 

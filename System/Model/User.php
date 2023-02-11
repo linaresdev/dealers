@@ -81,9 +81,9 @@ class User extends Authenticatable {
 
 		$file = "auth".$this->id."_config_meta.php";
 
-		if( app("files")->exists(__path("__meta/$file")) ) {	
-			dd(app("files")->getRequire(__path("__meta/$file")));
-		}
+		// if( app("files")->exists(__path("__meta/$file")) ) {	
+		// 	dd(app("files")->getRequire(__path("__meta/$file")));
+		// }
 
 	}
 
@@ -95,6 +95,10 @@ class User extends Authenticatable {
 
     public function group($slug) {
     	return $this->groups->where("slug", $slug)->first();
+    }
+
+    public function org($slug) {
+    	return $this->groups->where("type", "organization")->where("slug", $slug)->first() ?? null;
     }
 
     public function groupID($group) {
@@ -138,13 +142,30 @@ class User extends Authenticatable {
 		return ($this->groups->where("slug", $slug)->count() > 0);
 	}
 
+	public function rols() {
+		return $this->groups->where("type", "rol");
+	}
+
+	public function hasRol($slug) {
+		return ($this->groups->where("type", "rol")->where("slug", $slug)->count() > 0);
+	}
+
 	public function rol($slug) {
-		return $this->groups->where("slug", $slug)->first()->pivot;
+		
+		$data = $this->groups->where("type", "rol")
+					->where("slug", $slug)->first();
+
+		$data->view 	= $data->pivot->view;
+		$data->insert 	= $data->pivot->insert;
+		$data->update 	= $data->pivot->update;
+		$data->delete 	= $data->pivot->delete;
+
+		return $data;
 	}
 
 	public function dealer() {		
 		if( ($business = $this->group("dealers")) ) {
-			return $business->dealer();
+			//return $business->dealer();
 		}
 	}
 }

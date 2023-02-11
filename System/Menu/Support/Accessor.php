@@ -77,6 +77,10 @@ class Accessor {
             $this->stors[$args[0]] = $args[1];
          }
       }
+
+      if( $opt == "header" )  {
+         $this->stors[] = $args[0];
+      }
    }
 
 }

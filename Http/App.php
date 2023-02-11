@@ -7,19 +7,18 @@
  *---------------------------------------------------------
 */
 
-//dd(Org::getSections());
 
 /*
 * GRAMMARIES */
-
 $this->loadGrammary($LANG, "esDO");
 
 /*
 * MACRO PATH */
 app("urls")->addTag("paths", [
-    "__meta"   => __DEALER__."/System/Meta",
+    "__meta"    => __DEALER__."/System/Meta",
+    "__cdn"     => "apps/cdn",
+    "__uploads" => "apps/uploads"
 ]);
-
 
 /*
 * MACRO URLS */
@@ -40,6 +39,14 @@ app("urls")->addTag("urls", [
     "__users"           => "__admin/users",
     "__groups"          => "__users/groups",
 ]);
+
+
+/*
+* Alerts */
+Alert::set("icon", "shield-account");
+Alert::set("view", "alert::index");
+Alert::set("animate", true);
+Alert::set("fstub", '<p class="error"> :message </p>');
 
 /*
 * ROUTE BINDING */

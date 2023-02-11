@@ -2,6 +2,8 @@
 
 	@section("body")
 
+		{!! Alert::tag("system") !!}
+
 		<article class="block">
 			<div class="bg-danger text-white p-2 px-3 mb-3 rounded">
 				<h4>Potencia. Calidad. Tecnologia</h4>

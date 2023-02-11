@@ -23,9 +23,13 @@ class esDO {
 
 			"access.0"				=> "Público",
 			"access.1" 				=> "Privado",
+			"access.deny"			=> "Acceso denegado",
 
 			"admin.groups"			=> "Gestionar grupos",
+			"admin.users"			=> "Administrar usuarios",
 			"admin.slug"			=> "Admin",
+
+			"account.update"		=> "Actualizar cuenta",
 
 			"client.address"		=> "Dirección del cliente",
 			"client.contact"		=> "Información de contacto",
@@ -39,6 +43,9 @@ class esDO {
 			"content.empty"			=> "Sin contenido",
 
 			"dealer.new"			=> "Nuevo dealer",
+			"dealer.add"			=> "Agregar dealer",
+			"dealer.manager"		=> "Administrar dealers",
+			"dealer.update"			=>"Actualizar dealer",
 			"description.short"		=> "Descripción corta",
 
 			"domain.new"			=> "Nuevo dominio",
@@ -48,6 +55,7 @@ class esDO {
 
 			"entity.add"			=> "Agregar entidad",
 			"entity.edit"			=> "Actualizar entidad",
+			"entity.name"			=> "Nombre de la entidad",
 			"entity.new"			=> "Nueva Entidad",
 			"entity.meta"			=> "Meta data de la entidad",
 
@@ -71,8 +79,14 @@ class esDO {
 
 			"icon.mdi"			=> "Icon Material Dedesing",
 
-			"last.access"	=> "Último acceso",
-			"load.logo"		=> "Cargar logo",
+			"last.access"		=> "Último acceso",
+			"load.logo"			=> "Cargar logo",
+
+			"upload.logo"		=> "Subir logo",	
+
+			"update.error"			=> "Error al tratar de aucalizar los datos",
+			"update.logo"			=> "Actualizar logo",
+			"update.successfull" 	=> "Actualización realizada correctamente",
 
 			"user.add"			=> "Agregar usuario",
 			"user.create"		=> "Crear usuario",
@@ -87,6 +101,8 @@ class esDO {
 			"user.state.2"		=> "Suspención temporal",
 			"user.state.3"		=> "Bloqueado",
 			"user.state.4"		=> "Eliminado",
+
+			"register.successfull" 	=> "Registro realizado correctamente",
 
 			"request.edit-password" => "Solicitar cambio de contraseña",
 
@@ -137,6 +153,7 @@ class esDO {
 			"words.lastname"	=> "Apellidos",	
 			"words.login"     	=> "Acceso",
 			"words.logo"		=> "Logo",
+			"words.location"	=> "Localización",
 			"words.manager"		=> "Administrar",
 			"words.mantenance"	=> "Mantenimiento",
 			"words.name"		=> "Nombre",

@@ -207,18 +207,29 @@ class BS5 {
          $html .= '<ul class="'.$this->style(":node0").'">'."\n";
 
          foreach ($this->items as $Y0 => $X0 ) {
-            if( !is_array($X0["url"]) ) {
-               $html .= $this->tab($index+8);
-               $html .= '<li class="nav-item">'."\n";
-               $html .= $this->link($X0, $index+8);
-               $html .= $this->tab($index+8);
-               $html .= "</li>\n";
-            }
-            elseif( is_array($X0["url"]) ) {
-               $html .= $this->tab($index+8);
-               $html .= '<li class="'.$this->style(":node1").'">'."\n";
+            if( is_array($X0) ) {
+               if( !is_array($X0["url"]) ) {
+                  $html .= $this->tab($index+8);
+                  $html .= '<li class="nav-item">'."\n";
+                  $html .= $this->link($X0, $index+8);
+                  $html .= $this->tab($index+8);
+                  $html .= "</li>\n";
+               }
+               elseif( is_array($X0["url"]) ) {
+                  $html .= $this->tab($index+8);
+                  $html .= '<li class="'.$this->style(":node1").'">'."\n";
 
-               $html .= $this->dropdow($X0, $index+12);
+                  $html .= $this->dropdow($X0, $index+12);
+                  $html .= $this->tab($index+8);
+                  $html .= "</li>\n";
+
+               }
+            }
+            else {
+               $html .= $this->tab($index+8);
+               $html .= '<li class="nav-text">'."\n";
+               $html .= $this->tab($index+12);
+               $html .= $X0."\n";
                $html .= $this->tab($index+8);
                $html .= "</li>\n";
             }

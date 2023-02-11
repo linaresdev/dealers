@@ -14,7 +14,9 @@ class Handler {
 	public function menu() {
 		return [
 			\Delta\Http\Menu\App::class,
-			\Delta\Http\Menu\AdminNav::class
+			\Delta\Http\Menu\AdminNav::class,
+			\Delta\Http\Menu\WarrantyNav::class,
+			\Delta\Http\Menu\SellerNav::class,
 		];
 	}
 }

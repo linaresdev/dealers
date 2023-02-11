@@ -13,6 +13,30 @@ form .error {
 	font-size: 12px;
 	margin: 0 0;
 }
+form .error.error-slow {
+	display: none;
+}
+
+.btn [class*="mdi mdi-"] {
+	font-size: 18px;
+	line-height: 90%;
+	position: relative;
+	bottom: -2px;
+}
+
+/*
+* Alerts */  
+
+.alert{ border-radius: 3px 3px; padding: 10px 10px; }
+.alert h4 { font-size: 18px; margin: 0 0 3px 0; }
+.alert hr {margin: 0 0;}
+.alert p {font-size: 13px; margin: 3px 0 0 0;}
+.alert .btn-close {
+	float: right;
+}
+.alert.alert-slow {
+	display: none;
+}
 
 /*
 * Avatar */
@@ -197,10 +221,37 @@ form .error {
 
 /*
 * Nav */
+[role=lighter] .lighter-nav .nav {
+	margin-bottom:  15px;
+}
 
 [role=lighter] .lighter-nav .nav .nav-item .nav-link {
 	color: #777;
 }
+[role=lighter] .lighter-nav .nav .dropdown .dropdown-menu {
+	background: transparent;
+	border-color: transparent;
+	-webkit-border-radius: 0 0;
+	-moz-border-radius: 0 0;
+	-ms-border-radius: 0 0;
+	-o-border-radius: 0 0;
+	border-radius: 0 0;
+	padding: 0 0;
+	position: static !important;
+	transform: translate3d(0px, 0px, 0px) !important;
+	width: 100%;
+}
+[role=lighter] .lighter-nav .nav .dropdown .dropdown-menu .dropdown-item {
+	color: #777;
+	padding-left: 30px;
+}
+
+/*
+* Dropdown */
+[role=lighter] .dropdown .dropdown-menu.headering .dropdown-item {
+	padding-left: 30px;
+}
+
 
 /*
 * LAYOUT */
@@ -385,6 +436,11 @@ form .error {
 }
 
 @media( min-width: 1280px ) {
+	[role=lighter] .lighter-nav .nav .dropdown .dropdown-menu {
+		border-top: 1px solid #E6E6FA;
+		background: rgba(240, 248, 255, .3);
+		border-radius: 0 0 7px 7px;
+	}
 
 	[role=lighter].layout-md .lighter-nav {
 		padding-top: 25px;		
@@ -402,7 +458,7 @@ form .error {
 	}
 	[role=lighter].layout-md .lighter-nav .nav-item,
 	[role=lighter].layout-lg .lighter-nav .nav-item {
-		border-bottom: 1px solid #ddd;
+		border-bottom: 1px solid #E6E6FA;
 	}
 	[role=lighter].layout-md .lighter-nav .nav-item:last-child,
 	[role=lighter].layout-lg .lighter-nav .nav-item:last-child {
@@ -427,8 +483,6 @@ form .error {
 		width: 280px;
 		z-index: 1000;
 	}
-
-
 
 	[role=lighter].layout-lg.nav-toggle .lighter-nav,
 	[role=lighter].layout-md.nav-toggle .lighter-nav {
@@ -579,6 +633,7 @@ form .error {
 }
 
 .box .box-body{}
+
 .box .box-body .block {
 	padding: 0 15px 15px 15px;
 }
@@ -639,6 +694,7 @@ form .error {
 .box.box-light .box-body .action .dropdown .dropdown-menu .dropdown-item.ident {
 	padding-left: 30px;
 }
+
 /*
 * Box Group */
 .box-group .box {
@@ -686,4 +742,5 @@ form .error {
 	font-size: 11px;
 	margin: 0 0;
 }
+
 

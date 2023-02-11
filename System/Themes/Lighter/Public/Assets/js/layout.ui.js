@@ -1,6 +1,6 @@
 
-
-
+jQuery(".alert.alert-slow").slideToggle("slow");
+jQuery("form .error.error-slow").slideToggle("slow");
 
 /*
 * LAYOUT */

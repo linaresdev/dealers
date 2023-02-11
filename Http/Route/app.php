@@ -16,27 +16,29 @@ Route::prefix(config("admin.slug"))->namespace("Admin")->group(
 	__DEALER__."/Http/Route/admin.php"
 );
 
+Route::prefix("dealers")->middleware("dealer")->namespace("Dealer")->group(
+	__DEALER__."/Http/Route/dealer.php"
+);
 
-
-Route::prefix("dealer")->middleware("dealer")->group( function($route) {
+// Route::prefix("dealer")->middleware("dealer")->group( function($route) {
 	
-	/*
-	* Ajax */
-	Route::get("/ajax/zone/{zone?}", "DealerController@zoneSrc");
+// 	/*
+// 	* Ajax */
+// 	Route::get("/ajax/zone/{zone?}", "DealerController@zoneSrc");
 
-	/*
-	* Dealer */
-	Route::get("/{__dealer}", "DealerController@index");
-	/*
-	* Clients */
-	Route::get("/{__dealer}/warranty/info/{__cid}", "WarrantyController@info");
+// 	/*
+// 	* Dealer */
+// 	Route::get("/{__dealer}", "DealerController@index");
+// 	/*
+// 	* Clients */
+// 	Route::get("/{__dealer}/warranty/info/{__cid}", "WarrantyController@info");
 
-	Route::get("/{__dealer}/warranty/add", "WarrantyController@add");
-	Route::post("/{__dealer}/warranty/add", "WarrantyController@register");
+// 	Route::get("/{__dealer}/warranty/add", "WarrantyController@add");
+// 	Route::post("/{__dealer}/warranty/add", "WarrantyController@register");
 
-	Route::get("/{__dealer}/warranty/edit/{__cid}", "WarrantyController@edit");
-	Route::post("/{__dealer}/warranty/edit/{__cid}", "WarrantyController@update");
+// 	Route::get("/{__dealer}/warranty/edit/{__cid}", "WarrantyController@edit");
+// 	Route::post("/{__dealer}/warranty/edit/{__cid}", "WarrantyController@update");
 
-	Route::get("/{__dealer}/warranty/delete/{__cid}", "WarrantyController@delete");
-});
+// 	Route::get("/{__dealer}/warranty/delete/{__cid}", "WarrantyController@delete");
+// });
 

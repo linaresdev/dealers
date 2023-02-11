@@ -107,8 +107,27 @@ class Group extends Model {
       return $this->where("slug", $slug)->first() ?? null;
    }
 
-   public function dealer() {
-      return $this->where("parent", $this->id)->first() ?? null;
+   public function dealers() {
+      return $this->where("parent", $this->id)->where("type", "dealer")->get();
+   }
+
+   /*
+   * Groups */
+
+   /*
+   * ROLS */
+   public function rols() {
+      return $this->where("parent", $this->id)->get();
+   }
+
+   public function rol($slug=null) {
+
+      $data = $this->where("parent", $this->id);
+
+      $data->where("type", "rol");
+      $data->where("slug", $slug);
+
+      return $data->first();
    }
 
    /*

@@ -17,6 +17,7 @@ class UserGroupMeta extends Model {
 	protected $fillable = [
 		"id",
 		"group_id",
+		"type",
 		"slug",
 		"value"
 	];

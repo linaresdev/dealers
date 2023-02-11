@@ -24,6 +24,7 @@ Route::bind("__orgID", function($ID){
     }
 });
 
+
 Route::bind("__slug", function($slug){
     if( is_string($slug) ) {
         return (new \Delta\Model\Group)->where("slug", $slug)->first() ?? abort(404); 

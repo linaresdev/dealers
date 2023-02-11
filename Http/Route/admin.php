@@ -32,6 +32,7 @@ Route::prefix("/organizations")->namespace("Domain")->group(function($route){
         Route::get('/rol/{idRol}/search/{src}',"OrganizationController@searchUsers");
 
         Route::get('/rol/{idRol}/detach/{usrID}',"OrganizationController@userDetach");
+        
         Route::get('/rol/{idRol}/toggle/{usrID}/{rol}',"OrganizationController@userToggleRol");
 
         Route::post('/rol/{idRol}/add-user',"OrganizationController@addUserGroup"); 
