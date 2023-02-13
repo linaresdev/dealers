@@ -64,12 +64,6 @@ class OrganizationSupport {
 
 		$data["rols"]	= $this->getRols($org->id);
 
-		// if( request()->has("user") ) {
-		// 	if( !empty(($ID = request()->get("user")) ) ) {
-		// 		$data["rol"] = $org->users->where("id", $ID)->first();
-		// 	}
-		// }
-
 		return $data;
 	}
 
@@ -79,10 +73,38 @@ class OrganizationSupport {
 			"parent" 	=> $org->id,
 			"group" 	=> $request->group,
 			"slug" 		=> \Str::slug($request->group),
-			"icon"		=> "key"
+			"icon"		=> "shield-key"
 		])->addMeta("info", [
 			"description" => $request->description
 		]);
+
+		return back();
+	}
+
+	public function editRol($org, $rol) {
+
+		$data["title"] 	= __("words.".$org->slug);
+		$data["brand"] 	= "mdi-".$org->icon;
+		$data["org"]	= $org;
+		$data["rol"]	= $rol;
+
+		return $data;
+	}
+
+	public function updateRol($org, $rol, $request) {
+
+		$rol->group = $request->group;
+		$rol->slug 	= \Str::slug($request->group);
+		$rol->icon	= "shield-key";
+
+		if($rol->save()) {
+
+			$rol->updateMeta("info", [
+				"description" => $request->description
+			]);
+
+			return redirect()->to(__url("__entity"));
+		}
 
 		return back();
 	}

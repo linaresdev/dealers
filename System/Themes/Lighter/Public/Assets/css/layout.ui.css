@@ -23,6 +23,17 @@ form .error.error-slow {
 	position: relative;
 	bottom: -2px;
 }
+.bt{
+	color: #777;
+	text-decoration: none;
+}
+.bt .bt-title {
+	display: block;
+	font-size: 15px;
+}
+.bt .bt-description {
+	font-size: 12px;
+}
 
 /*
 * Alerts */  

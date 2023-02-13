@@ -68,21 +68,56 @@
 
 					<article class="col-7">
 
-						<h4>{{__("words.rols")}}</h4>
+						<table class="table">
+							<thead>
+								<th>{{__("words.rols")}}</th>
+								<th class="actions">{{__("words.actions")}}</th>
+							</thead>
 
-						<ul class="list-group list-group-flush">
-							@foreach( $rols as $rol )
-							<li class="list-group-item">
-								<div class="fw-bold">
-									<a href="{{__url('__entity/rol/'.$rol->id)}}">
-										{!! __mdi($rol->icon) !!}
-										{{__("words.".$rol->slug)}}
-									</a>
-								</div>
-								{{$rol->getMeta("description")}}
-							</li>
-							@endforeach
-						</ul>
+							<tbody>
+								@foreach( $rols as $rol )
+								<tr>
+									<td>
+										<a href="{{__url('__entity/rol/'.$rol->id)}}"
+											class="bt">
+											<strong class="bt-title">
+												{!! __mdi($rol->icon) !!}
+												{{__("words.".$rol->slug)}}
+											</strong>							
+
+											<div class="bt-description">
+												{{$rol->getMeta("description")}}
+											</div>
+										</a>
+									</td>
+									<td class="action">
+										<div class="dropdown dropstart">			
+											<a href="#" class="dropdown-toggle" 
+												data-bs-toggle="dropdown">
+												{!! __mdi("progress-wrench mdi-action") !!}
+											</a>
+
+											<div class="dropdown-menu headering">			
+
+												<div class="dropdown-header">
+													{!! __mdi("tools") !!}
+													{{__("words.mantenance")}}
+												</div>	
+												<a href="{{__url('__entity/rol/'.$rol->id."/edit")}}" 
+													class="dropdown-item">
+													{{__("words.edit")}}
+												</a>
+												<a href="{{__url('__entity/rol/'.$rol->id."/delete")}}" 
+													class="dropdown-item">
+													{{__("words.delete")}}
+												</a>
+											</div>
+										</div>
+									</td>
+								</tr>
+								@endforeach
+							</tbody>
+						</table>						
 						
 					</article>
 				</section>

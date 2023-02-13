@@ -86,6 +86,7 @@ class esDO {
 
 			"update.error"			=> "Error al tratar de aucalizar los datos",
 			"update.logo"			=> "Actualizar logo",
+			"update.rol"			=> "Actulizar permiso",
 			"update.successfull" 	=> "Actualización realizada correctamente",
 
 			"user.add"			=> "Agregar usuario",
@@ -163,7 +164,8 @@ class esDO {
 			"words.password"  	=> "Contraseña",
 			"words.public"		=> "Público",
 			"words.private"		=> "Privado",
-			"words.rols"		=> "Funciones",	
+			"words.rols"		=> "Funciones",
+			"words.receptionist" => "Recepcionista",	
 			"words.rnc"			=> "RNC",
 			"words.reference"	=> "Referencia",
 			"words.register"	=> "Registrar",

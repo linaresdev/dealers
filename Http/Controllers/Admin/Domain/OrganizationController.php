@@ -11,19 +11,13 @@ namespace Delta\Http\Controllers\Admin\Domain;
 use Illuminate\Http\Request;
 use Delta\Http\Support\Admin\OrganizationSupport;
 use Delta\Http\Request\Admin\Domain\RolRequest;
+use Delta\Http\Request\Admin\Domain\UpdateRolRequest;
 
 class OrganizationController extends Controller {
 
 	public function __construct( OrganizationSupport $support ) {
 		$this->boot($support);	
 	}
-
-	// public function users($org, $src) {
-	// 	return $this->render(
-	// 		"organization.partial.option",
-	// 		$this->support->ajaxUsers( $org, $src )
-	// 	);
-	// }
 
 	public function index( $org ) {
 		return $this->render(
@@ -34,6 +28,17 @@ class OrganizationController extends Controller {
 
 	public function create($org, RolRequest $request ) {
 		return $this->support->create($org, $request);
+	}
+
+	public function editRol( $org, $rol ) {
+		return $this->render(
+			"organization.edit-rol", 
+			$this->support->editRol( $org, $rol )
+		);
+	}
+
+	public function updateRol( $org, $rol, UpdateRolRequest $request ) {
+		return $this->support->updateRol($org, $rol, $request);
 	}
 
 	public function delete( $org, $ID ) {

@@ -37,6 +37,9 @@ Route::prefix("/organizations")->namespace("Domain")->group(function($route){
 
         Route::post('/rol/{idRol}/add-user',"OrganizationController@addUserGroup"); 
 
+        Route::get('/rol/{idRol}/edit', "OrganizationController@editRol");
+        Route::post('/rol/{idRol}/edit', "OrganizationController@updateRol");
+
         Route::get('/rol/{id}/delete', "OrganizationController@delete");
 
     });
