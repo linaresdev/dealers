@@ -32,6 +32,11 @@ app("urls")->addTag("urls", [
 
 /*
 * ADMIN MACRO URLS */
+for ($i=1;$i<=5;  $i++) {  
+    $segments["__s$i"] = __segment($i);
+}
+app("urls")->addTag("urls", $segments);
+
 app("urls")->addTag("urls", [
     "__admin"           => config("admin.slug"),
     "__organization"    => "__admin/organizations",
@@ -104,5 +109,27 @@ if( __segment(1, "admin") ) {
 $this->publishes([
     __DEALER__."/System/Assets" => base_path("public/apps/")
 ], "dealer");
+
+/*
+* Share View */
+
+$share["emo"] = (function($slug){
+    if( session()->has("errors") ) {
+        if( !empty( session()->get("errors")->first($slug) ) ) {
+            return " is-invalid";
+        }
+    } 
+});
+
+$share["formback"] = (function($fieldNames){
+
+    if( session()->has("errors") ) {
+        return session()->get("errors")->first(
+            $fieldNames, '<p class="error error-slow"> :message </p>'
+        );
+    }    
+});
+
+$this->app["view"]->share($share);
 
 /* End of helper App.php */

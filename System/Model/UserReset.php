@@ -17,6 +17,7 @@ class UserReset extends Model {
 	protected $fillable = [
 		"email",
 		"token",
+		"path",
 		"expired"
 		"created_at",
 		"updated_at"

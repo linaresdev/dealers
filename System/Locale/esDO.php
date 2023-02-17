@@ -30,6 +30,7 @@ class esDO {
 			"admin.slug"			=> "Admin",
 
 			"account.update"		=> "Actualizar cuenta",
+			"account.remove"		=> "Remover cuenta",
 
 			"client.address"		=> "Dirección del cliente",
 			"client.contact"		=> "Información de contacto",
@@ -58,6 +59,9 @@ class esDO {
 			"entity.name"			=> "Nombre de la entidad",
 			"entity.new"			=> "Nueva Entidad",
 			"entity.meta"			=> "Meta data de la entidad",
+			"entity.work"			=> "Entitdades de trabajo",
+
+			"form.user"				=> "Registrar ususario desde un formulario",
 
 			"filter.by"				=> "Filtrar busqueda por",
 			"filter.user.fullname"	=> "Fitrar por nómbre",
@@ -67,7 +71,7 @@ class esDO {
 
 			"form.error.exists"		=> "El campo :attribute no existe en nuestros registros",
 			"form.error.required"	=> "El campo :attribute es requerido",
-			"form.error.unique"		=> "La infomrción suministrada en el campo :attribute existe en nuestro registros",
+			"form.error.unique"		=> "El :attribute suministrado existe en nuestro registros",
 
 			"group.new"			=> "Nuevo grupo",
 			"group.data"		=> "Información del grupo",
@@ -81,6 +85,8 @@ class esDO {
 
 			"last.access"		=> "Último acceso",
 			"load.logo"			=> "Cargar logo",
+
+			"membership.mailship"	=> "Enviar solicitud de registro por correo electrónico.",
 
 			"upload.logo"		=> "Subir logo",	
 
@@ -104,6 +110,8 @@ class esDO {
 			"user.state.4"		=> "Eliminado",
 
 			"register.successfull" 	=> "Registro realizado correctamente",
+			"register.error"		=> "Error al tratar de registrar los datos",
+			"register.sendmail"		=> "Registro via correo electrónico",
 
 			"request.edit-password" => "Solicitar cambio de contraseña",
 
@@ -120,6 +128,7 @@ class esDO {
 			"warranty.update"	=> "Actualizar garantía",
 
 			"words.add"			=> "Agregar",
+			"words.account"		=> "Cuenta",
 			"words.access"		=> "Accesos",
 			"words.authorize"	=> "Permisos",
 			"words.address"		=> "Dirección",
@@ -127,6 +136,9 @@ class esDO {
 			"words.to-access"	=> "Acceder",
 			"words.actions"		=> "Acciones",
 			"words.activate"	=> "Activar",
+			"words.contacts"	=> "Contactos",
+			"words.companies"	=> "Empresas",
+			"words.corporations"	=> "Corporaciones",
 			"words.cellphone"	=> "Teléfono Celular",
 			"words.client"		=> "Cliente",
 			"words.clients"		=> "Clientes",
@@ -157,7 +169,9 @@ class esDO {
 			"words.location"	=> "Localización",
 			"words.manager"		=> "Administrar",
 			"words.mantenance"	=> "Mantenimiento",
+			"words.membership"	=> "Membresía",
 			"words.name"		=> "Nombre",
+			"words.new"			=> "Nuevo",
 			"words.organization"	=> "Organización",
 			"words.organizations"	=> "Organizaciones",
 			"words.phone"		=> "Teléfono",
@@ -174,6 +188,7 @@ class esDO {
 			"words.user"      	=> "Usuario",
 			"words.users"      	=> "Usuarios",
 			"words.update"		=> "Actualizar",
+			"words.upload"		=> "Subir",
 			"words.view"		=> "Vista",
 			"words.sector"		=> "Sector",
 			"words.send"      	=> "Enviar",
@@ -184,11 +199,13 @@ class esDO {
 			"words.security"	=> "Seguridad",
 			"words.slug"		=> "Nombre amigable",
 			"words.seller"		=> "Vendedor",
+			"words.see"			=> "Ver",
 
 			"works.group"		=> "Grupo de trabajo",
 
 			"send.edit-password"	=> "Enviar cambio de contraseña.",
 			"search.users"			=> "Buscar usuarios",
+			"send.membership"		=> "Enviar membresía",
 
 
     	];

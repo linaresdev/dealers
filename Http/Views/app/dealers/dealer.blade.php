@@ -35,11 +35,14 @@
 					<tr>
 						<td class="ftool"><input type="checkbox"></td>
 						<td>
-							<img src="{{__url($dealer->getMeta("logo"))}}" 
-								alt="@"
-								class="avatar avatar-circle my-1"					
-								style="width: 36px; height: 36px;">
-							{{$dealer->group}}
+							<a href="{{__url('dealers/'.$dealer->id)}}" 
+								class="bt">
+								<img src="{{__url($dealer->getMeta("logo"))}}" 
+									alt="@"
+									class="avatar avatar-circle my-1"					
+									style="width: 36px; height: 36px;">
+								{{$dealer->group}}
+							</a>
 						</td>
 						<td>{{$dealer->getMeta("phone")}}</td>
 						<td>{{$dealer->getMeta("email")}}</td>

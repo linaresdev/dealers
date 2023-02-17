@@ -8,6 +8,11 @@
 */
 
 
+Route::bind("__usrID", function($ID){
+    return (new \Delta\Model\User)->find($ID) ?? abort(404);
+});
+
+
 if(__segment(3, "edit") OR __segment(3, "delete") ) {
     Route::bind("id", function($ID){ 
         return (new \Delta\Model\Group)->find($ID) ?? abort(404);

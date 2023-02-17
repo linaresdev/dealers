@@ -28,6 +28,8 @@ class DealerMiddleware {
             return redirect("/");
         } else {
             $dealer = $user->org("dealers");
+
+           // dd($dealer->rols());
             
             if( !$user->hasRol("seller") ) {
                 Alert::prefix("system")->info(__("dealer.redirect"));
