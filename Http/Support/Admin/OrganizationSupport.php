@@ -34,6 +34,9 @@ class OrganizationSupport {
 						'<p class="error"> :message </p>'
 					);
 				}
+			},
+			"isOn" => function($path) {				
+				if( __segment(4, $path) ) return " active";
 			}
 		];
 	}
@@ -60,7 +63,7 @@ class OrganizationSupport {
 
 		$data["title"] 	= __("words.".$org->slug);
 		$data["brand"] 	= "mdi-".$org->icon;
-		$data["org"] 	=	$org;
+		$data["org"] 	= $org;
 
 		$data["rols"]	= $this->getRols($org->id);
 
@@ -161,15 +164,37 @@ class OrganizationSupport {
 	}
 
 	public function users( $org ) {
-		$data["title"] 	= __("words.".$org->slug);
-		$data["brand"] 	= "mdi-".$org->icon;
-		$data["org"] 	=	$org;
-		$data["wgroups"] = $this->getWorkGroup($org);
+
+		$data["title"] 		= __("words.".$org->slug);
+		$data["brand"] 		= "mdi-".$org->icon;
+		$data["org"] 		= $org;
+		$data["wgroups"] 	= $this->getWorkGroup($org);
 
 		return $data;
 	}
 
-	public function searchUsers($org, $src) {
+	public function srcUser($org, $src) {
+		$data["users"] = $this->user->where("fullname", "LIKE", '%'.$src.'%')->take(10)->get();
+
+		return $data;
+	}
+
+	public function addUserSrc($org, $request) {
+
+		if( !empty( ($data = $request->usr) ) && is_array($data) ) {
+			foreach($request->usr as $uID ) {
+				$org->syncUser($uID);
+			}
+		}
+
+		return redirect(__url("__entity/users"));
+	}
+
+	public function userDetachOrg( $org, $ID ) {
+		$org->users()->detach($ID); return back();
+	}
+
+	public function searchUsers($org, $rol,$src) {		
 		$data["users"] = $this->user->where("fullname", "LIKE", '%'.$src.'%')->get();
 
 		return $data;

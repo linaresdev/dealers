@@ -1,5 +1,5 @@
 <?php 
-namespace Delta\Http\Email\Dealer;
+namespace Delta\Http\Email\Seller;
 
 /*
  *---------------------------------------------------------

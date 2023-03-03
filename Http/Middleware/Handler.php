@@ -30,8 +30,11 @@ class Handler {
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Delta\Http\Middleware\LoginMiddleware::class,
          ],
-         "dealer" => [
-            \Delta\Http\Middleware\DealerMiddleware::class
+         "seller" => [
+            \Delta\Http\Middleware\SellerMiddleware::class
+         ],
+         "warranty" => [
+            \Delta\Http\Middleware\WarrantyMiddleware::class
          ]
       ];
    }

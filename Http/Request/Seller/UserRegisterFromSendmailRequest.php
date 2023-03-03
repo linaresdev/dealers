@@ -1,5 +1,5 @@
 <?php 
-namespace Delta\Http\Request\Dealer;
+namespace Delta\Http\Request\Seller;
 
 /*
  *---------------------------------------------------------
@@ -10,7 +10,7 @@ namespace Delta\Http\Request\Dealer;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest {
+class UserRegisterFromSendmailRequest extends FormRequest {	
 
 	public function authorize() {
         return true;
@@ -18,27 +18,22 @@ class UpdateRequest extends FormRequest {
 
     public function rules() {
         return [
-        	"group"		=> "required",
-            "phone"		=> "required",
-            "email"		=> "required",
-            "address"	=> "required"
+            "email"	=> ["required","unique:users,email"]
         ];
     }
 
     public function attributes() {
         return [
-            "group"      => __("entity.name"),
-            "phone"      => __("words.phone"),
-            "email"      => __("words.email"),
-            "address"    => __("words.address")
+            "email"      => __("words.email")
         ];
     }
 
     public function messages() {
     	return [
-    		"required" 	=> __("form.error.required")
+    		"required" 	=> __("form.error.required"),
+    		"unique"	=> __("form.error.unique")
     	];
     }
 }
 
-/* End of RegisterRequest.php */
+/* End of UserRegisterFromSendmailRequest.php */

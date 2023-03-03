@@ -66,10 +66,24 @@ class OrganizationController extends Controller {
 		);
 	}
 
-	public function searchUsers( $org, $src ) {
+	public function srcUser( $org, $src ) {
+		return $this->render(
+			"organization.partial.users",
+			$this->support->srcUser($org, $src)
+		); 
+	}
+
+	public function addUserSrc( $org, $src, Request $request ) {
+		return $this->support->addUserSrc($org, $request);
+	}
+	public function userDetachOrg($org, $usr ) {
+		return $this->support->userDetachOrg($org, $usr);
+	}
+
+	public function searchUsers( $org, $rol, $src ) {
 		return $this->render(
 			"organization.partial.option",
-			$this->support->searchUsers($org, $src)
+			$this->support->searchUsers($org, $rol, $src)
 		); 
 	}
 

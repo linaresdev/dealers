@@ -23,20 +23,20 @@ class WarrantyNav extends Accessor {
 		$this->authorize( $login );
 	}
 
-	public function authorize( $login ) {
+	public function authorize( $login ) {		
 
 		if($login->hasRol("warranty")) {
-			$this->item(10, [
-				"icon" 	=> "mdi-storefront",
-				"label" => __("words.dealer"),
-				"url"	=> [
-					[
-						"icon" 	=> "mdi-certificate",
-						"label" => __("words.warranty"),
-						"url"	=> "dealers/warranty",
-					]
-				],
-			]);
+
+			$nav["icon"] 	= "mdi-shield-car";
+			$nav["label"] 	= __("warranty.manager");	
+
+			foreach( $login->getDealers() as $key => $dealer ) {
+				$nav["url"][$key]["icon"] 	= "";
+				$nav["url"][$key]["label"] 	= $dealer->group;
+				$nav["url"][$key]["url"] 	= "warranty/".$dealer->id;
+			}
+
+			$this->item(10, $nav);
 		}
 	}
 

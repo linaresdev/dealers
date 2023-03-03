@@ -1,28 +1,8 @@
-@extends("delta::admin.domains.layout")
+@extends("delta::admin.domains.organization.layout")
 
-	@section("content")
+	@section("content")		
 
-	<article class="box box-light">
-		<header class="box-header">
-			<ul class="nav nav-tabs">
-				<li class="nav-item">
-					<a href="{{__url('__organization')}}" 
-						class="nav-link pt-2 pb-1">
-						{!! __mdi("home") !!}
-						{{__("words.home")}}
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="{{__url('__entity')}}" 
-						class="nav-link pt-2 pb-1 active">
-						{!! __mdi("shield-account") !!}
-						{{__("words.authorize")}}
-					</a>
-				</li>
-			</ul>
-		</header>
-
-		<section class="box-body">
+		<section class="">
 			<article class="block">				
 				<section class="row">
 					<article class="col-5">
@@ -78,7 +58,7 @@
 								@foreach( $rols as $rol )
 								<tr>
 									<td>
-										<a href="{{__url('__entity/rol/'.$rol->id)}}"
+										<a href="{{__url('__entity/rols/'.$rol->id)}}"
 											class="bt">
 											<strong class="bt-title">
 												{!! __mdi($rol->icon) !!}
@@ -124,5 +104,5 @@
 			</article>
 
 		</section>
-	</article>
+	
 	@endsection

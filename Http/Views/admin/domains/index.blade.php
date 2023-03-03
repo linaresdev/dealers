@@ -50,7 +50,7 @@
 						<tr>
 							<td class="ftool"> <input type="checkbox"> </td>
 							<td class="descriptor">
-								<a href="{{__url('__organization/'.$org->slug)}}">
+								<a href="{{__url('__organization/'.$org->slug."/users")}}">
 									{!! __mdi($org->icon) !!}
 									{{ $org->group }}
 								</a>

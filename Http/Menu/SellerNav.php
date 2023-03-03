@@ -34,12 +34,7 @@ class SellerNav extends Accessor {
 					[
 						"icon" 		=> "mdi-storefront",
 						"label" 	=> __("words.dealers"),
-						"url"		=> "dealers",
-					],
-					[
-						"icon" 		=> "mdi-account-group",
-						"label" 	=> __("words.users"),
-						"url"		=> "dealers/users",
+						"url"		=> "seller",
 					]					
 				]
 			]);

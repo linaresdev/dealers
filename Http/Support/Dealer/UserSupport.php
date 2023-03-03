@@ -32,10 +32,14 @@ class UserSupport {
 
 	public function index( $user, $dealer ) {
 
+		app("urls")->addTag("urls", [
+			"__detach" => "dealers/__s2/users/detach"
+		]);
+
 		$data["title"] 		= __("words.users");
 		$data["layout"]		= "layout-md";
 		$data["user"]		= $user;
-		$data["dealer"] 	= $dealer;
+		$data["ent"] 		= $dealer;
 		$data["users"]		= $this->getUsersFrom($dealer);
 
 		return $data;
@@ -46,7 +50,7 @@ class UserSupport {
 		$data["title"] 		= __("words.register");
 		$data["layout"]		= "layout-md";
 		$data["user"]		= $user;
-		$data["dealer"] 	= $dealer;
+		$data["ent"] 		= $dealer;
 
 		return $data;
 	}
@@ -77,7 +81,7 @@ class UserSupport {
 		$data["title"] 		= __("words.information");
 		$data["layout"]		= "layout-md";
 		$data["user"]		= $user;
-		$data["entity"] 	= $entity;
+		$data["ent"] 		= $entity;
 
 		return $data;
 	}
@@ -86,7 +90,7 @@ class UserSupport {
 
 		$data["title"] 		= __("register.sendmail");
 		$data["layout"]		= "layout-md";
-		$data["entity"] 	= $entity;
+		$data["ent"] 		= $entity;
 
 		return $data;
 	}
@@ -98,6 +102,83 @@ class UserSupport {
 		);
 
 		Alert::prefix("system")->success("Solicitud enviada correctamente");
+		
+		return back();
+	}
+
+	public function add( $ent ) {		
+		
+		$data["title"] 	= __("user.add");
+		$data["ent"]	= $ent;
+		$data["layout"] = "layout-md";
+
+		return $data;
+	}
+
+	public function ajaxUsers( $ent, $src ) {
+
+		app("urls")->addTag("urls", [
+			"__sync" => "dealers/__s2/users/sync"
+		]);
+
+		$noID = function($ent) {
+			$IDS=[];
+
+			foreach( $ent->users as $user) {
+				$IDS[] = $user->id;
+			}
+
+			return $IDS;
+		};
+
+		$data["users"] = (new User)->whereNotIn('id', $noID($ent))->where("fullname", 'LIKE', '%'.$src.'%')->take(10)->get();
+
+		return $data;
+	}
+
+	public function syncUser($ent, $ID) {
+
+		$ent->syncUser($ID);
+
+		return redirect(__url("__entity/users"));
+	}
+
+	public function detachUser($ent, $ID) {
+		$ent->users()->detach($ID);		
+		return redirect(__url("__entity/users"));
+	}
+
+	public function rol( $ent, $user ) {		
+		
+		$data["title"] 	= __("user.rol");
+		$data["ent"]	= $ent;
+		$data["layout"] = "layout-md";
+		$data["rol"]	= $user->group($ent->slug)->pivot;
+
+		return $data;
+	}
+
+
+
+	public function updateRol( $ent, $user, $request ) {
+
+		$data["view"] 	= 0;
+		$data["insert"] = 0;
+		$data["update"] = 0;
+		$data["delete"] = 0;
+
+		foreach($request->all() as $key => $value ) {
+			if( array_key_exists($key, $data)) {
+				$data[$key] = $value;
+			}
+		}
+
+		if( ($user->group($ent->slug)->pivot)->update($data)) {
+			Alert::prefix("system")->success(__("rol.update.successfull"));
+			return back();
+		}
+
+		Alert::prefix("system")->error(__("rol.update.error"));
 		
 		return back();
 	}

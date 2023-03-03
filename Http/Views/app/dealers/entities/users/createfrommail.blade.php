@@ -1,16 +1,6 @@
-@extends( "delta::app.dealers.layout" )
+@extends( "delta::app.dealers.entities.layout" )
 	
-	@section("body")
-
-	<h4>
-		<img src="{{__url($entity->getMeta("logo"))}}" 
-			alt="@"
-			class="avatar avatar-circle my-1"				
-			style="width: 36px; height: 36px;">
-		{{$entity->group}}
-	</h4>
-
-	{!! Alert::tag("system") !!}
+	@section("content")
 
 	<article class="box box-light">
 

@@ -1,16 +1,6 @@
-@extends( "delta::app.dealers.layout" )
+@extends( "delta::app.dealers.entities.layout" )
 	
-	@section("body")
-
-	<h4>
-		<img src="{{__url($dealer->getMeta("logo"))}}" 
-			alt="@"
-			class="avatar avatar-circle my-1"				
-			style="width: 36px; height: 36px;">
-		{{$dealer->group}}
-	</h4>
-
-	<h4>{{__("form.user")}}</h4>
+	@section("content")
 
 	<form action="{{{__url("__now")}}}" 
 		method="POST" 

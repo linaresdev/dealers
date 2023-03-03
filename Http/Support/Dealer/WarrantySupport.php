@@ -14,8 +14,12 @@ class WarrantySupport {
 	public function __construct() {
 	}
 
-	public function info() {
-		return __CLASS__;
+	public function index( $org ) {
+
+		$data["title"] 	= __("words.warranty");
+		$data["ent"]	= $org;
+
+		return $data;
 	}
 }
 

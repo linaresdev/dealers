@@ -1,8 +1,8 @@
-@extends("delta::admin.domains.layout")
+@extends("delta::admin.domains.organization.layout")
 
 	@section("content")
 
-	<article class="box box-light">
+	{{-- <article class="box box-light">
 		<header class="box-header">
 			<ul class="nav nav-tabs">
 				<li class="nav-item">
@@ -27,9 +27,9 @@
 					</a>
 				</li>
 			</ul>
-		</header>
+		</header> --}}
 
-		<section class="box-body">
+		<section class="">
 			<article class="block">
 				<h4>{{__("words.users")}}</h4>
 
@@ -139,8 +139,7 @@
 					@endif
 				</table>
 			</article>
-		</section>
-	</article>
+	
 
 	@endsection
 
@@ -163,6 +162,8 @@
 			}
 
 			function sourceUser( inp ) {
+				console.log("{{__url('__now/search')}}");
+
 				if( inp.value.length > 0 ) {
 					var url 	= "{{__url('__now/search')}}",
 						url 	= url+"/"+inp.value,

@@ -16,15 +16,17 @@ class App extends Accessor {
 
 	protected $login;
 
-	public function __construct( $login ) {
-		
+	public function __construct( $login ) {		
 		$this->login = $login;
 
 		$this->authorize( $login );
 	}
 
 	public function authorize( $login ) {
-		foreach($login->groups->where("type", "organization") as $key => $row ) {
+		$items = $login->groups->where("type", "organization")
+			->orderBy("id", "DESC");
+
+		foreach($items as $key => $row ) {
 			$this->item($key, [
 				"icon" 	=> "mdi-".$row->icon,
 				"label" => $row->group,
@@ -56,7 +58,7 @@ class App extends Accessor {
 
 	public function link($item, $index=8) {
 
-		$tag=$this->tb($index);
+		$tag  =$this->tb($index);
 
 		$tag .= '<a href="';
 		$tag .= __url($item["url"]);
@@ -76,11 +78,12 @@ class App extends Accessor {
 	}
 
 	public function items( $index=4 ) {
+
 		$skin = $this->skins["bs5"];
       	$skin = new $skin();
 
       	$skin->addFilterStyle("match", [
-        	":node0" => "nav flex-column",
+        	":node0" => "nav nav-org",
       	]);
 
       	$skin->addItems($this->get("stors"));

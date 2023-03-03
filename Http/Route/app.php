@@ -20,7 +20,15 @@ Route::prefix(config("admin.slug"))->namespace("Admin")->group(
 	__DEALER__."/Http/Route/admin.php"
 );
 
-Route::prefix("dealers")->middleware("dealer")->namespace("Dealer")->group(
-	__DEALER__."/Http/Route/dealer.php"
+Route::prefix("seller")->middleware("seller")->namespace("Seller")->group(
+	__DEALER__."/Http/Route/sellers.php"
+);
+
+// Route::prefix("dealers")->middleware("dealer")->namespace("Dealer")->group(
+// 	//__DEALER__."/Http/Route/dealer.php"
+// );
+
+Route::prefix("warranty")->middleware("warranty")->namespace("Warranty")->group(
+	__DEALER__."/Http/Route/warranty.php"
 );
 

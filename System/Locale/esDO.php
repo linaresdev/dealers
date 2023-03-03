@@ -61,6 +61,8 @@ class esDO {
 			"entity.meta"			=> "Meta data de la entidad",
 			"entity.work"			=> "Entitdades de trabajo",
 
+			"empty.data"			=> "Sin datos para mostrar",
+
 			"form.user"				=> "Registrar ususario desde un formulario",
 
 			"filter.by"				=> "Filtrar busqueda por",
@@ -100,32 +102,39 @@ class esDO {
 			"user.form"			=> "Formulario de usuario",
 			"user.groups"		=> "Mis grupos de usuarios",
 			"user.new"			=> "Nuevo usuario",
+			"user.ongroup"		=> "Usuarios inscritos",
 			"user.password"		=> "Contraseña de acceso",
 			"user.passconfirm"	=> "Confirmar contraseña",
 			"user.register" 	=> "Registro de usuarios",
+			"user.rol"			=> "Permiso de usuarios",
 			"user.state.0"		=> "Inactivo",
 			"user.state.1"		=> "Activo",
 			"user.state.2"		=> "Suspención temporal",
 			"user.state.3"		=> "Bloqueado",
 			"user.state.4"		=> "Eliminado",
+			"user.search"		=> "Buscar usuarios",
 
 			"register.successfull" 	=> "Registro realizado correctamente",
 			"register.error"		=> "Error al tratar de registrar los datos",
-			"register.sendmail"		=> "Registro via correo electrónico",
+			"register.sendmail"		=> "Enviar solicitud de registro",
 
 			"request.edit-password" => "Solicitar cambio de contraseña",
 
-			"rol.form"				=> "Formulario de funciones",
+			"rol.form"					=> "Formulario de funciones",
+			"rol.update.error"			=> "Error al tratar de actualizar lso permisos",
+			"rol.update.successfull"	=> "Permisos actualizados correctamente", 
 
 			"organization.new"		=> "Nueva organización",
 			"organization.name"		=> "Nombre de la organización",
 			"organization.update"	=> "Actualizar organización",
 
 			"words.administration" 	=> "Adminstración",
+
 			"warranty.add"			=> "Nueva garantía",
 			"warranty.empty"		=> "No existen garantía registradas para mostrar",
 			"warranty.form"		=> "Formulario de Garantía",
 			"warranty.update"	=> "Actualizar garantía",
+			"warranty.manager"	=> "Gestionar garantias",
 
 			"words.add"			=> "Agregar",
 			"words.account"		=> "Cuenta",
@@ -179,7 +188,8 @@ class esDO {
 			"words.public"		=> "Público",
 			"words.private"		=> "Privado",
 			"words.rols"		=> "Funciones",
-			"words.receptionist" => "Recepcionista",	
+			"words.receptionist" => "Recepcionista",
+			"words.remove"		=> "Remover",		
 			"words.rnc"			=> "RNC",
 			"words.reference"	=> "Referencia",
 			"words.register"	=> "Registrar",
@@ -205,6 +215,7 @@ class esDO {
 
 			"send.edit-password"	=> "Enviar cambio de contraseña.",
 			"search.users"			=> "Buscar usuarios",
+			"search.empty"			=> "Búsqueda sin resultados",
 			"send.membership"		=> "Enviar membresía",
 
 

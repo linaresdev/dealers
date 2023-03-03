@@ -9,6 +9,7 @@ namespace Delta\Http\Request\Admin\Domain;
 */
 
 use Illuminate\Foundation\Http\FormRequest;
+use Delta\Http\Request\Admin\Domain\Ruls\CreateRul;
 
 class CreateRequest extends FormRequest {	
 	public function authorize() {
@@ -17,7 +18,8 @@ class CreateRequest extends FormRequest {
 
     public function rules() {
         return [
-        	"group" 	=> "required|unique:users_groups,group",
+        	//"group" 	=> "required|unique:users_groups,group",
+            "group"     => ["required", new CreateRul()],
             "icon"      => "required"
         ];
     }

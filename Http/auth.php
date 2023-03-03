@@ -18,22 +18,22 @@ foreach( (new \Delta\Http\Menu\Handler())->menu() as $menu ) {
 }
 
 ## TAG URL FROM AUTH
-if( $user->isRol("dealers") ) {
+// if( $user->isRol("dealers") ) {
 
-	if( !empty( $dealer = $user->dealer() ) ) {                   
-        app("urls")->addTag( "urls", [
-            "__dealer" => $dealer->slug
-        ]);
-    }
-}
+// 	if( !empty( $dealer = $user->dealer() ) ) {                   
+//         app("urls")->addTag( "urls", [
+//             "__dealer" => $dealer->slug
+//         ]);
+//     }
+// }
 
 /*
 * REDIRECTIONS */
 
 ## Redirect user if url serment 1 = dealer && empty dealer
-if(empty($dealer) && __segment(1, "dealer") ) {
-	return redirect("/");
-}
+// if(empty($dealer) && __segment(1, "dealer") ) {
+// 	return redirect("/");
+// }
 
 
 /*

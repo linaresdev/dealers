@@ -67,7 +67,7 @@ class DomainSupport {
 	}
 
 	public function create( $request ) {
-
+		
 		$this->group->create([
 			"type" 	=> "organization", 
 			"group" => $request->group,

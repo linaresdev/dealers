@@ -163,10 +163,8 @@ class User extends Authenticatable {
 		return $data;
 	}
 
-	public function dealer() {		
-		if( ($business = $this->group("dealers")) ) {
-			//return $business->dealer();
-		}
+	public function getDealers() {
+		return $this->groups()->where("type", "dealer")->get();
 	}
 }
 

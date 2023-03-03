@@ -1,5 +1,5 @@
 <?php 
-namespace Delta\Http\Request\Dealer;
+namespace Delta\Http\Request\Seller;
 
 /*
  *---------------------------------------------------------

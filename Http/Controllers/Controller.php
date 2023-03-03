@@ -32,6 +32,10 @@ class Controller extends BaseController {
 			$data = array_merge($data, $support->share());
 		}
 
+		if(method_exists($this, "parseData") ) {
+			$data = $this->parseData($data);
+		}
+
 		$this->share($data);
 	}
 

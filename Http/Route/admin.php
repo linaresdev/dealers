@@ -25,20 +25,26 @@ Route::prefix("/organizations")->namespace("Domain")->group(function($route){
     Route::get("/delete/{id}", "DomainController@delete");
 
     Route::prefix("{__slug}")->group( function($route) {
-        Route::get('/', "OrganizationController@index");
-        Route::post('/', "OrganizationController@create");
+        Route::get('/rol', "OrganizationController@index");
+        Route::post('/rol', "OrganizationController@create");
 
-        Route::get("rol/{idRol}", "OrganizationController@group");
-        Route::get('/rol/{idRol}/search/{src}',"OrganizationController@searchUsers");
+        Route::get("rols/{idRol}", "OrganizationController@group");
+        Route::get('/rols/{idRol}/search/{src}',"OrganizationController@searchUsers");
 
         Route::get('/rol/{idRol}/detach/{usrID}',"OrganizationController@userDetach");
         
         Route::get('/rol/{idRol}/toggle/{usrID}/{rol}',"OrganizationController@userToggleRol");
 
-        Route::post('/rol/{idRol}/add-user',"OrganizationController@addUserGroup"); 
+        Route::post('/rols/{idRol}/add-user',"OrganizationController@addUserGroup"); 
 
         Route::get('/rol/{idRol}/edit', "OrganizationController@editRol");
         Route::post('/rol/{idRol}/edit', "OrganizationController@updateRol");
+
+        Route::get('/users', "OrganizationController@users");
+        Route::get('/users/{__uID}/detach', "OrganizationController@userDetachOrg");
+
+        Route::get('/users/search/{src}', "OrganizationController@srcUser");
+        Route::post('/users/search/{src}', "OrganizationController@addUserSrc");
 
         Route::get('/rol/{id}/delete', "OrganizationController@delete");
 

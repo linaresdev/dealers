@@ -8,6 +8,8 @@ namespace Delta\Http\Controllers\Dealer;
  *---------------------------------------------------------
 */
 
+use Delta\Model\User;
+use Illuminate\Http\Request;
 use Delta\Http\Support\Dealer\UserSupport;
 use Delta\Http\Request\Dealer\UserRegisterRequest;
 use Delta\Http\Request\Dealer\UserRegisterFromSendmailRequest as SendMail;
@@ -18,19 +20,22 @@ class UserController extends Controller {
 		$this->boot($support);	
 
 		app("urls")->addTag("urls", [
+			"__entity" => "dealers/__s2",
 			'__user' => "dealers/__s2/users"
 		]);
 	}
 
 	public function index($dealer) {
 		return $this->render(
-			"users.index", $this->support->index($this->user(), $dealer)
+			"entities.users.index", 
+			$this->support->index($this->user(), $dealer)
 		);
 	}
 
 	public function register($dealer) {
 		return $this->render(
-			"users.register", $this->support->register($this->user(), $dealer)
+			"entities.users.register", 
+			$this->support->register($this->user(), $dealer)
 		);
 	}
 
@@ -39,20 +44,55 @@ class UserController extends Controller {
 	}
 
 	public function info( $entity, $user ) {
-		return $this->render("users.info", $this->support->info( $entity, $user ));
+		return $this->render(
+			"entities.users.info", 
+			$this->support->info( $entity, $user )
+		);
 	}
 
 	public function createFromSendMail( $entity ) {
 
-		//return view("delta::app.dealers.users.mail.getmembership");
-
 		return $this->render(
-			"users.createfrommail", $this->support->createFromSendMail($entity)
+			"entities.users.createfrommail", 
+			$this->support->createFromSendMail($entity)
 		);
 	}
 
 	public function registerFromSendmail( $entity, SendMail $request ) {
 		return $this->support->registerFromSendmail( $entity, $request );
+	}
+
+	public function add( $entity ) {
+		return $this->render( 
+			"entities.users.add",
+			$this->support->add( $entity )
+		);
+	}
+
+	public function ajaxUsers( $ent, $src ) {
+		return $this->render(
+			"entities.users.search", 
+			$this->support->ajaxUsers($ent, $src)
+		);
+	}
+
+	public function syncUser( $ent, $ID ) {
+		return $this->support->syncUser($ent, $ID);
+	}
+
+	public function detachUser( $ent, $ID ) {
+		return $this->support->detachUser($ent, $ID);
+	}
+
+	public function rol( $ent, $usr ) {
+		return $this->render(
+			"entities.users.rol", 
+			$this->support->rol($ent, $usr)
+		);
+	}
+
+	public function rolUpdate( $ent, $user, Request $request ) {
+		return $this->support->updateRol($ent, $user, $request);
 	}
 }
 
