@@ -23,10 +23,11 @@ class App extends Accessor {
 	}
 
 	public function authorize( $login ) {
-		$items = $login->groups->where("type", "organization")
-			->orderBy("id", "DESC");
 
-		foreach($items as $key => $row ) {
+		//dd($login->hasRol("organization"));
+		$navSellers = $login->groups->where("type", "organization");
+
+		foreach($navSellers as $key => $row ) {
 			$this->item($key, [
 				"icon" 	=> "mdi-".$row->icon,
 				"label" => $row->group,

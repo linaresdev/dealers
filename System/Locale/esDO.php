@@ -43,10 +43,16 @@ class esDO {
 			"client.sector"			=> "Sector",
 			"content.empty"			=> "Sin contenido",
 
-			"dealer.new"			=> "Nuevo dealer",
+			"customer.name"			=> "Nombre del cliente",
+
+			"delete.org"			=> "Organización eliminada",
+			"delete.error"			=> "Error al tratar de eliminar el recurso",
+
+			"dealer.new"			=> "Registrar dealer",
 			"dealer.add"			=> "Agregar dealer",
 			"dealer.manager"		=> "Administrar dealers",
 			"dealer.update"			=>"Actualizar dealer",
+			"dealer.search"			=> "Buscar dealers",
 			"description.short"		=> "Descripción corta",
 
 			"domain.new"			=> "Nuevo dominio",
@@ -70,6 +76,7 @@ class esDO {
 			"filter.user.email"		=> "Fitrar por correo electrónico",			
 			"filter.user.user"		=> "Fitrar por usuario",
 			"filter.user.rnc"		=> "Fitrar por RNC",
+			"filter.warranty"		=> "Filtrar garantía",
 
 			"form.error.exists"		=> "El campo :attribute no existe en nuestros registros",
 			"form.error.required"	=> "El campo :attribute es requerido",
@@ -120,6 +127,8 @@ class esDO {
 
 			"request.edit-password" => "Solicitar cambio de contraseña",
 
+			"required.all"			=> "Todos los campos son requeridos",
+
 			"rol.form"					=> "Formulario de funciones",
 			"rol.update.error"			=> "Error al tratar de actualizar lso permisos",
 			"rol.update.successfull"	=> "Permisos actualizados correctamente", 
@@ -132,7 +141,7 @@ class esDO {
 
 			"warranty.add"			=> "Nueva garantía",
 			"warranty.empty"		=> "No existen garantía registradas para mostrar",
-			"warranty.form"		=> "Formulario de Garantía",
+			"warranty.form"		=> "Formulario de garantía",
 			"warranty.update"	=> "Actualizar garantía",
 			"warranty.manager"	=> "Gestionar garantias",
 
@@ -145,15 +154,18 @@ class esDO {
 			"words.to-access"	=> "Acceder",
 			"words.actions"		=> "Acciones",
 			"words.activate"	=> "Activar",
+			"words.back"		=> "Regresar",
 			"words.contacts"	=> "Contactos",
 			"words.companies"	=> "Empresas",
 			"words.corporations"	=> "Corporaciones",
-			"words.cellphone"	=> "Teléfono Celular",
+			"words.cellphone"		=> "Teléfono Celular",
+			"words.customer"	=> "Cliente",
 			"words.client"		=> "Cliente",
 			"words.clients"		=> "Clientes",
 			"words.close"     	=> "Cerrar",
 			"words.credentials"	=> "Credenciales",
 			"words.create"		=> "Crear",
+			"words.date"		=> "Fecha",
 			"words.dealer"		=> "Dealer",			
 			"words.dealers"		=> "Dealers",
 			"words.delete"		=> "Eliminar",
@@ -162,6 +174,7 @@ class esDO {
 			"words.email"     	=> "Correo Electrónico",
 			"words.entity"		=> "Entidad",
 			"words.entities"	=> "Entidades",
+			"words.form"		=> "Formulario",
 			"words.finder"		=> "Buscar",
 			"words.firstname"	=> "Nombre",
 			"words.functions"	=> "Funciones",
@@ -216,8 +229,10 @@ class esDO {
 			"send.edit-password"	=> "Enviar cambio de contraseña.",
 			"search.users"			=> "Buscar usuarios",
 			"search.empty"			=> "Búsqueda sin resultados",
+			"search.zone"			=> "Buscar zona o sector",
 			"send.membership"		=> "Enviar membresía",
 
+			"success.delete" => ""
 
     	];
 	}

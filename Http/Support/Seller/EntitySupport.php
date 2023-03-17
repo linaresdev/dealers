@@ -18,8 +18,7 @@ class EntitySupport {
 
 	public function index($ent) {
 
-		$data["title"] 		= __("words.entities");		
-		$data["layout"]		= "layout-md";
+		$data["title"] 		= __("words.entities");
 		$data["ent"]		= $ent;
 		$data["users"]		= $ent->users;
 

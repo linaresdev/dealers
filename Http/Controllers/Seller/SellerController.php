@@ -25,6 +25,10 @@ class SellerController extends Controller {
 		));
 	}
 
+	public function search( $src ) {
+		return $this->render( "search", $this->support->search( $src ) );
+	}
+
 	public function register() {
 		return $this->render("register", $this->support->register());
 	}
@@ -47,6 +51,10 @@ class SellerController extends Controller {
 
 	public function updateLogo( $dealer, Request $request ) {
 		return $this->support->updateLogo( $this->user(), $dealer, $request );
+	}
+
+	public function delete( $org ) {
+		return $this->support->delete($org);
 	}
 }
 

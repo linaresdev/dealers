@@ -23,18 +23,26 @@ class WarrantyNav extends Accessor {
 		$this->authorize( $login );
 	}
 
-	public function authorize( $login ) {		
-
-		if($login->hasRol("warranty")) {
+	public function authorize( $login ) {
+		
+		if($login->hasOrg("warranty")) {
 
 			$nav["icon"] 	= "mdi-shield-car";
-			$nav["label"] 	= __("warranty.manager");	
+			$nav["label"] 	= __("warranty.manager");
 
-			foreach( $login->getDealers() as $key => $dealer ) {
-				$nav["url"][$key]["icon"] 	= "";
-				$nav["url"][$key]["label"] 	= $dealer->group;
-				$nav["url"][$key]["url"] 	= "warranty/".$dealer->id;
+			$home[0]["icon"] 	= "";
+			$home[0]["label"] 	= __("words.home");
+			$home[0]["url"] 	= "warranty";		
+
+			$items = null;
+
+			foreach( $login->org("warranty")->parent() as $key => $dealer ) {
+				$items[$key]["icon"] 	= "";
+				$items[$key]["label"] 	= $dealer->group;
+				$items[$key]["url"] 	= "warranty/".$dealer->id;
 			}
+
+			$nav["url"] = array_merge($home, $items);
 
 			$this->item(10, $nav);
 		}
@@ -50,6 +58,10 @@ class WarrantyNav extends Accessor {
         	":node1" => "nav-item dropdown",
         	":node2" => "dropdown-menu show",
       	]);
+
+      	// $skin->addFilterUrls("match", function($data){
+      	// 	dd($data);
+      	// });
 
       	$skin->addItems($this->get("stors"));
       	return $skin->nav(12);

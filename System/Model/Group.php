@@ -8,6 +8,7 @@ namespace Delta\Model;
  *---------------------------------------------------------
 */
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model {
@@ -27,6 +28,14 @@ class Group extends Model {
    ];
 
    public $timestamps = false;
+
+   public function parent() {
+      return $this->where("parent", $this->id)->get();
+   }
+
+   public function org( $slug ) {
+      return $this->where("type", "organization")->where("slug", $slug)->first();
+   }
 
    public function ID($slug) {
 
@@ -112,7 +121,7 @@ class Group extends Model {
    }
 
    /*
-   * Groups */
+   * Warranty */
 
    /*
    * ROLS */

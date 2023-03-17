@@ -15,6 +15,7 @@ class BS5 {
    protected $filters = [
       "style" => [],
       "label" => [],
+      "urls"  => [],
       "isOn"  => []
    ];
 
@@ -97,7 +98,17 @@ class BS5 {
             }
 
             if( $ar2 instanceof \Closure ) {
-               $filtes[$ar1] = $ar2(22);
+
+               if( array_key_exists($key, $this->filters) ) {
+
+                  $filters[$ar1] = $ar2;
+
+                  $this->filters["urls"] = array_merge(
+                     $this->filters["urls"], $filters
+                  );
+               }               
+
+               return $filters;
             }
          }
 

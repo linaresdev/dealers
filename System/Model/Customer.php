@@ -17,6 +17,7 @@ class Customer extends Model {
 	protected $fillable = [
 		"id",
 		"group_id",
+		"user_id",
 		"niv",
 		"date",
 		"customer",

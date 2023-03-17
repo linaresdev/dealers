@@ -8,6 +8,8 @@
 
 Route::get("/", "SellerController@index");
 
+Route::get("/search/{src}", "SellerController@search");
+
 Route::get("/register", "SellerController@register");
 Route::post("/register", "SellerController@create");
 
@@ -16,6 +18,8 @@ Route::post("/update/{__orgID}", "SellerController@update");
 
 Route::get("/update/{__orgID}/logo", "SellerController@editLogo");
 Route::post("/update/{__orgID}/logo", "SellerController@updateLogo");
+
+Route::get("/delete/{__orgID}", "SellerController@delete");
 
 Route::prefix("entity")->group( function($route) {
     Route::prefix("{__orgID}")->group( function($route) {
@@ -49,7 +53,6 @@ Route::prefix("entity")->group( function($route) {
             ## Authorize
             Route::get("/{__usrID}/rol", "UserController@rol");
             Route::post("/{__usrID}/rol", "UserController@rolUpdate");
-
         });
 
     });   

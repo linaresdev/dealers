@@ -19,7 +19,7 @@ class SellerMiddleware {
     public function handle($request, Closure $next, $guard = "web") {
 
         if( ($auth = Auth::guard($guard))->check() ) {
-
+            
         }
 
         return $next($request);

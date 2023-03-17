@@ -1,9 +1,7 @@
-@extends( "delta::app.dealers.layout" )
+@extends( "delta::app.sellers.layout" )
 
 
-	@section("body")
-
-	{!! Alert::tag("system") !!}
+	@section("content")
 
 	<form action="{{__url('__now')}}" 
 		method="POST"

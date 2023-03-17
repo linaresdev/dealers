@@ -1,5 +1,5 @@
 <?php 
-namespace Delta\Http\Request;
+namespace Delta\Http\Request\Warranty;
 
 /*
  *---------------------------------------------------------
@@ -11,7 +11,7 @@ namespace Delta\Http\Request;
 use Delta\Http\Request\Ruls\ZoneRul;
 use Illuminate\Foundation\Http\FormRequest;
 
-class WarrantyRequest extends FormRequest {
+class RegisterRequest extends FormRequest {
 
 	public function authorize() {
         return true;
@@ -19,7 +19,12 @@ class WarrantyRequest extends FormRequest {
 
     public function rules() {
         return [
-            "niv"		=> "required|min:8|max:8|unique:\Delta\Model\Customer,niv",
+            "niv" => [
+            	"required",
+            	"min:8",
+            	"max:8",
+            	"unique:\Delta\Model\Customer,niv"
+            ],
             "customer"	=> "required",
             "address"   => "required",
             "rnc"		=> "required",
@@ -48,6 +53,17 @@ class WarrantyRequest extends FormRequest {
             "exists"    => __("form.error.exists"),
         ];
     }
+
+    public function withValidator( $validator ) {
+
+        $validator->after( function ( $validator ) {
+            if( $validator->errors()->any() ) {
+                $validator->errors()->add(
+                    'noty', 'Todos los campos son requeridos'
+                ); 
+            }            
+        });
+    }
 }
 
-/* End of WarrantyRequest.php */
+/* End of RegisterRequest.php */

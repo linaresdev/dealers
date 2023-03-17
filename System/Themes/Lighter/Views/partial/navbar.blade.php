@@ -2,17 +2,20 @@
 		<nav class="lighter-navbar d-flex flex-wrap justify-content-center justify-content-lg-start">
 			
 			<div class="brand d-flex align-items-center">
-				@if(auth("web")->check())
+				
+				@if( auth("web")->check() )
 				<a class="nav-toggle" href="#">
 					<i class="mdi mdi-wrap mdi-flip-h"></i>
 				</a>
 				@endif
+
             <a href="{{__url('/')}}" class="bt toggle">
             	<img src="{{__url('__cdn/images/wdelta.png')}}"
             			class="logon" 
             			alt="">
                Delta Comercial, S. A.
-            </a>               
+            </a>
+                           
          </div>
 
 	      <ul class="nav ms-auto">

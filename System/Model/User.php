@@ -101,6 +101,10 @@ class User extends Authenticatable {
     	return $this->groups->where("type", "organization")->where("slug", $slug)->first() ?? null;
     }
 
+    public function hasOrg($type) {
+    	return ( $this->groups->where("type", "organization")->count() > 0);
+    }
+
     public function groupID($group) {
     	if( ($query = (new Group)->where("slug", $group)->first()) ?? null ) {
     		return $query->id;

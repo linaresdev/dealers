@@ -36,7 +36,7 @@ class SellerSupport {
 
 	public function getDealers($perpage) {
 		return $this->group->where("type", "dealer")
-					->orderBY("id", "DESC")->get();
+					->orderBY("id", "DESC")->get()->take(10);
 	}
 
 	public function index( $user ) { 
@@ -47,10 +47,20 @@ class SellerSupport {
 		return $data;
 	}
 
+	public function search($src) {
+
+		$data["dealers"] = (new Group)->where("type", "dealer")
+						->where("group", "LIKE", '%'.$src.'%')
+						->get()->take(5);
+
+		
+		return $data;
+	}
+
 	public function register() {
 		
 		$data["title"] 		= __("dealer.new");
-
+		
 		return $data;
 	}
 
@@ -75,17 +85,22 @@ class SellerSupport {
 		}
 
 		$group = $this->group->create([
-			"type" 	=> "dealer",
-			"slug"	=> \Str::slug($request->group),
-			"group" => $request->group,
-			"icon"	=> "storefront-outline"
+			"parent"	=> $this->group->org("warranty")->id,
+			"type" 		=> "dealer",
+			"slug"		=> \Str::slug($request->group),
+			"group" 	=> $request->group,
+			"icon"		=> "storefront-outline"
 		])->addMeta(
 			"dealer", $meta
 		);
 
+		if( ($org = $this->group->org("warranty"))->count() > 0 ) {
+			$org = $org->first();
+		}
+
 		Alert::prefix("system")->success(__("register.successfull"));
 
-		return redirect("sellers");
+		return redirect("seller");
 	}
 
 	public function edit( $user, $dealer ) {
@@ -135,6 +150,17 @@ class SellerSupport {
 		}	
 
 		Alert::prefix("system")->danger(__("update.error"));
+
+		return back();
+	}
+
+	public function delete($org) {
+		if( $org->delete() ) {
+			Alert::prefix("system")->success(__("delete.org"));
+			return back();
+		}
+
+		Alert::prefix("system")->danger(__("delete.error"));
 
 		return back();
 	}

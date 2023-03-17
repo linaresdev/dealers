@@ -65,6 +65,8 @@ form .error.error-slow {
 .avatar.avatar-36px{height: 36px; width: 36px;}
 .avatar.avatar-48px{height: 48px; width: 48px;}
 .avatar.avatar-64px{height: 64px; width: 64px;}
+.avatar.avatar-80px{height: 80px; width: 80px;}
+.avatar.avatar-128px{height: 128px; width: 128px;}
 
 .linkcheck a {
 	color: #777;
@@ -500,6 +502,7 @@ form .error.error-slow {
 	[role=lighter].layout-lg .lighter-nav .nav-item .nav-link:hover {
 		background: rgba(0,0,0, .02);
 	}
+
 }
 @media( max-width: 1280px ) {
 	/* LG && MD */

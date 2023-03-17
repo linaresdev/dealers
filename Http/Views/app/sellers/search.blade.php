@@ -1,31 +1,6 @@
-@extends( "delta::app.sellers.layout" )
-
-	@section("content")	
 	
-	<article class="box box-light py-3">
-
-		<section class="box-body">
-
-			<article class="block">				
-				<input type="text"
-					name="src"
-					class="form-control"
-					placeholder="{{__("dealer.search")}}"
-					onkeyup="srcDealer(this)">				
-			</article>
-
-			<table class="table">
-				<thead class="bg-light">
-					<tr>
-						<th class="ftool py-2"><input type="checkbox"></th>
-						<th class="py-2">{{__("words.name")}}</th>
-						<th class="py-2">{{__("words.phone")}}</th>
-						<th class="py-2">{{__("words.email")}}</th>
-						<th class="action py-2">{{__("words.actions")}}</th>
-					</tr>
-				</thead>
-				<tbody>
-					@foreach( $dealers as $dealer)
+				
+				@foreach( $dealers as $dealer)
 					<tr>
 						<td class="ftool"><input type="checkbox"></td>
 
@@ -53,12 +28,10 @@
 								</a>
 
 								<div class="dropdown-menu headering">
-									
 									<div class="dropdown-header">
 										{!! __mdi("storefront-outline") !!}
 										{{$dealer->group}}
 									</div>
-
 									<a href="{{__url('seller/update/'.$dealer->id)}}" 
 										class="dropdown-item">
 										{{__("account.update")}}
@@ -74,35 +47,9 @@
 									<a href="{{__url('seller/'.$dealer->id.'/users')}}" class="dropdown-item">
 										{{__("words.users")}}
 									</a>
-
-									<a href="{{__url('seller/delete/'.$dealer->id)}}" 
-										class="dropdown-item">
-										{{__("words.delete")}}
-									</a>
 								</div>
 							</div>
 
 						</td>
 					</tr>
-					@endforeach
-				</tbody>
-			</table>
-
-		</section>
-	</article>
-	@endsection
-
-	@section("js")
-		@parent <script type="text/javascript">
-			function srcDealer(src) {
-
-				let data = src.value;
-
-				if( data.length > 0 ) {
-					jQuery.get("{{__url('__now/search')}}/"+data, function( calback ){
-						jQuery("tbody").html( calback );
-					});					
-				}
-			}
-		</script>
-	@endsection
+				@endforeach

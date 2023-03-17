@@ -56,51 +56,16 @@
 								</a>
 							</td>
 							<td>
-								@if($org->access)
-								{{__("words.private")}}
-								@else
-								{{__("words.public")}}
-								@endif
-							</td>
-							<td class="action">
-								<div class="dropdown dropstart">
-
-									
-									<a href="#" class="dropdown-toggle" 
+								<div class="dropdown dropend">
+									<a href="#" class="bt dropdown-toggle" 
 										data-bs-toggle="dropdown">
-										{!! __mdi("progress-wrench mdi-action") !!}
+										@if($org->access)
+										{{__("words.private")}}
+										@else
+										{{__("words.public")}}
+										@endif
 									</a>
-
 									<div class="dropdown-menu">
-
-										<div class="dropdown-header ps-2">
-											{{__("words.organization")}} {{$org->group}}
-										</div>
-
-										<a href="{{__url('__organization/'.$org->slug)}}" 
-											class="dropdown-item ">
-											{!! __mdi("cog") !!}
-											{{__("words.manager")}}
-										</a>
-
-										<div class="dropdown-header ps-2">
-											{{__("words.mantenance")}}
-										</div>
-
-										<a href="{{__url('__organization/edit/'.$org->id)}}" class="dropdown-item">
-											{!! __mdi("pencil") !!}
-											{{__("words.edit")}}
-										</a>
-										<a href="{{__url('__organization/delete/'.$org->id)}}" 
-											class="dropdown-item ">
-											{!! __mdi("delete") !!}
-											{{__("words.delete")}}
-										</a>
-
-										<div class="dropdown-header ps-2">
-											{{__("words.access")}}
-										</div>
-
 										@if($org->access == 1)
 										<a href="{{__url("__now/toggle/".$org->id."/0")}}" 
 											class="dropdown-item ">
@@ -122,6 +87,33 @@
 											{{__("words.private")}}
 										</a>
 										@endif
+									</div>
+								</div>
+							</td>
+							<td class="action">
+								<div class="dropdown dropstart">
+
+									
+									<a href="#" class="dropdown-toggle" 
+										data-bs-toggle="dropdown">
+										{!! __mdi("progress-wrench mdi-action") !!}
+									</a>
+
+									<div class="dropdown-menu">
+
+										<div class="dropdown-header ps-2">
+											{{$org->group}}
+										</div>
+
+										<a href="{{__url('__organization/edit/'.$org->id)}}" class="dropdown-item">
+											{!! __mdi("pencil") !!}
+											{{__("words.edit")}}
+										</a>
+										<a href="{{__url('__organization/delete/'.$org->id)}}" 
+											class="dropdown-item ">
+											{!! __mdi("delete") !!}
+											{{__("words.delete")}}
+										</a>
 										
 									</div>
 								</div>

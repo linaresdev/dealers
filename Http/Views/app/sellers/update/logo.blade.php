@@ -1,9 +1,32 @@
-@extends( "delta::app.dealers.layout" )
+@extends( "delta::app.sellers.layout" )
 
 
 	@section("body")
 
 	{!! Alert::tag("system") !!}
+
+	<article class="box box-light">
+		<section class="box-body pt-3">
+			<article class="block">
+				<div class="row">
+					<div class="col-auto">
+						<img src="{{__url($dealer->getMeta("logo"))}}"
+							class="avatar avatar-circle" 
+							style="width:128px;" 
+							alt="@">
+					</div>
+					<div class="col-auto pt-4">
+						<h4>{{$dealer->group}}</h4>
+						<p>{{$dealer->getMeta("email")}}</p>
+						<a href="{{__url('seller')}}" 
+							class="btn btn-primary btn-sm">
+							{{__("words.close")}}		
+						</a>
+					</div>
+				</div>
+			</article>
+		</section>
+	</article>
 
 	<form action="{{__url('__now')}}" 
 		method="POST"
@@ -20,8 +43,8 @@
 			</header>
 
 			<section class="box-body">
-				<article class="block">
 
+				<article class="block">
 					<div class="pb-2">
 
 						{!! $hasError("logo") !!}
