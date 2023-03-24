@@ -1,6 +1,20 @@
 @extends( "delta::app.warranties.layout" )
 
+
 	@section("body")
 
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quisquam dolores optio? Fugit, vel, et. Quibusdam corrupti, quam et eaque. Dignissimos repellat reprehenderit molestiae temporibus minus architecto accusamus distinctio eaque.
+	<header class="p-3">
+		<article class="row">
+			<div class="col-auto">
+				<img src="{{__url($user->avatar)}}" 
+					class="avatar avatar-circle avatar-80px" 
+					alt="@">
+			</div>
+			<div class="col-auto pt-3">
+				<h4 class="m-0">{{$user->publicname}}</h4>
+				<small>{{$user->email}}</small>
+			</div>
+		</article>
+		
+	</header>
 	@endsection

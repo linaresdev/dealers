@@ -1,5 +1,10 @@
 @extends( $skin->path("single") )
 
+	@section("nav")
+
+	{!! isAuthNav("warranty", "dealer") !!}
+	@endsection
+
 	@section("body")
 
 		{!! Alert::tag("system") !!}

@@ -7,6 +7,13 @@
  *---------------------------------------------------------
 */
 
+Route::bind("token", function($token) {
+    return (new Delta\Model\UserReset)->where("token", $token)->first() ?? abort(404);
+});
+
+Route::bind("dealer", function($dealer) {
+    return (new Delta\Model\Group)->where("type", "dealer")->where("slug", $dealer)->first() ?? abort(404);
+});
 
 Route::bind("__usrID", function($ID){
     return (new \Delta\Model\User)->find($ID) ?? abort(404);
@@ -39,3 +46,4 @@ Route::bind("__slug", function($slug){
 Route::bind("idRol", function($ID){
     return (new \Delta\Model\Group)->find($ID) ?? abort(404);
 });
+

@@ -20,9 +20,17 @@ class WarrantySupport {
 		$this->customer = $customer;
 	}
 
-	public function index() {
+	public function share() {
+		return [
+			"layout"	=> "layout-sm"
+		];
+	}
 
-		$data["title"] = __("words.warranty");
+	public function index( $user ) {
+
+		$data["title"] 	= __( "words.warranty" );
+
+		$data["user"]	= $user;
 
 		return $data;
 	}
@@ -31,6 +39,7 @@ class WarrantySupport {
 
 		$data["title"] 		= $org->group;
 		$data["org"] 		= $org;
+		
 		$data["warranties"] = $this->getWarranty($org->id, 7);
 
 		return $data;
@@ -44,7 +53,7 @@ class WarrantySupport {
 					->get();
 	}
 
-	public function addWarranty($org) {		
+	public function addWarranty( $org ) {		
 		$data["title"] 		= __("warranty.form");
 		$data["org"] 		= $org;
 

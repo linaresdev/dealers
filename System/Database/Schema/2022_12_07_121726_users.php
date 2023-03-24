@@ -38,11 +38,13 @@ return new class extends Migration {
         });
 
         Schema::create('users_reset', function (Blueprint $table) {
+            
+            $table->increments('id');
 
             $table->string('email', 130)->index();
             $table->string('token', 100);
 
-            $table->date('expired');
+            $table->timestamp('expired');
 
             $table->timestamps();
 

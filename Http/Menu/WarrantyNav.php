@@ -16,10 +16,8 @@ class WarrantyNav extends Accessor {
 
 	protected $login;
 
-	public function __construct( $login ) {
-		
+	public function __construct( $login ) {		
 		$this->login = $login;
-
 		$this->authorize( $login );
 	}
 
@@ -27,24 +25,14 @@ class WarrantyNav extends Accessor {
 		
 		if($login->hasOrg("warranty")) {
 
-			$nav["icon"] 	= "mdi-shield-car";
-			$nav["label"] 	= __("warranty.manager");
+			foreach( $login->groups->where("type", "dealer") as $key => $dealer ) {
 
-			$home[0]["icon"] 	= "";
-			$home[0]["label"] 	= __("words.home");
-			$home[0]["url"] 	= "warranty";		
+				$item["icon"] 	= "mdi-storefront";
+				$item["label"] 	= $dealer->group;
+				$item["url"] 	= "warranty/".$dealer->id;
 
-			$items = null;
-
-			foreach( $login->org("warranty")->parent() as $key => $dealer ) {
-				$items[$key]["icon"] 	= "";
-				$items[$key]["label"] 	= $dealer->group;
-				$items[$key]["url"] 	= "warranty/".$dealer->id;
+				$this->item($key, $item);
 			}
-
-			$nav["url"] = array_merge($home, $items);
-
-			$this->item(10, $nav);
 		}
 	}
 
@@ -59,11 +47,8 @@ class WarrantyNav extends Accessor {
         	":node2" => "dropdown-menu show",
       	]);
 
-      	// $skin->addFilterUrls("match", function($data){
-      	// 	dd($data);
-      	// });
-
       	$skin->addItems($this->get("stors"));
+
       	return $skin->nav(12);
 	}
 }

@@ -13,18 +13,29 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class GetMembershepFromMail extends Mailable {
+class DealerMembershepFromMail extends Mailable {
 
 	use Queueable, SerializesModels;
 
+	public $token;
+
+	public $guardMail;
+
+	public $dealer;
+
 	public $subject;
 
-	public function __construct( $entity ) {
-		$this->subject 		= "Get Membership";
+	public function __construct( $token, $guardMail, $entity ) {
+		$this->token 		= $token;
+		$this->guardMail 	= $guardMail;
+		$this->dealer 		= $entity->slug;
+		$this->subject 		= "Solicitud temporal de registro";
+		
 	}
 
 	public function build() {
-		return $this->view("delta::app.dealers.users.mail.getmembership");
+		return $this->from("notificaciones@deltacomercial.com.do")
+					->view("delta::app.sellers.mailers.register.userdealer");
 	}
 }
 

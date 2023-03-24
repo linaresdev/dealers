@@ -9,6 +9,7 @@ namespace Delta\Http\Middleware;
 */
 
 use Closure;
+use Delta\Alert\Facade\Alert;
 use Illuminate\Support\Facades\Auth;
 
 class SellerMiddleware {
@@ -19,7 +20,14 @@ class SellerMiddleware {
     public function handle($request, Closure $next, $guard = "web") {
 
         if( ($auth = Auth::guard($guard))->check() ) {
-            
+            $user = $auth->user();
+
+            if( ($seller = $user->org("seller")) == null ) {
+
+                Alert::prefix("system")->warning( __("access.deny") );
+
+                return redirect("/");
+            }
         }
 
         return $next($request);

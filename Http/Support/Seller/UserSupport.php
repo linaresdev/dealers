@@ -9,10 +9,13 @@ namespace Delta\Http\Support\Seller;
 */
 
 use Delta\Model\User;
+use Delta\Model\UserReset;
 use Delta\Alert\Facade\Alert;
 
+
 use Illuminate\Support\Facades\Mail;
-use Delta\Http\Email\Seller\GetMembershepFromMail;
+use Illuminate\Support\Facades\Hash;
+use Delta\Http\Email\Seller\DealerMembershepFromMail;
 
 class UserSupport {
 
@@ -36,8 +39,10 @@ class UserSupport {
 			"__detach" => "dealers/__s2/users/detach"
 		]);
 
+		//dd(now()->addMinutes(1080));
+
 		$data["title"] 		= __("words.users");
-		$data["layout"]		= "layout-md";
+		//$data["layout"]		= "layout-sm";
 		$data["user"]		= $user;
 		$data["ent"] 		= $dealer;
 		$data["users"]		= $this->getUsersFrom($dealer);
@@ -87,7 +92,7 @@ class UserSupport {
 	}
 
 	public function createFromSendMail( $entity ) {
-
+		
 		$data["title"] 		= __("register.sendmail");
 		$data["layout"]		= "layout-md";
 		$data["ent"] 		= $entity;
@@ -95,10 +100,16 @@ class UserSupport {
 		return $data;
 	}
 
-	public function registerFromSendmail( $entity, $request ) {
+	public function registerFromSendmail( $entity, $user, $request ) {
+		
+		$authMailForm = (new UserReset)->create([
+			"email"		=> $request->email,
+			"expired"	=> now()->addMinutes(1080),
+			"token"		=> ($token = \Str::random(mt_rand(15, 45)))
+		]);
 
 		Mail::to($request->email)->send( 
-			new GetMembershepFromMail($entity) 
+			new DealerMembershepFromMail($token, $authMailForm, $entity) 
 		);
 
 		Alert::prefix("system")->success("Solicitud enviada correctamente");

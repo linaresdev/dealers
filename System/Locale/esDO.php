@@ -31,7 +31,7 @@ class esDO {
 
 			"account.update"		=> "Actualizar cuenta",
 			"account.remove"		=> "Remover cuenta",
-
+			"credential.update"		=> "Actualizar credenciales",
 			"client.address"		=> "Dirección del cliente",
 			"client.contact"		=> "Información de contacto",
 			'client.location'		=> "Localización",
@@ -98,11 +98,13 @@ class esDO {
 			"membership.mailship"	=> "Enviar solicitud de registro por correo electrónico.",
 
 			"upload.logo"		=> "Subir logo",	
-
+			"update.account"		=> "Actualizar cuenta",
 			"update.error"			=> "Error al tratar de aucalizar los datos",
+			"update.credentials"	=> "Actualizar credenciales",
 			"update.logo"			=> "Actualizar logo",
 			"update.rol"			=> "Actulizar permiso",
 			"update.successfull" 	=> "Actualización realizada correctamente",
+			"update.password"		=> "Actualizar contraseña",
 
 			"user.add"			=> "Agregar usuario",
 			"user.create"		=> "Crear usuario",
@@ -121,6 +123,9 @@ class esDO {
 			"user.state.4"		=> "Eliminado",
 			"user.search"		=> "Buscar usuarios",
 
+			"new.password"				=> "Nueva contraseña",
+			"new.confirm.password"		=> "Confirmar su nueva contraseña",
+
 			"register.successfull" 	=> "Registro realizado correctamente",
 			"register.error"		=> "Error al tratar de registrar los datos",
 			"register.sendmail"		=> "Enviar solicitud de registro",
@@ -132,10 +137,15 @@ class esDO {
 			"rol.form"					=> "Formulario de funciones",
 			"rol.update.error"			=> "Error al tratar de actualizar lso permisos",
 			"rol.update.successfull"	=> "Permisos actualizados correctamente", 
-
+			"old.password"			=> "Contraseña actual",
 			"organization.new"		=> "Nueva organización",
 			"organization.name"		=> "Nombre de la organización",
 			"organization.update"	=> "Actualizar organización",
+
+			"password.update"		=> "Actualizar contraseña",
+			"password.confirm"		=> "Confirmar contraseña",
+			"password.old.bad"		=> "Contraseña actual invalida",
+			"password.same.bad"		=> "Contraseñas no coinciden",
 
 			"words.administration" 	=> "Adminstración",
 
@@ -156,6 +166,7 @@ class esDO {
 			"words.activate"	=> "Activar",
 			"words.back"		=> "Regresar",
 			"words.contacts"	=> "Contactos",
+			"words.config"		=> "Configuración",
 			"words.companies"	=> "Empresas",
 			"words.corporations"	=> "Corporaciones",
 			"words.cellphone"		=> "Teléfono Celular",
@@ -178,6 +189,7 @@ class esDO {
 			"words.finder"		=> "Buscar",
 			"words.firstname"	=> "Nombre",
 			"words.functions"	=> "Funciones",
+			"words.fullname"	=> "Nombre completo",
 			"words.group"		=> "Grupo",
 			"words.groups"		=> "Grupos",
 			"words.home"		=> "Inicio",
@@ -199,7 +211,9 @@ class esDO {
 			"words.phone"		=> "Teléfono",
 			"words.password"  	=> "Contraseña",
 			"words.public"		=> "Público",
+			"words.publicname"	=> "Nombre publico",
 			"words.private"		=> "Privado",
+			"words.profile"		=> "Perfil",
 			"words.rols"		=> "Funciones",
 			"words.receptionist" => "Recepcionista",
 			"words.remove"		=> "Remover",		

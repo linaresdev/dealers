@@ -42,8 +42,19 @@
 	      					style="width:36px;">
 	      		</a>
 	      		<div class="dropdown-menu">
-	      			<a href="{{__url('profile')}}" class="dropdown-item">
+	      			<a href="{{__url('profiler/'.$UI->id)}}" 
+	      				class="dropdown-item">
 	      				{{$UI->fullname}}
+	      			</a>
+	      			<a href="{{__url('profiler/'.$UI->id.'/update/account')}}" 
+	      				class="dropdown-item">
+	      				{!! __mdi("account-reactivate") !!}
+	      				{{__("update.credentials")}}
+	      			</a>
+	      			<a href="{{__url('profiler/'.$UI->id.'/update/password')}}" 
+	      				class="dropdown-item">
+	      				{!! __mdi("key") !!}
+	      				{{__("update.password")}}
 	      			</a>
 	      			<a href="{{__url('logout')}}" class="dropdown-item">Salir</a>
 	      		</div>

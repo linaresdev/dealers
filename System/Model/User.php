@@ -57,6 +57,27 @@ class User extends Authenticatable {
 		return $this->hasMany(UserMeta::class, "user_id");
 	}
 
+	public function getMeta( $type=null, $key=null ) {
+		if( !empty($type) ) {
+
+			$query = $this->meta()->where("type", $type);
+
+			if( !empty($key) ) {
+				if(($info = $query->where("key", $key)->first()?? null) != null ) {
+					return $info->value ;
+				}
+
+				return $info;
+			}
+
+			return $query->get();
+		}		
+	}
+
+	public function info( $key ) {
+		return $this->getMeta("info", $key);
+	}
+
 	public function hasMeta( $type, $key) {
 		return(
 			$this->meta()->where("type", $type)
@@ -99,6 +120,14 @@ class User extends Authenticatable {
 
     public function org($slug) {
     	return $this->groups->where("type", "organization")->where("slug", $slug)->first() ?? null;
+    }
+
+    public function orgParents($ID) {
+    	return $this->groups->where("parent", $ID);
+    }
+
+    public function orgHasParents($ID) {
+    	return ($this->groups->where("parent", $ID)->count() > 0);  
     }
 
     public function hasOrg($type) {
@@ -165,6 +194,13 @@ class User extends Authenticatable {
 		$data->delete 	= $data->pivot->delete;
 
 		return $data;
+	}
+
+	public function hasDealer() {
+		return ($this->groups->where("type", "dealer")->count() > 0 );
+	}
+	public function dealers() {
+		return $this->groups->where("type", "dealer");
 	}
 
 	public function getDealers() {

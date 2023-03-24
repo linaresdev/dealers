@@ -12,13 +12,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserReset extends Model {
 
-	protected $table = "name";
+	protected $table = "users_reset";
 
 	protected $fillable = [
 		"email",
 		"token",
 		"path",
-		"expired"
+		"expired",
 		"created_at",
 		"updated_at"
 	];

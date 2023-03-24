@@ -59,7 +59,9 @@ class UserController extends Controller {
 	}
 
 	public function registerFromSendmail( $entity, SendMail $request ) {
-		return $this->support->registerFromSendmail( $entity, $request );
+		return $this->support->registerFromSendmail( 
+			$entity, $this->user(), $request 
+		);
 	}
 
 	public function add( $entity ) {

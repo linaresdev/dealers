@@ -61,7 +61,6 @@ class BS5 {
    /*
    * MAGI SUMMONER FILTER */
    public function __call( $method, $args ) {
-
       if( array_key_exists($method, $this->filters) ) {
 
          $value = $args[0];
