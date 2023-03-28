@@ -12,8 +12,10 @@ Route::post("/login", "LoginController@attempt");
 
 Route::get("/logout", "LoginController@logout");
 
-Route::get("/membership/from/{dealer}/{token}", "MembershipController@fromToken");
-
+Route::prefix("membership")->middleware("web")->group( function() {
+	Route::get("/from/{dealer}/{token}","MembershipController@fromToken");
+	Route::post("/from/{dealer}/{token}","MembershipController@create");
+});
 
 Route::prefix("profiler")->middleware("web")->group(
 	__DEALER__."/Http/Route/profile.php"

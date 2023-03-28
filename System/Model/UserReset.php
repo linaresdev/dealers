@@ -15,17 +15,25 @@ class UserReset extends Model {
 	protected $table = "users_reset";
 
 	protected $fillable = [
+		"id",
+		"type",
 		"email",
 		"token",
-		"path",
 		"expired",
 		"created_at",
 		"updated_at"
 	];
 
-	//public $timestamps = false;
+	public function getRequest($token) {
+		return $this->where("type", "request")
+				->where("token", $token)->first() ?? null;
+	}
 
-	//protected $dateFormat = 'U';
+	public function currentMinut() {
+		if($this->count() > 0 ){
+			return $this->created_at->diffInMinutes();			
+		}
+	}
 }
 
 /* End of Model UserReset.php */

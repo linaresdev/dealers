@@ -41,6 +41,7 @@ class esDO {
 			"client.rnc"			=> "RNC del cliente",
 			"client.cellphone"		=> "Numero de telefono celular del cliente",
 			"client.sector"			=> "Sector",
+			'close.eyelash'			=> "Puede cerrar esta pestaña",
 			"content.empty"			=> "Sin contenido",
 
 			"customer.name"			=> "Nombre del cliente",
@@ -126,11 +127,19 @@ class esDO {
 			"new.password"				=> "Nueva contraseña",
 			"new.confirm.password"		=> "Confirmar su nueva contraseña",
 
+			"register.form"			=> "Formulario de registro",
+			"register.membership"	=> "Solicitud de registro",
 			"register.successfull" 	=> "Registro realizado correctamente",
 			"register.error"		=> "Error al tratar de registrar los datos",
 			"register.sendmail"		=> "Enviar solicitud de registro",
 
+
 			"request.edit-password" => "Solicitar cambio de contraseña",
+
+			"request.membership.corrupted"	=> "Esta solicitud esta corrupta o fue alterada",
+			"request.membership.deprecated" => "Esta solicitud expiro.",
+			"request.membership.empty"		=> "Esta solicitud no existe",
+			"request.membership.error"		=> "Solicitud con errores",
 
 			"required.all"			=> "Todos los campos son requeridos",
 
@@ -210,6 +219,8 @@ class esDO {
 			"words.organizations"	=> "Organizaciones",
 			"words.phone"		=> "Teléfono",
 			"words.password"  	=> "Contraseña",
+			"words.pwd"  		=> "Contraseña",
+			"words.rpwd"		=> "Confirmar contraseña",
 			"words.public"		=> "Público",
 			"words.publicname"	=> "Nombre publico",
 			"words.private"		=> "Privado",
@@ -246,7 +257,8 @@ class esDO {
 			"search.zone"			=> "Buscar zona o sector",
 			"send.membership"		=> "Enviar membresía",
 
-			"success.delete" => ""
+			"success.delete" => "",
+			"seller.membership.validate.bad" => "Solicitud "
 
     	];
 	}

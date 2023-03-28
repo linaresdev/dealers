@@ -9,6 +9,11 @@ namespace Delta\Http\Support;
 */
 
 
+
+
+use Illuminate\Support\Facades\Validator;
+use Delta\Http\Request\Ruls\MailMembershipRol;
+
 class Membership {
 
 	protected $app;
@@ -16,12 +21,19 @@ class Membership {
 	public function __construct() {	
 	}
 
-	public function dataFromToken($dealer, $token) { //dd(now()->create($token->expired)->diffForHumans());
+	public function successFromToken($dealer, $token) {
+
+		$validator = Validator::make(
+			["token" => $token],
+			["token" => new MailMembershipRol()]
+		);	
 
 		$data["title"] 	= "Membership";
 		$data["dealer"] = $dealer;
 		$data["guard"]	= $token;
-
+		$data["passes"]	= $validator->passes();
+		$data["error"]	= $validator->errors();
+		
 		return $data;
 	}
 

@@ -9,6 +9,7 @@ namespace Delta\Http\Controllers;
 */
 
 use Delta\Http\Support\Membership;
+use Delta\Http\Request\Seller\MailMembershipRequest;
 
 class MembershipController extends Controller {	
 
@@ -16,8 +17,15 @@ class MembershipController extends Controller {
 		$this->boot($support);
 	}
 
-	public function fromToken($dealer, $token ) {
-		return $this->support->dataFromToken( $dealer, $token );
+	public function fromToken($dealer,$token ) {
+		return $this->render(
+			"sellers.mailers.register.mailmembership",
+			$this->support->successFromToken($dealer, $token)
+		);
+	}
+
+	public function create( $token, MailMembershipRequest $request ) {
+		dd($request->all());
 	}
 }
 
