@@ -1,53 +1,40 @@
-@extends( "delta::app.dealers.entities.layout" )
+@extends( "delta::app.sellers.layout" )
 	
 	@section("content")
 
-	<article class="box box-light">
+		<article class="block">
+			{!! __mdi("email-arrow-right-outline") !!} 
+			{{ __('membership.mailship') }}
+		</article>
 
-		<header class="box-header">
-			<h4>					
-				{{__("words.membership")}}
-			</h4>
-		</header>
+		<article class="block">
+			<form action="{{__url('__now')}}" method="POST">
+				@csrf
 
-		<section class="box-body">
+				{!! $formback("email") !!}
 
-			<article class="block">
-				{!! __mdi("email-arrow-right-outline") !!} 
-				{{ __('membership.mailship') }}
-			</article>
+				<div class="form-floating mb-2">
+					<input type="email"
+						name="email"
+						value="{{old("email")}}"
+						id="email" 
+						class="form-control"
+						placeholder="{{__("words.email")}}"
+						autocomplete="off">	
 
-			<article class="block">
-				<form action="{{__url('__now')}}" method="POST">
-					@csrf
+					<label for="group">{{__("words.email")}}</label>			
+				</div>
 
-					{!! $formback("email") !!}
+				<a href="{{__url("__user")}}" class="btn btn-secondary btn-sm">
+					{!! __mdi('close') !!}
+					{{__("words.close")}}
+				</a>
 
-					<div class="form-floating mb-2">
-						<input type="email"
-							name="email"
-							value="{{old("email")}}"
-							id="email" 
-							class="form-control"
-							placeholder="{{__("words.email")}}"
-							autocomplete="off">	
-
-						<label for="group">{{__("words.email")}}</label>					
-					</div>
-
-					<a href="{{__url("__user")}}" class="btn btn-secondary btn-sm">
-						{!! __mdi('close') !!}
-						{{__("words.close")}}
-					</a>
-
-					<button class="btn btn-primary btn-sm">
-						{!! __mdi("send") !!} 
-						{{ __('words.send') }}
-					</button>
-				</form>
-			</article>
-
-		</section>
-	</article>
+				<button class="btn btn-primary btn-sm">
+					{!! __mdi("send") !!} 
+					{{ __('words.send') }}
+				</button>
+			</form>
+		</article>
 
 	@endsection

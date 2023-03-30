@@ -1,10 +1,14 @@
 @extends( "delta::app.sellers.layout" )
 
-	@section("content")	
-	
-	<article class="box box-light py-3">
+		@section("content")	
 
-		<section class="box-body">
+			<article class="block">
+				<a href="{{__url("seller/register")}}" 
+					class="btn btn-primary btn-sm">
+					{!! __mdi("storefront-plus") !!}
+					{!! __("dealer.new") !!}
+				</a>
+			</article>
 
 			<article class="block">				
 				<input type="text"
@@ -15,7 +19,7 @@
 			</article>
 
 			<table class="table">
-				<thead class="bg-light">
+				<thead class="bg-light border-top">
 					<tr>
 						<th class="ftool py-2"><input type="checkbox"></th>
 						<th class="py-2">{{__("words.name")}}</th>
@@ -87,10 +91,10 @@
 					@endforeach
 				</tbody>
 			</table>
+			<article class="block"></article>
 
-		</section>
-	</article>
-	@endsection
+		
+		@endsection
 
 	@section("js")
 		@parent <script type="text/javascript">

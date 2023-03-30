@@ -21,7 +21,6 @@ class SellerSupport {
 
 	public function share() {
 
-		$data["layout"] = "layout-md";
 		$data["hasError"] = function($name) {
 			if( session()->has("errors") ) {
 				$errors = session()->get("errors");
@@ -30,6 +29,12 @@ class SellerSupport {
 				);
 			}
 		};
+
+		$data["isOn"] = (function($url){
+			if( $url == request()->path()) {
+				return " active";
+			}
+		});
 
 		return $data;
 	}
@@ -43,6 +48,8 @@ class SellerSupport {
 		
 		$data["title"] 		= "Dealers";
 		$data["dealers"] 	= $this->getDealers(10);
+		
+		$data["layout"] = "layout-sm";
 
 		return $data;
 	}
@@ -60,6 +67,7 @@ class SellerSupport {
 	public function register() {
 		
 		$data["title"] 		= __("dealer.new");
+		$data["layout"] 	= "layout-sm";
 		
 		return $data;
 	}

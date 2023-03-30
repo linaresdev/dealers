@@ -1,4 +1,4 @@
-@extends( "delta::app.dealers.entities.layout" )
+@extends( "delta::app.sellers.entities.layout" )
 	
 	@section("content")
 

@@ -37,6 +37,16 @@ class Group extends Model {
       return $this->where("type", "organization")->where("slug", $slug)->first();
    }
 
+   public function getOrgUsers($slug) {
+      $data = $this->where("type", "organization")
+                  ->where("slug", $slug)
+                  ->first() ?? null;
+
+      if( $data != null ) {
+         return $data->users->take(8);
+      }
+   }
+
    public function ID($slug) {
 
       if( ($query = ($this->where("slug", $slug)->first() ?? null)) != null ) {

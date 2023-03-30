@@ -4,6 +4,7 @@
 	
 	<article class="row">
 		<section class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12">
+
 			
 			<article class="box box-light">
 				<header class="box-header mb-2">
@@ -11,6 +12,8 @@
 						{!! __mdi("gift") !!}
 						{{__("register.membership")}}
 					</h4>
+
+					{!! Alert::tag("system") !!}
 				</header>
 
 				<section class="box-body">
@@ -94,7 +97,7 @@
 									<input type="email"
 										id="email" 
 										name="email"
-										value="{{old('email')}}" 
+										value="{{old('email', $request->email)}}" 
 										class="form-control"
 										placeholder="{{__("words.email")}}"
 										autocomplete="off">
@@ -135,6 +138,7 @@
 							</div>
 
 							<div class="pb-2">
+								<input type="hidden" name="entity" value="{{$dealer}}">
 								@csrf
 								<a href="#" class="btn btn-danger btn-sm">
 									{!! __mdi("close") !!} {{__("words.close")}}

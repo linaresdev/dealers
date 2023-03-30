@@ -24,8 +24,8 @@ class MembershipController extends Controller {
 		);
 	}
 
-	public function create( $token, MailMembershipRequest $request ) {
-		dd($request->all());
+	public function create( $dealer, $token, MailMembershipRequest $request ) {
+		return $this->support->create( $dealer, $token, $request );
 	}
 }
 

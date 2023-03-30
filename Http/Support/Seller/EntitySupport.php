@@ -21,6 +21,13 @@ class EntitySupport {
 		$data["title"] 		= __("words.entities");
 		$data["ent"]		= $ent;
 		$data["users"]		= $ent->users;
+		$data["layout"]		= "layout-sm";
+
+		$data["isOn"] = (function($url){
+			if( $url == request()->path()) {
+				return " active";
+			}
+		});
 
 		return $data;
 	}

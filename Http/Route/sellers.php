@@ -21,6 +21,10 @@ Route::post("/update/{__orgID}/logo", "SellerController@updateLogo");
 
 Route::get("/delete/{__orgID}", "SellerController@delete");
 
+Route::prefix("account")->namespace("Account")->group( function($route) {
+    Route::get("/", "UserController@index");
+});
+
 Route::prefix("entity")->group( function($route) {
     Route::prefix("{__orgID}")->group( function($route) {
 

@@ -8,6 +8,7 @@ namespace Delta\Http\Request\Ruls;
  *---------------------------------------------------------
 */
 
+use Delta\Model\Group;
 use Delta\Model\UserReset;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Contracts\Validation\InvokableRule;
@@ -34,6 +35,7 @@ class MailMembershipRol implements InvokableRule {
 		}
 
 		if( $token->currentMinut() > config("membership.minut.max", 1080) ) {
+			$token->delete();
 			$fail(__("request.membership.deprecated"));
 		}
     }

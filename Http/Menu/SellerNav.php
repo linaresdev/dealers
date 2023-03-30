@@ -25,18 +25,12 @@ class SellerNav extends Accessor {
 
 	public function authorize( $login ) {
 
-		if($login->hasRol("seller")) {
+		if($login->hasOrg("seller")) {
 
 			$this->item(10, [
-				"icon" 	=> "mdi-cog",
-				"label" => __("dealer.manager"),
-				"url"	=> [
-					[
-						"icon" 		=> "mdi-storefront",
-						"label" 	=> __("words.dealers"),
-						"url"		=> "seller",
-					]					
-				]
+				"icon" 	=> "mdi-storefront",
+				"label" => __("words.seller"),
+				"url"	=> "seller"
 			]);
 		}
 	}

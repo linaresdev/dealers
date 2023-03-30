@@ -97,6 +97,9 @@ class esDO {
 			"load.logo"			=> "Cargar logo",
 
 			"membership.mailship"	=> "Enviar solicitud de registro por correo electrónico.",
+			"membership.register.successfull"	=> "Membresía registrada correctamente",
+
+			"membership.register.error"	=> "Ocurrió un error; No fue posible registrar su membresía",
 
 			"upload.logo"		=> "Subir logo",	
 			"update.account"		=> "Actualizar cuenta",
@@ -258,7 +261,11 @@ class esDO {
 			"send.membership"		=> "Enviar membresía",
 
 			"success.delete" => "",
-			"seller.membership.validate.bad" => "Solicitud "
+			"seller.membership.validate.bad" => "Solicitud ",
+
+			'validation.email' => 'El campo :attribute debe ser una dirección de correo válida.',
+			'validation.required'  => 'El campo :attribute es obligatorio.',
+			'validation.unique'    => 'El valor del campo :attribute ya está en uso.',
 
     	];
 	}

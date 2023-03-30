@@ -20,9 +20,9 @@ class MailMembershipRequest extends FormRequest {
         return [
             "firstname" 	=> "required",
             "lastname" 		=> "required",
-            "cellphone" 	=> "required",
-            "rnc" 			=> "required",
-            "email" 		=> "required",
+            "cellphone" 	=> "required|unique:users,cellphone",
+            "rnc" 			=> "required|unique:users,rnc",
+            "email" 		=> "required|unique:users,email",
             "pwd" 			=> "required",
             "rpwd"			=> "required"
         ];

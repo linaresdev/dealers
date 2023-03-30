@@ -42,10 +42,16 @@ class UserSupport {
 		//dd(now()->addMinutes(1080));
 
 		$data["title"] 		= __("words.users");
-		//$data["layout"]		= "layout-sm";
+		$data["layout"]		= "layout-sm";
 		$data["user"]		= $user;
 		$data["ent"] 		= $dealer;
 		$data["users"]		= $this->getUsersFrom($dealer);
+
+		$data["isOn"] = (function($url){
+			if( $url == request()->path()) {
+				return " active";
+			}
+		});
 
 		return $data;
 	}
@@ -53,9 +59,15 @@ class UserSupport {
 	public function register( $user, $dealer ) {		
 
 		$data["title"] 		= __("words.register");
-		$data["layout"]		= "layout-md";
 		$data["user"]		= $user;
 		$data["ent"] 		= $dealer;
+
+		$data["layout"]		= "layout-sm";
+		$data["isOn"] = (function($url){
+			if( $url == request()->path()) {
+				return " active";
+			}
+		});
 
 		return $data;
 	}
@@ -94,8 +106,14 @@ class UserSupport {
 	public function createFromSendMail( $entity ) {
 		
 		$data["title"] 		= __("register.sendmail");
-		$data["layout"]		= "layout-md";
-		$data["ent"] 		= $entity;
+		$data["ent"] 		= $entity;	
+
+		$data["layout"]		= "layout-sm";
+		$data["isOn"] = (function($url){
+			if( $url == request()->path()) {
+				return " active";
+			}
+		});
 
 		return $data;
 	}
@@ -103,6 +121,7 @@ class UserSupport {
 	public function registerFromSendmail( $entity, $user, $request ) {
 		
 		$authMailForm = (new UserReset)->create([
+			"type"		=> "request",
 			"email"		=> $request->email,
 			"expired"	=> now()->addMinutes(1080),
 			"token"		=> ($token = \Str::random(mt_rand(15, 45)))
@@ -121,7 +140,14 @@ class UserSupport {
 		
 		$data["title"] 	= __("user.add");
 		$data["ent"]	= $ent;
-		$data["layout"] = "layout-md";
+
+		$data["layout"]	= "layout-sm";
+		
+		$data["isOn"] 	= (function($url){
+			if( $url == request()->path()) {
+				return " active";
+			}
+		});
 
 		return $data;
 	}
