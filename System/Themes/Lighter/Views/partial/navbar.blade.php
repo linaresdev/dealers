@@ -13,7 +13,7 @@
             	<img src="{{__url('__cdn/images/wdelta.png')}}"
             			class="logon" 
             			alt="">
-               Delta Comercial, S. A.
+               <span class="text">Delta Comercial, S. A.</span>
             </a>
                            
          </div>

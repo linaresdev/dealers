@@ -7,6 +7,16 @@
  *---------------------------------------------------------
 */
 
+## AUTH STABLE
+if( $user->activated != 1 )  {
+    $auth->logout();
+    $validator = Validator::make(["field" => null], ["field" => "required"]);
+    $validator->errors()->add('login', __("auth.".$user->activated));
+
+    return redirect('/login')->withErrors($validator);
+}
+
+
 ## AUTH USER CONFIGS
 $user->loadConfig();
 

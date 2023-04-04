@@ -593,6 +593,17 @@ form .error.error-slow {
 	}*/
 }
 
+@media( max-width: 580px ) {
+	[role=lighter].layout-sm {
+		margin-left: 0%;
+		width: 100%;
+	}
+
+	[role=lighter] .lighter-navbar .brand .text {
+		display: none;
+	}
+}
+
 /*
 * TABLE */
 .table .ftool {

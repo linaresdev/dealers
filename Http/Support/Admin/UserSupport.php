@@ -65,19 +65,13 @@ class UserSupport {
 
 	public function create($UI, $request ) {
 
-		$fullname = ($firtname 	= $request->firstname)." ".($lastname = $request->lastname);
-		$email = $request->email;
-
-		$this->user->fullname 	= $fullname;
-		$this->user->publicname = $firtname;
-		$this->user->rnc 		= $request->rnc;
-		$this->user->user 		= (explode('@', $email))[0];
-		$this->user->email 		= $email;
-		$this->user->cellphone  = $request->cellphone;
-		$this->user->password 	= $request->rnc;
+		$this->user->fullname 	= $request->fullname;
+		$this->user->user 		= (explode('@', $request->email))[0];
+		$this->user->email 		= $request->email;
+		$this->user->password 	= $request->pwd;
 
 		if( $this->user->save() ) {
-			return redirect('__admin/users');
+			return redirect(__url('__admin/users'));
 		}
 
 		return back()->withInput();

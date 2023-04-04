@@ -15,36 +15,20 @@ use Illuminate\Database\Seeder;
 class Account extends Seeder {
 
 	public function run() {
-
-       
-
-		// (new Group)->create(["slug" => "admin", "group" => "Administrador"]);
-		// (new Group)->create(["slug" => "supervisor", "group" => "Supervisor"]);
-		// (new Group)->create(["slug" => "user", "group" => "Usuario"]);
-
-        // ## DEALERS
-        // (new Group)->create([
-        //     "slug" => "dealers", "group" => "Dealers"
-        // ]);
-
-        // (new Group)->create([
-        //     "parent"=>"dealers", "slug" => "autohaus", "group" => "Autohaus"
-        // ])->addMeta("info", [
-        //     "email"     => "info@autohaus.com.do",
-        //     "phone"     => "809 334 4111",
-        //     "address"   => "Ave. John F. Kennedy, Esq. Gracita Alvarez, Santo Domingo, Rep. Dominicana."
-        // ]);
-
-
+        /*
+        * User Root
+        * Usuario Administrativo */
        	$user = (new User)->create([
-        	"fullname" 		=> "Web Master",
-        	"publicname" 	=> "Admin",
-        	"user"			=> "admin",
-        	"email"			=> "admin@webmaster.lc",
-        	"password"		=> "admin"
+        	"fullname" 		=> "Delta Comercial",
+        	"publicname" 	=> "Delta",
+        	"user"			=> "delta",
+        	"email"			=> "delta@webmaster.lc",
+        	"password"		=> "admin",
+            "activated"     => 1
         ]);
 
-         /* Organization */
+        /* Organization 
+        *---------------------------------------------*/
         $group = (new Group)->create([
             "type"      => "organization",
             "slug"      => "admin", 
@@ -53,32 +37,39 @@ class Account extends Seeder {
             "access"    => 1
         ]);
 
-        $user->orgSync($group->id);
+        $user->orgSync($group->id, [
+            "insert" => 1, "update" => 1, "delete" => 1
+        ]);
 
         $group = (new Group)->create([
             "type"      => "organization",
-            "slug"      => "dealer", 
-            "group"     => "Dealer",
+            "slug"      => "profiler", 
+            "group"     => "Profiler",
+            "icon"      => "account-circle",
+            "access"    => 1
+        ]);
+
+        $group = (new Group)->create([
+            "type"      => "organization",
+            "slug"      => "seller", 
+            "group"     => "Seller",
             "icon"      => "storefront-outline",
             "access"    => 1
         ]);
 
+        $user->orgSync($group->id, [
+            "insert" => 1, "update" => 1, "delete" => 1
+        ]);
+
+        $group = (new Group)->create([
+            "type"      => "organization",
+            "slug"      => "warranty", 
+            "group"     => "Warranty",
+            "icon"      => "certificate",
+            "access"    => 1
+        ]);
+
         $user->orgSync($group->id);
-
-        // $user->syncGroup("admin", [
-        //     "insert" => 1, "update" => 1, "delete" => 1
-        // ]);
-        // $user->syncGroup("user", [
-        //     "insert" => 1, "update" => 1, "delete" => 1
-        // ]);
-
-        // $user->syncGroup("dealers", [
-        //     "insert" => 1, "update" => 1, "delete" => 1
-        // ]);
-
-        // $user->syncGroup("autohaus", [
-        //     "insert" => 1, "update" => 1, "delete" => 1
-        // ]);
     }
 
 }

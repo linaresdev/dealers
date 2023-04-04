@@ -25,6 +25,10 @@ class esDO {
 			"access.1" 				=> "Privado",
 			"access.deny"			=> "Acceso denegado",
 
+			"auth.0"				=> "Cuenta desabilitada",
+			"auth.2"				=> "Cuenta bloqueada",
+			"auth.3"				=> "Cuenta enviada a legales",
+
 			"admin.groups"			=> "Gestionar grupos",
 			"admin.users"			=> "Administrar usuarios",
 			"admin.slug"			=> "Admin",
@@ -167,6 +171,7 @@ class esDO {
 			"warranty.update"	=> "Actualizar garantía",
 			"warranty.manager"	=> "Gestionar garantias",
 
+			"words.admin"		=> "Administrador",
 			"words.add"			=> "Agregar",
 			"words.account"		=> "Cuenta",
 			"words.access"		=> "Accesos",

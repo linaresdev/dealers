@@ -56,7 +56,7 @@ class Membership {
 		$user->publicname 		= $request->firstname;
 		$user->cellphone 		= $request->cellphone;
 		$user->rnc 				= $request->rnc;
-		$user->user 			= \Str::random(15);
+		$user->user 			= (explode('@', $request->email))[0];
 		$user->email 			= $request->email;
 		$user->password 		= $request->pwd;
 

@@ -20,7 +20,7 @@
 
 					
 					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="card">
+						<div class="card mb-3">
 							<img src="{{__url("__uploads/cars/hilux.png")}}" 
 									alt="@">
 							<div class="card-body">
@@ -36,7 +36,7 @@
 					</div>
 
 					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="card">
+						<div class="card mb-3">
 							<img src="{{__url("__uploads/cars/prado.png")}}" 
 									alt="@">
 							<div class="card-body">
@@ -52,7 +52,7 @@
 					</div>	
 
 					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="card">
+						<div class="card mb-3">
 							<img src="{{__url("__uploads/cars/rush.png")}}" 
 									alt="@">
 							<div class="card-body">
@@ -68,7 +68,7 @@
 					</div>
 
 					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="card">
+						<div class="card mb-3">
 							<img src="{{__url("__uploads/cars/rav4v.png")}}" 
 									alt="@">
 							<div class="card-body">

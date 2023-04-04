@@ -16,9 +16,11 @@ return new class extends Migration {
 
             $table->bigIncrements('id');
 
-            $table->integer('group_id')->unsigned();
+            $table->integer('group_id')->unsigned();            
             
             $table->foreign('group_id')->references('id')->on('users_groups')->onDelete('CASCADE')->onUpdate('CASCADE');
+
+            $table->integer('user_id')->unsigned();
 
             $table->string("niv", 9);
             $table->date("date")->nullable();

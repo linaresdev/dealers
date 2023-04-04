@@ -28,18 +28,35 @@ class Login {
 			"password" => $request->pwd
 		]);
 
+		$validator = Validator::make($request->all(), [
+			"email" => "required"
+		]);
+
 		if( $login ) {
 
-			$auth = Auth::guard("web")->user();
+			$user = ($auth = Auth::guard("web"))->user();
+
+			if( $user->activated != 1 ) {
+
+				if( $user->activated == 0 ) {
+					$validator->errors()->add('login', __("auth.".$user->activated));
+				}
+				if( $user->activated == 2 ) {
+					$validator->errors()->add('login', __("auth.".$user->activated));
+				}
+				if( $user->activated == 3 ) {
+					$validator->errors()->add('login', __("auth.".$user->activated));
+				}
+				
+				$auth->logout();
+
+				return back()->withErrors($validator)->withInput();
+			}			
 
 			$request->session()->regenerate();
 
             return redirect()->intended('/');
-		}
-
-		$validator = Validator::make($request->all(), [
-			"email" => "required"
-		]);
+		}		
 
 		$validator->errors()->add(
             'login', 'Berifique las credenciales suministradas'

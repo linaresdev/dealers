@@ -30,7 +30,7 @@ class App extends Accessor {
 		foreach($navSellers as $key => $row ) {
 			$this->item($key, [
 				"icon" 	=> "mdi-".$row->icon,
-				"label" => $row->group,
+				"label" => __("words.".$row->slug),
 				"url"	=> $row->slug
 			]);
 		}

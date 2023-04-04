@@ -161,8 +161,13 @@ class User extends Authenticatable {
     	}
     }
 
-    public function orgSync( $ID ) {
-    	$this->groups()->attach($ID);
+    public function orgSync( $ID, $rols=null ) {
+
+    	if( !empty($rols) && is_array($rols) ) {
+    		return $this->groups()->attach([$ID => $rols]);
+    	}
+
+    	return $this->groups()->attach($ID);
     }
 
     public function syncGroup( $group, $rols ) {

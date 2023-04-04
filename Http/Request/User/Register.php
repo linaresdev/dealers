@@ -18,10 +18,8 @@ class Register extends FormRequest {
 
     public function rules() {
         return [
-        	"firstname"		=> "required",
-        	"lastname"		=> "required",
+        	"fullname"		=> "required",
         	"email"			=> "required|unique:users,email",
-        	"rnc"			=> "required",
         	"pwd"			=> "required",
         	"passconfirm"	=> "required|same:pwd",
 

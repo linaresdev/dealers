@@ -7,7 +7,7 @@
 	<article class="box box-light">
 
 		<header class="box-header">
-			<h4>{{__("user.form")}}</h4>
+			<h4>{{__("words.form")}}</h4>
 		</header>
 
 		<section class="box-body pt-3">
@@ -18,23 +18,23 @@
 				<article class="block">
 
 					<div class="form-group pb-2">
-						{!! $hasError("firstname") !!}
+						{!! $hasError("fullname") !!}
 
 						<div class="form-floating">
 							<input type="text" 
-								id="firstname"
-								name="firstname"
-								value="{{old('firstname')}}" 
+								id="fullname"
+								name="fullname"
+								value="{{old('fullname')}}" 
 								class="form-control"
-								placeholder="{{__("words.firstname")}}">
+								placeholder="{{__("words.fullname")}}">
 
-							<label for="firstname">
-								{{__("words.firstname")}}
+							<label for="fullname">
+								{{__("words.fullname")}}
 							</label>
 						</div>
 					</div>
 
-					<div class="form-group pb-3">
+					{{-- <div class="form-group pb-3">
 
 						{!! $hasError("lastname") !!}
 
@@ -83,7 +83,7 @@
 								{{__("words.cellphone")}}
 							</label>
 						</div>	
-					</div>
+					</div> --}}
 
 					<div class="form-group pb-3">
 
