@@ -30,6 +30,11 @@ if( !function_exists("__path") ) {
 ## URLS
 if( !function_exists("__url") ) {
    function __url($uri=null, $parameters=[], $secure=null ) {
+
+      if($secure == null ) {
+         $secure = env("APP_SSL", false);
+      }
+      
       return app("urls")->url($uri, $parameters, $secure);
    }
 }
