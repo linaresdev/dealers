@@ -11,9 +11,9 @@ namespace Delta\Http\Request\Ruls;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Contracts\Validation\InvokableRule;
 
-class ZoneRul implements InvokableRule {
+class ZoneRul implements Rule {
 
-	public function __invoke( $attribute, $value, $fail ) {
+	public function passes( $attribute, $value ) {
        	
        	$data = new \Delta\Model\Zona();
 
@@ -21,7 +21,11 @@ class ZoneRul implements InvokableRule {
 			return TRUE;
 		}
 
-		$fail(__("form.error.exists"));
+		return false;
+    }
+
+    public function message() {
+    	return __("form.error.exists");
     }
 }
 
