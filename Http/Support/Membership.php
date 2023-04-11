@@ -52,13 +52,13 @@ class Membership {
 
 		$user = (new User);
 
-		$user->fullname 		= ($request->firstname." ".$request->lastname);
-		$user->publicname 		= $request->firstname;
+		$user->fullname 		= $request->fullname;
+		$user->publicname 		= ($username = (explode('@', $request->email))[0]);
 		$user->cellphone 		= $request->cellphone;
-		$user->rnc 				= $request->rnc;
-		$user->user 			= (explode('@', $request->email))[0];
+		$user->user 			= $username;
 		$user->email 			= $request->email;
 		$user->password 		= $request->pwd;
+		$user->activated 		= 1;
 
 		if( $user->save() ) {
 

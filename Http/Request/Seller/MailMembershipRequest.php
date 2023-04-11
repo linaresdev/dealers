@@ -18,10 +18,8 @@ class MailMembershipRequest extends FormRequest {
 
     public function rules() {
         return [
-            "firstname" 	=> "required",
-            "lastname" 		=> "required",
+            "fullname" 	    => "required",
             "cellphone" 	=> "required|unique:users,cellphone",
-            "rnc" 			=> "required|unique:users,rnc",
             "email" 		=> "required|unique:users,email",
             "pwd" 			=> "required",
             "rpwd"			=> "required"

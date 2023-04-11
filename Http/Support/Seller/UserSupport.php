@@ -119,8 +119,10 @@ class UserSupport {
 	}
 
 	public function registerFromSendmail( $entity, $user, $request ) {
+
+		($UI = (new UserReset))->where("email", $request->email)->delete();
 		
-		$authMailForm = (new UserReset)->create([
+		$authMailForm = $UI->create([
 			"type"		=> "request",
 			"email"		=> $request->email,
 			"expired"	=> now()->addMinutes(1080),

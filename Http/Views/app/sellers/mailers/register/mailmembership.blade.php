@@ -27,31 +27,14 @@
 								)!!}
 								<div class="form-floating">
 									<input type="text"
-										id="firstname" 
-										name="firstname"
-										value="{{old('firstname')}}" 
+										id="fullname" 
+										name="fullname"
+										value="{{old('fullname')}}" 
 										class="form-control"
-										placeholder="{{__("words.firstname")}}"
+										placeholder="{{__("words.fullname")}}"
 										autocomplete="off">
 
-									<label for="firstname">{{__("words.firstname")}}</label>
-								</div>
-							</div>
-
-							<div class="pb-2">
-								{!!$errors->first(
-									"lastname", '<p class="error error-slow">:message </p>'
-								)!!}
-								<div class="form-floating">
-									<input type="text"
-										id="lastname" 
-										name="lastname"
-										value="{{old('lastname')}}" 
-										class="form-control"
-										placeholder="{{__("words.lastname")}}"
-										autocomplete="off">
-										
-									<label for="lastname">{{__("words.lastname")}}</label>
+									<label for="fullname">{{__("words.fullname")}}</label>
 								</div>
 							</div>
 
@@ -69,23 +52,6 @@
 										autocomplete="off">
 										
 									<label for="cellphone">{{__("words.cellphone")}}</label>
-								</div>
-							</div>
-
-							<div class="pb-2">
-								{!!$errors->first(
-									"rnc", '<p class="error error-slow">:message </p>'
-								)!!}
-								<div class="form-floating">
-									<input type="text"
-										id="rnc" 
-										name="rnc"
-										value="{{old('rnc')}}" 
-										class="form-control"
-										placeholder="{{__("words.rnc")}}"
-										autocomplete="off">
-										
-									<label for="rnc">{{__("words.rnc")}}</label>
 								</div>
 							</div>
 
