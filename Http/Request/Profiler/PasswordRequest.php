@@ -8,6 +8,7 @@ namespace Delta\Http\Request\Profiler;
  *---------------------------------------------------------
 */
 
+use Delta\Http\Request\Profiler\PwdRul;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PasswordRequest extends FormRequest {	

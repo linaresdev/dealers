@@ -11,9 +11,9 @@ namespace Delta\Http\Request\Profiler;
 use Delta\Model\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Validation\Rule;
-use Illuminate\Contracts\Validation\InvokableRule;
+## use Illuminate\Contracts\Validation\InvokableRule;
 
-class PwdRul implements InvokableRule {	
+class PwdRul implements Rule {	
 
 	protected $request;
 
@@ -21,13 +21,19 @@ class PwdRul implements InvokableRule {
 		$this->request 	= $request;	
 	}
 
-	public function __invoke($attribute, $value, $fail ) {
+	public function passes( $attribute, $value ) {
 
 		$user = (new User)->find($this->request->get("id"));
 
 		if( !Hash::check($this->request->get("oldpwd"), $user->password) ) {
-			$fail(__("password.old.bad"));
+			return false;
 		}
+
+		return true;
+	}
+
+	public function message() {
+		return __("password.old.bad");
 	}
 }
 
