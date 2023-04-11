@@ -11,34 +11,47 @@ namespace Delta\Http\Request\Ruls;
 use Delta\Model\Group;
 use Delta\Model\UserReset;
 use Illuminate\Contracts\Validation\Rule;
-use Illuminate\Contracts\Validation\InvokableRule;
+#use Illuminate\Contracts\Validation\InvokableRule;
 
-class MailMembershipRol implements InvokableRule {
+class MailMembershipRol implements Rule {
 
-	public function __invoke( $attribute, $value, $fail ) {
+	protected $news;
+
+	public function passes( $attribute, $value, $fail ) {
 
 		$minLen = (strlen($value) < config("membership.token.max.len", 15));
 		$maxLen = (strlen($value) > config("membership.token.min.len", 45));
 
 		if( empty($value) ) {
-			$fail(__("request.membership.empty"));
+			$this->news = __("request.membership.empty");
+			return false;
 		}
 
 		if( $minLen OR $maxLen ) {
 			if( empty( ($token = (new UserReset)->getRequest($value)) ) ) {
-				$fail( __("request.membership.corrupted") );
+				$this->news = __("request.membership.corrupted");
+				return false;
 			}
 		}
 
 		if( ($token = (new UserReset)->getRequest($value)) == null ) {
-			return $fail(__("request.membership.empty"));
+			$this->news = __("request.membership.empty");
+			return false;
 		}
 
 		if( $token->currentMinut() > config("membership.minut.max", 1080) ) {
+			
 			$token->delete();
-			$fail(__("request.membership.deprecated"));
+			$this->news = __("request.membership.deprecated");
+			return false;
 		}
+
+		return true;
     }
+
+    public function message() {
+		return $this->news;
+	}
 }
 
 /* End of Controller LoginRul.php */
