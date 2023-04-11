@@ -17,7 +17,7 @@ class MailMembershipRol implements Rule {
 
 	protected $news;
 
-	public function passes( $attribute, $value, $fail ) {
+	public function passes( $attribute, $value ) {
 
 		$minLen = (strlen($value) < config("membership.token.max.len", 15));
 		$maxLen = (strlen($value) > config("membership.token.min.len", 45));
@@ -40,7 +40,7 @@ class MailMembershipRol implements Rule {
 		}
 
 		if( $token->currentMinut() > config("membership.minut.max", 1080) ) {
-			
+
 			$token->delete();
 			$this->news = __("request.membership.deprecated");
 			return false;
