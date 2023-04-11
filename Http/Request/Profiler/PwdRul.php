@@ -28,8 +28,6 @@ class PwdRul implements InvokableRule {
 		if( !Hash::check($this->request->get("oldpwd"), $user->password) ) {
 			$fail(__("password.old.bad"));
 		}
-		
-		return;
 	}
 }
 
