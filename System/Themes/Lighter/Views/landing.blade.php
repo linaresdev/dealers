@@ -71,8 +71,8 @@
 			      		</a>
 			      		<div class="dropdown-menu dropdown-menu-end">
 			      			<a href="{{__url('profiler/'.$UI->id)}}" 
-			      				class="dropdown-item">
-			      				{{$UI->fullname}}
+			      				class="dropdown-item toggled">
+				      			{{$UI->fullname}}
 			      			</a>
 			      			<a href="{{__url('profiler/'.$UI->id.'/update/account')}}" 
 			      				class="dropdown-item">
