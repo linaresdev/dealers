@@ -24,9 +24,8 @@
 		<nav class="navbar navbar-lighter navbar-expand-sm">
 
 			<a href="{{__url('/')}}" class="navbar-brand">
-				<img src="{{__url('__cdn/images/wdelta.png')}}"
-            			class="logon"
-            			width="36" 
+				<img src="{{__url('__cdn/images/logo.png')}}"
+            			class="logon" 
             			alt="">
 
 				<span class="text-toggle-sm">
@@ -34,20 +33,24 @@
 				</span>
 			</a>
 
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
+			<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="mdi mdi-menu mdi-24px"></i>
 			</button>
 
-			<div class="collapse navbar-collapse">
+			<div id="mainNav" class="collapse navbar-collapse">		
 
 				<ul class="navbar-nav ms-auto">
 
 			      	@if(auth("web")->check())
+
 			      	<li class="nav-item dropdown">
 
 			      		<a href="#" class="nav-link dropdown-toggle"
 			      				data-bs-toggle="dropdown">
 			      			<i class="mdi mdi-apps"></i>
+			      			<span class="text-toggle">
+			      				{{__("words.aplications")}}
+			      			</span>
 			      		</a>
 
 			      		<div class="dropdown-menu dropdown-menu-end">
@@ -62,6 +65,9 @@
 			      					alt="@"
 			      					class="avatar avatar-circle" 
 			      					style="width:36px;">
+			      			<span class="text-toggle">
+			      				{{$UI->fullname}}
+			      			</span>
 			      		</a>
 			      		<div class="dropdown-menu dropdown-menu-end">
 			      			<a href="{{__url('profiler/'.$UI->id)}}" 

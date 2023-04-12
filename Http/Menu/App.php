@@ -24,15 +24,12 @@ class App extends Accessor {
 
 	public function authorize( $login ) {
 
-		//dd($login->hasRol("organization"));
 		$navSellers = $login->groups->where("type", "organization");
 
 		foreach($navSellers as $key => $row ) {
-			$this->item($key, [
-				"icon" 	=> "mdi-".$row->icon,
-				"label" => __("words.".$row->slug),
-				"url"	=> $row->slug
-			]);
+			$this->items[$key]["icon"] 	= "mdi-".$row->icon;
+			$this->items[$key]["label"] 	= __("words.".$row->slug);
+			$this->items[$key]["url"] 	= $row->slug;
 		}
 	}
 
@@ -40,55 +37,28 @@ class App extends Accessor {
 		return str_repeat($input, $multiplier);
 	}
 
-	public function icon($icon=NULL) {
+	public function nav($index=4) {	
+		if( !empty($this->items) ) {
 
-		if( empty($icon) ):
-			return NULL;
-		elseif($icon == "toggle"):
-			return '<i class="mdi mdi-segment"></i> ';
-		elseif( preg_match('/^mdi/', $icon) ) :
-			return '<i class="mdi '.$icon.'"></i> ';
-		elseif( preg_match('/^glyphicon/', $icon) ):
-			return '<span class="'.$icon.'"></span> ';
-		elseif ( preg_match('/[jpg|png|svg|gif]/i', $icon) ):
-			return '<img src="'.__url($icon).'" class="navicon" alt="Image"> ';
-		endif;
+			$html = null;
 
-		return NULL;
-	}
+			foreach( $this->items as $K => $V ) {
+				$html .= $this->tab($index+4);
+				$html .= '<a href="'.$V["url"].'" class="dropdown-item">'."\n";
 
-	public function link($item, $index=8) {
+				$html .= __icon($V["icon"]);
+				$html .= $V["label"];
 
-		$tag  =$this->tb($index);
+				$html .= $this->tab($index+4);
+				$html .= "</a>\n";
+			}
 
-		$tag .= '<a href="';
-		$tag .= __url($item["url"]);
-		$tag .= '" class="nav-lens">';
-		$tag .= "\n";
-
-		$tag .= $this->tab($index+4);
-		$tag .= $this->icon($item["icon"]);
-		$tag .= "<br />";
-		$tag .= __($item["label"]);
-		$tag .= "\n";
-
-		$tag .= $this->tab($index);
-		$tag .= "</a>";
-
-		return $tag;
+			return $html;
+		}
 	}
 
 	public function items( $index=4 ) {
-
-		$skin = $this->skins["bs5"];
-      	$skin = new $skin();
-
-      	$skin->addFilterStyle("match", [
-        	":node0" => "nav nav-org",
-      	]);
-
-      	$skin->addItems($this->get("stors"));
-      	return $skin->nav(12);
+		return $this->nav($index);
 	}
 }
 

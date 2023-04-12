@@ -1,4 +1,4 @@
-@extends( $skin->path("single") )
+@extends( $skin->path("landing") )
 
 	@section("nav")
 

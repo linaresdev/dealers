@@ -166,6 +166,7 @@ class esDO {
 			"words.administration" 	=> "Adminstración",
 
 			"warranty.add"			=> "Nueva garantía",
+			"words.aplications"		=> "Aplicaciones",
 			"warranty.empty"		=> "No existen garantía registradas para mostrar",
 			"warranty.form"		=> "Formulario de garantía",
 			"warranty.update"	=> "Actualizar garantía",
