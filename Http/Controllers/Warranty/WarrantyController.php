@@ -23,7 +23,7 @@ class WarrantyController extends Controller {
 
 	public function index() {
 		if( ($main = ($user = $this->user())->org("warranty")) != null ) {	
-
+			
 			if( $user->orgHasParents($main->id) ) {
 				$parent = $user->orgParents($main->id)->first();
 				return redirect( "warranty/".$parent->id );

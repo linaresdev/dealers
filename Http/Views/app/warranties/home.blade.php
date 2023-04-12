@@ -2,7 +2,7 @@
 
 	@section("body")
 
-	<header class="p-3">
+	<header class="py-3">
 		<article class="row">
 			<div class="col-auto">
 				<img src="{{__url($org->getMeta("logo"))}}" 

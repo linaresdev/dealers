@@ -2,18 +2,18 @@
 		<nav class="lighter-navbar d-flex flex-wrap justify-content-center justify-content-lg-start">
 			
 			<div class="brand d-flex align-items-center">
+				
+				@if( auth("web")->check() )
+				<a class="nav-toggle" href="#">
+					<i class="mdi mdi-wrap mdi-flip-h"></i>
+				</a>
+				@endif
 
             <a href="{{__url('/')}}" class="bt toggle">
-
             	<img src="{{__url('__cdn/images/wdelta.png')}}"
-            			class="logon"
-            			width="36" 
+            			class="logon" 
             			alt="">
-
-               <span class="text-toggle-sm">
-               	Delta Comercial, S. A.
-               </span>
-
+               <span class="text">Delta Comercial, S. A.</span>
             </a>
                            
          </div>
@@ -60,6 +60,11 @@
 	      		</div>
 	      	</li>
 	      	
+	      	<li class="nav-item nav-toggle">
+	      		<a href="#" class="nav-link">
+	      			<i class="mdi mdi-wrap"></i>
+	      		</a>
+	      	</li>
 	      	@else
 	      	<li class="nav-item">
 	      		<a href="{{__url('login')}}" class="nav-link{{$current('login')}}">

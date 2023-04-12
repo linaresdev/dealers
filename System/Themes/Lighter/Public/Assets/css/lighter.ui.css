@@ -1,0 +1,248 @@
+@charset "utf-8";
+
+body{
+	background: #f3f3f3;
+	padding-top: 65px;
+}
+
+/*
+* Avatar */
+.avatar{
+	border: 2px solid #ddd;
+	height: auto;
+	max-width: auto;
+	min-height: auto;
+	padding: 1px;
+	width: auto;
+}
+.avatar.avatar-circle {
+	border-radius: 50% 50%;
+}
+.avatar.avatar-36px{height: 36px; width: 36px;}
+.avatar.avatar-48px{height: 48px; width: 48px;}
+.avatar.avatar-64px{height: 64px; width: 64px;}
+.avatar.avatar-80px{height: 80px; width: 80px;}
+.avatar.avatar-128px{height: 128px; width: 128px;}
+
+/*
+* Navbar */
+[role=lighter] .navbar-lighter {
+	background: #fff;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);	
+	padding: 0 15px 0 15px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10000;
+}
+
+[role=lighter] .navbar-lighter .navbar-brand .logon {
+	margin: -12px 0 -7px 0;
+}
+
+[role=lighter] .navbar-lighter .navbar-nav .nav-avatar .avatar {
+	margin: -8px 0 -7px 0;
+}
+
+/*
+* MEDIA */
+@media(min-width: 1500px) {
+	[role=lighter] {
+		width: 65%;
+	}
+}
+@media(max-width:1500px) and (min-width: 1200px) {
+	[role=lighter] {
+		width: 70%;
+	}
+}
+@media(max-width:1200px) and (min-width: 880px) {
+	[role=lighter] {
+		width: 90%;
+	}
+}
+
+
+
+
+/*
+* BOX */
+.box {
+	border-radius: 4px 4px;
+	margin-bottom: 15px;
+}
+.box .box-header{
+	padding: 20px 15px 5px 15px;
+}
+.box .box-header h4 {
+	display: inline-block;
+	font-size: 18px;
+	margin: 0 0;
+	padding: 0 0;
+}
+.box .box-header h5 {
+	display: inline-block;
+	font-size: 15px;
+	margin: 0 0;
+	padding: 0 0;
+}
+.box .box-header hgroup {
+	display: table;
+}
+.box .box-header hgroup h4,
+.box .box-header hgroup h5 {
+	display: block;
+}
+
+.box .box-header .nav.nav-tabs {
+	margin: 0 -15px 15px -15px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.box .box-body{}
+
+.box .box-body .block {
+	padding: 0 15px 15px 15px;
+}
+.box .box-body .block h4 {
+	color: #777;
+	font-size: 18px;
+}
+
+/*
+* Box Light */
+.box.box-light {
+	background: #fff;
+	box-shadow: 0 0 1px rgba(0,0,0, 0.1);
+}
+
+.box.box-light .box-nav {
+	background: rgb(248, 249, 250);
+	border-top: 1px solid #E6E6FA;
+}
+
+.box.box-light .box-body .tb {
+	width: 100%;
+}
+.box.box-light .box-body .tb tbody tr:hover {
+	background: rgba(0,0,0, 0.02);
+}
+.box.box-light .box-body .tb td,
+.box.box-light .box-body .tb th {
+	vertical-align: middle;
+}
+
+.box.box-light .box-body .table th,
+.box.box-light .box-body .table td {
+	padding: 0 0;
+}
+.box.box-light .box-body .table td {
+	color: #777;
+	vertical-align: middle;
+	font-size: 14px;
+}
+.box.box-light .box-body .table.table-bordered th{
+	font-size: 15px;
+	padding: 2px 7px;
+}
+.box.box-light .box-body .table.table-bordered td {
+	font-size: 14px;
+	padding: 2px 7px;
+} 
+
+.box.box-light .box-body .table .descriptor a {
+	color: #777;
+	text-decoration: none;
+}
+.box.box-light .box-body .table .descriptor [class*="mdi mdi"] {
+	font-size: 22px;
+	line-height: 90%;
+	position: relative;
+	bottom: -3px;
+}
+
+.box.box-light .box-body .table .action .btn.dropdown-toggle {
+	padding: 0 5px;
+}
+.box.box-light .box-body .table .action .btn.dropdown-toggle::before  {
+	margin-top: -8px;
+}
+.box.box-light .box-footer.box-footer-light {
+	background: rgb(248, 249, 250);
+	border-top: 1px solid #E6E6FA;
+	border-radius: 0 0 4px 4px;
+	padding: 5px 15px;
+}
+
+.box.box-lens {
+	text-align: center;
+}
+.box.box-lens .box-header h4 {
+	font-size: 36px;
+}
+
+/*
+* Box Light Dropdown */
+.box.box-light .box-body .dropdown.simple .dropdown-toggle {
+	color: #777;
+	text-decoration: none;
+} 
+.box.box-light .box-body .action .dropdown .dropdown-menu .dropdown-header [class*="mdi mdi-"] {
+	font-size: 20px;
+	line-height: 100%;
+	position: relative;
+	bottom: -2px;
+}
+.box.box-light .box-body .action .dropdown .dropdown-menu .dropdown-item {
+	font-size: 14px;
+}
+.box.box-light .box-body .action .dropdown .dropdown-menu .dropdown-item.ident {
+	padding-left: 30px;
+}
+
+/*
+* Box Group */
+.box-group .box {
+	background: #fff;
+	border-bottom: 1px solid #ddd;
+	border-radius: 0 0;
+	margin-bottom: 0;
+}
+.box-group .box.box-start{
+	border-radius: 6px 6px 0 0;
+}
+.box-group .box.box-end{
+	border-bottom: none;
+	border-radius: 0 0 6px 6px;
+}
+.box-group .box:last-child .box-body {
+	padding: 20px 0 0 0;
+}
+
+/*
+* TABLE */
+.table .ftool {
+	text-align: center;
+	width: 40px;
+}
+.table .action {
+	text-align: right;
+	padding-right: 10px !important;
+	width: 100px;
+}
+.table td.action {
+	text-align: right;
+	padding-right: 20px !important;
+}
+.table .action .dropdown-toggle {
+	color: #777;
+	text-decoration: none;
+}
+.table .action .dropdown-toggle .mdi-action {
+	font-size: 24px;
+	line-height: 90%;
+	position: relative;
+	bottom: -2px;
+}

@@ -18,6 +18,7 @@
 					onkeyup="srcDealer(this)">				
 			</article>
 
+			<div class="table-responsive">
 			<table class="table">
 				<thead class="bg-light border-top">
 					<tr>
@@ -91,6 +92,7 @@
 					@endforeach
 				</tbody>
 			</table>
+			</div>
 			<article class="block"></article>
 
 		

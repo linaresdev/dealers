@@ -1,4 +1,4 @@
-@extends( $skin->path("single") )
+@extends( $skin->path("landing") )
 
 	@section("nav")
 
@@ -8,7 +8,7 @@
 
 	@section("body")
 
-		<header class="mb-3">
+		<header class="my-3">
 			<h4>
 				{!! __mdi("storefront-outline") !!}
 				{{__("words.dealers")}}
@@ -17,7 +17,7 @@
 			{!! Alert::tag("system") !!}
 		</header>
 
-		<article class="box box-light">
+		<section class="box box-light">
 			<header class="box-header">
 				<nav class="nav nav-tabs">
 					<li class="nav-item">
@@ -29,12 +29,12 @@
 				</nav>
 			</header>
 
-			<section class="box-body">
+			<article class="box-body">
 
 				@yield("content", "Sin Contenido")
 
-			</section>
-		</article>
+			</article>
+		</section>
 
 		
 	@endsection
