@@ -43,6 +43,7 @@
 
 			      	@if(auth("web")->check())
 
+			      	@if(Menu::load("apps")->has("items"))
 			      	<li class="nav-item dropdown">
 
 			      		<a href="#" class="nav-link dropdown-toggle"
@@ -58,6 +59,8 @@
 			      		</div>
 
 			      	</li>
+			      	@endif
+
 			      	<li class="nav-item nav-avatar dropdown">
 			      		<a href="#" class="nav-link dropdown-toggle"
 			      				data-bs-toggle="dropdown">

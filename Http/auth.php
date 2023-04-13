@@ -31,9 +31,18 @@ foreach( (new \Delta\Http\Menu\Handler())->menu() as $menu ) {
 
 ## ORGANIZATION ACCES
 
+if( !Menu::load("apps")->has("items") && __segment(1, "seller") ) {
+    return redirect("/");
+}
+
+if( !Menu::load("apps")->has("items") && __segment(1, "warranty") ) {
+    return redirect("/");
+}
+
 
 /*
 * 	SHARE VIEW */
 view()->share([
 	"UI" => $user
 ]);
+

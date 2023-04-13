@@ -17,7 +17,8 @@ class WarrantyController extends Controller {
 		$this->boot($support);	
 
 		app("urls")->addTag("urls", [
-			"__zone"	=> "warranty/__s2/srczone"
+			"__warranty"	=> "warranty/__s2",
+			"__zone"	=> "__warranty/srczone"
 		]);
 	}
 

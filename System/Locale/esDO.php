@@ -25,6 +25,8 @@ class esDO {
 			"access.1" 				=> "Privado",
 			"access.deny"			=> "Acceso denegado",
 
+			"access.resources.empty"	=> "Su posee recursos asignado para esta solicitud",
+
 			"auth.0"				=> "Cuenta desabilitada",
 			"auth.2"				=> "Cuenta bloqueada",
 			"auth.3"				=> "Cuenta enviada a legales",
@@ -171,6 +173,8 @@ class esDO {
 			"warranty.form"		=> "Formulario de garantía",
 			"warranty.update"	=> "Actualizar garantía",
 			"warranty.manager"	=> "Gestionar garantias",
+			"warranty.register"	=> "Registrar garantía",
+			"warranty.search"	=> "Buscar garantía",
 
 			"words.admin"		=> "Administrador",
 			"words.add"			=> "Agregar",
@@ -257,6 +261,7 @@ class esDO {
 			"words.slug"		=> "Nombre amigable",
 			"words.seller"		=> "Vendedor",
 			"words.see"			=> "Ver",
+			"words.search"		=> "Buscar",
 
 			"works.group"		=> "Grupo de trabajo",
 

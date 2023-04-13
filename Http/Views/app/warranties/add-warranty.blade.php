@@ -2,7 +2,7 @@
 
 	@section("body")
 
-	<header class="p-3">
+	<header class="py-3">
 		<article class="row">
 			<div class="col-auto">
 				<img src="{{__url($org->getMeta('logo'))}}" 
@@ -20,9 +20,23 @@
 	<article class="box box-light">
 
 		<header class="box-header">
-			<h4>
-				{{$title}}
-			</h4>
+			<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a href="{{__url('__warranty')}}" class="nav-link">
+							{{__("words.warranties")}}
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="{{__url('__warranty/add')}}" class="nav-link active">
+							{{__("warranty.add")}}
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="{{__url('__warranty/search')}}" class="nav-link">
+							{{__("words.search")}}
+						</a>
+					</li>
+				</ul>
 		</header>
 
 		<section class="box-body pt-2">

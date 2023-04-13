@@ -13,6 +13,10 @@ Route::prefix("{__orgID}")->group(function($route) {
     
 	Route::get("/", "WarrantyController@home");
 
+    Route::prefix("ajax")->group( function() {       
+        Route::get("{opt}/{arg?}", "AjaxController@index");
+    });
+
     Route::get("/add", "WarrantyController@addWarranty");
     Route::post("/add", "WarrantyController@saveWarranty");
 

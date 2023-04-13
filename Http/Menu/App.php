@@ -16,6 +16,8 @@ class App extends Accessor {
 
 	protected $login;
 
+	protected $items;
+
 	public function __construct( $login ) {		
 		$this->login = $login;
 
@@ -29,8 +31,9 @@ class App extends Accessor {
 		foreach($navSellers as $key => $row ) {
 			$this->items[$key]["icon"] 	= "mdi-".$row->icon;
 			$this->items[$key]["label"] 	= __("words.".$row->slug);
-			$this->items[$key]["url"] 	= $row->slug;
+			$this->items[$key]["url"] 	= __url($row->slug);
 		}
+
 	}
 
 	public function tab($multiplier=0, $input=" ") {
@@ -58,6 +61,7 @@ class App extends Accessor {
 	}
 
 	public function items( $index=4 ) {
+
 		return $this->nav($index);
 	}
 }

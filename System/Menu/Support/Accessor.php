@@ -30,7 +30,6 @@ class Accessor {
    }
 
    public function skin($stub=null, $data=[]) {
-
       if( array_key_exists($stub, $this->skins) ) {
          $skin = $this->skins[$stub];
          return new $skin($data);
@@ -38,6 +37,12 @@ class Accessor {
    }
 
    public function __call( $opt, $args ) {
+
+      if( $opt == "has" ) {
+         if( !empty($args[0]) ) {
+            return !is_null( $this->{$args[0]} );
+         }
+      }
 
       if( $opt == "tag" ) {
          $this->tag = $args[0];
