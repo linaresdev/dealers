@@ -45,6 +45,14 @@ class WarrantySupport {
 		return $data;
 	}
 
+	public function show($org, $warranty) {
+		$data["title"] 		= __("words.warranty");
+		$data["org"]		= $org;
+		$data["warranty"] 	= $warranty;
+
+		return $data;
+	}
+
 	public function getWarranty($ID, $take) {
 		return $this->customer
 					->where("group_id", $ID)

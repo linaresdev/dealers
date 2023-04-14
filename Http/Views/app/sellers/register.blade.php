@@ -1,7 +1,7 @@
 @extends( "delta::app.sellers.layout" )
 
 
-	@section("body")
+	@section("content")
 
 	<form action="{{__url('__now')}}" 
 		method="POST"

@@ -22,19 +22,17 @@
 			<table class="table">
 				<thead class="bg-light border-top">
 					<tr>
-						<th class="ftool py-2"><input type="checkbox"></th>
 						<th class="py-2">{{__("words.name")}}</th>
-						<th class="py-2">{{__("words.phone")}}</th>
-						<th class="py-2">{{__("words.email")}}</th>
+						<th class="py-2 toggled-sm">{{__("words.phone")}}</th>
+						<th class="py-2 toggled-sm">{{__("words.email")}}</th>
 						<th class="action py-2">{{__("words.actions")}}</th>
 					</tr>
 				</thead>
 				<tbody>
 					@foreach( $dealers as $dealer)
 					<tr>
-						<td class="ftool"><input type="checkbox"></td>
 
-						<td>
+						<td class="ps-2">
 							<a href="{{__url('seller/entity/'.$dealer->id)}}" 
 								class="bt">
 								<img src="{{__url($dealer->getMeta("logo"))}}" 
@@ -45,8 +43,8 @@
 							</a>
 						</td>
 
-						<td>{{$dealer->getMeta("phone")}}</td>
-						<td>{{$dealer->getMeta("email")}}</td>
+						<td class="toggled-sm">{{$dealer->getMeta("phone")}}</td>
+						<td class="toggled-sm">{{$dealer->getMeta("email")}}</td>
 
 						<td class="action">
 

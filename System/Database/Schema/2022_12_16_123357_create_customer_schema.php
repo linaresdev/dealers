@@ -36,6 +36,8 @@ return new class extends Migration {
             $table->string("sector", 200)->nullable();
             $table->string("address", 150)->nullable();
 
+            $table->enum("state", [0,1,2,3,4])->default(0);
+
             $table->text("avatar")->nullable();
 
             $table->timestamps();

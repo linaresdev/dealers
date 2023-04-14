@@ -29,6 +29,7 @@ class Customer extends Model {
 		"sector",
 		"address",
 		"avatar",
+		"state",
 		"created_at",
 		"updated_at"
 	];

@@ -98,6 +98,7 @@ class esDO {
 			"group.type"		=> "Tipo de grupo",
 
 			"icon.mdi"			=> "Icon Material Dedesing",
+			"info.warranty"		=> "Información de la garantía",
 
 			"last.access"		=> "Último acceso",
 			"load.logo"			=> "Cargar logo",
@@ -273,6 +274,10 @@ class esDO {
 
 			"success.delete" => "",
 			"seller.membership.validate.bad" => "Solicitud ",
+			"seller.state.0" => "Inactiva",
+			"seller.state.1" => "En proceso",
+			"seller.state.2" => "Registrada",
+			"seller.state.3" => "Desactivada",
 
 			'validation.email' => 'El campo :attribute debe ser una dirección de correo válida.',
 			'validation.required'  => 'El campo :attribute es obligatorio.',

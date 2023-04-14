@@ -330,8 +330,30 @@ body{
 	bottom: -2px;
 }
 
+.table .uplink-0 [class*="mdi mdi-"] {
+	color: var(--bs-info);
+}
+.table .uplink-1 [class*="mdi mdi-"] {
+	color: var(--bs-primary);
+}
+.table .uplink-2 [class*="mdi mdi-"] {
+	color: var(--bs-success);
+}
+.table .uplink-2 [class*="mdi mdi-"] {
+	color: var(--bs-danger);
+}
+
+.table .center {
+	text-align: center;
+}
 /*
 * TABLE WHITE */
 .table.table-white td {
 	background: #fff;
+}
+
+@media( max-width: 575px ) {
+	.table .toggled-sm {
+		display: none;
+	}
 }

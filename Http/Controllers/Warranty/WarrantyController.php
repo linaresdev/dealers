@@ -54,6 +54,10 @@ class WarrantyController extends Controller {
 			"partial/zone", $this->support->srcZone($org, $src)
 		);
 	}
+
+	public function show( $org, $warranty ) {
+		return $this->render("show",$this->support->show($org, $warranty));
+	}
 }
 
 /* End of Controller HomeController.php */

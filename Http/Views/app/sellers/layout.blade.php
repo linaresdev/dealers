@@ -27,6 +27,13 @@
 							{{__("words.home")}}
 						</a>
 					</li>
+					<li class="nav-item">
+						<a href="{{__url('seller/register')}}" 
+							class="nav-link{{$isOn("seller/register")}}">
+							{!! __mdi("storefront-plus") !!}
+							{!! __("dealer.new") !!}
+						</a>
+					</li>
 				</nav>
 			</header>
 

@@ -19,6 +19,9 @@ Route::bind("__usrID", function($ID){
     return (new \Delta\Model\User)->find($ID) ?? abort(404);
 });
 
+Route::bind("__WID", function($ID){
+    return (new \Delta\Model\Customer)->find($ID) ?? abort(404);
+});
 
 if(__segment(3, "edit") OR __segment(3, "delete") ) {
     Route::bind("id", function($ID){ 

@@ -23,16 +23,16 @@
 			</header>
 
 			<article class="box-body">
-				<table class="table">
+				<table class="table table-hover">
 					<thead class="bg-light border-top">
 						<tr>
-							<th class="ftool">
+							<th class="ftool py-1">
 								<input type="checkbox">
 							</th>
-							<th>NIV</th>
-							<th>{{__("words.customer")}}</th>
-							<th>{{ __("words.date") }}</th>
-							<th class="action">
+							<th class="py-1">NIV</th>
+							<th class="py-1">{{__("words.customer")}}</th>
+							<th class="py-1">{{ __("words.state") }}</th>
+							<th class="action py-1">
 								{{__("words.actions")}}
 							</th>
 						</tr>
@@ -40,12 +40,20 @@
 					<tbody>
 						@foreach( $warranties as $warranty )
 						<tr>
-							<td class="ftool">
+							<td class="ftool py-1">
 								<input type="checkbox">
 							</td>
-							<td>{{$warranty->niv}}</td>
+							<td class="py-1">
+								<a href="{{__url('__warranty/show/'.$warranty->id)}}" 
+											class="dropdown-item">
+									{{$warranty->niv}}
+								</a>
+							</td>
 							<td>{{$warranty->customer}}</td>
-							<td>{{$warranty->date}}</td>
+							<td class="uplink-{{$warranty->state}} py-1">
+								{!! __mdi("satellite-uplink mdi-18px") !!}
+								{{__("seller.state.$warranty->state")}}
+							</td>
 							<td class="action">
 								<div class="dropdown dropstart">
 									<a href="#" class="dropdown-toggle" 
@@ -54,9 +62,18 @@
 									</a>
 
 									<div class="dropdown-menu">
-										<a href="#" class="dropdown-item">
-											Link
+										<a href="{{__url('__warranty/show/'.$warranty->id)}}" 
+											class="dropdown-item">
+											{{__("words.information")}}
 										</a>
+										@if($warranty->state == 0)
+										<a href="#" class="dropdown-item">
+											{{__("words.activate")}}
+										</a>
+										<a href="#" class="dropdown-item">
+											{{__("words.delete")}}
+										</a>
+										@endif
 									</div>
 								</div>
 							</td>

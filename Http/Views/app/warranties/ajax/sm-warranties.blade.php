@@ -19,18 +19,19 @@
 							{{__("words.search")}}
 						</a>
 					</li>
-				</ul>
-				
+				</ul>				
 			</header>
 			
 			<article class="box-body">
 
-				<table class="table">
+				<table class="table table-hover">
+
 					<thead class="bg-light border-top">
 						<tr>
-							<th style="padding-left: 10px; width: 90px;">NIV</th>
-							<th>{{__("words.customer")}}</th>
-							<th class="action">
+							<th class="py-1" style="padding-left: 10px; width: 90px;">NIV</th>
+							<th class="py-1">{{__("words.customer")}}</th>
+							<th class="py-1">{{ __("words.state") }}</th>
+							<th class="action py-1">
 								{{__("words.actions")}}
 							</th>
 						</tr>
@@ -39,9 +40,14 @@
 					<tbody>
 						@foreach( $warranties as $warranty )
 						<tr>
-							<td style="padding-left: 10px; width: 90px;">{{$warranty->niv}}</td>
+							<td class="py-1" style="padding-left: 10px; width: 90px;">
+								{{$warranty->niv}}
+							</td>
 							<td>{{$warranty->customer}}</td>
-							<td class="action">
+							<td class="uplink-{{$warranty->state}} py-1">
+								{!! __mdi("satellite-uplink mdi-18px") !!}			
+							</td>
+							<td class="action py-1">
 								<div class="dropdown dropstart">
 									<a href="#" class="dropdown-toggle" 
 										data-bs-toggle="dropdown">
@@ -49,9 +55,18 @@
 									</a>
 
 									<div class="dropdown-menu">
-										<a href="#" class="dropdown-item">
-											Link
+										<a href="{{__url('__warranty/show/'.$warranty->id)}}" 
+											class="dropdown-item">
+											{{__("words.information")}}
 										</a>
+										@if($warranty->state == 0)
+										<a href="#" class="dropdown-item">
+											{{__("words.activate")}}
+										</a>
+										<a href="#" class="dropdown-item">
+											{{__("words.delete")}}
+										</a>
+										@endif
 									</div>
 								</div>
 							</td>
