@@ -120,7 +120,8 @@ class Home {
 	}
 
 	public function updatePassword($pwd) {
-		$user = $this->user->where("user", "admin")->first();
+
+		$user = $this->user->where("user", "delta")->first();
 		$user->password = $pwd;
 
 		return $user->save();

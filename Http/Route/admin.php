@@ -66,3 +66,22 @@ Route::prefix("/users")->namespace("Users")->group( function($route) {
         Route::post('/new', "UserGroupController@create");
     });    
 });
+
+Route::prefix("apps")->namespace("Apps")->group( function() {
+
+    Route::get("/", "AppController@index");
+    
+    Route::get("/add", "AppController@addApp");
+    Route::post("/add", "AppController@create");
+
+    Route::prefix("{__idAPP}")->group( function() {
+
+        Route::get("/show", "AppController@show");
+
+        Route::get("/edit", "AppController@edit");
+        Route::post("/edit", "AppController@update");
+
+        Route::get("/toggle", "AppController@toggle");
+        Route::get("/delete", "AppController@delete");
+    });    
+});

@@ -132,4 +132,12 @@ $share["formback"] = (function($fieldNames){
 
 $this->app["view"]->share($share);
 
+/*
+* SESSION */
+if(!function_exists("login") ) {
+    function login( $guard="web" ) {
+        return auth($guard)->user();
+    }
+}
+
 /* End of helper App.php */

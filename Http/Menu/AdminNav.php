@@ -73,6 +73,12 @@ class AdminNav extends Accessor {
 				"label" => __("words.users"),
 				"url"	=> "/__admin/users"
 			]);
+
+			$this->item(19,[
+				"icon"	=> "mdi-application-braces-outline",
+				"label" => __("words.app"),
+				"url"	=> "/__admin/apps"
+			]);
 		}
 	}
 

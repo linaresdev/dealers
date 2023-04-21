@@ -50,3 +50,6 @@ Route::bind("idRol", function($ID){
     return (new \Delta\Model\Group)->find($ID) ?? abort(404);
 });
 
+Route::bind("__idAPP", function($ID){
+    return (new \Delta\Model\App)->find($ID) ?? abort(404);
+});

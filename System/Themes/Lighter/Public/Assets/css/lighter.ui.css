@@ -11,11 +11,13 @@ body{
 .alert h4 { font-size: 18px; margin: 0 0 3px 0; }
 .alert hr {margin: 0 0;}
 .alert p {font-size: 13px; margin: 3px 0 0 0;}
-.alert .btn-close {
-	float: right;
-}
-.alert.alert-slow {
-	display: none;
+.alert .btn-close {float: right;}
+.alert.alert-slow {display: none;}
+
+form .error {
+	color: var(--bs-danger);
+	margin: 0 0;
+	font-size: 13px;
 }
 
 /*
@@ -36,6 +38,13 @@ body{
 .avatar.avatar-64px{height: 64px; width: 64px;}
 .avatar.avatar-80px{height: 80px; width: 80px;}
 .avatar.avatar-128px{height: 128px; width: 128px;}
+
+.btn-group.btn-group-sm [class*="mdi mdi-"] {
+	font-size: 18px;
+	line-height: 90%;
+	position: relative;
+	bottom: -2px;
+}
 
 /*
 * Navbar */
@@ -183,8 +192,26 @@ body{
 	padding-left: 15px;
 	padding-right: 15px;
 }
+.box .box-header .box-tool {
+	text-align: right;
+	margin-bottom: -30px;
+}
+.box .box-header .box-tool .dropdown-toggle {
+	text-decoration: none;
+}
+.box .box-header .box-tool .dropdown-toggle::after{
+	display: none;
+}
+.box .box-header .box-tool .dropdown-toggle [class*="mdi mdi-"] {
+	font-size: 24px;
+	line-height: 100%;
+}
 
 .box .box-body{}
+.box .box-body .alert {
+	border-radius: 2px 2px;
+	padding: 5px 15px;
+}
 
 .box .box-body .block {
 	padding: 0 15px 15px 15px;

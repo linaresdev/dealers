@@ -33,3 +33,9 @@ Route::prefix("warranty")->middleware("warranty")->namespace("Warranty")->group(
 	__DEALER__."/Http/Route/warranty.php"
 );
 
+Route::prefix("app/{token}")->group(function($route){
+	Route::any("/", function(){
+		dd("Hola Mundo");
+	});
+});
+

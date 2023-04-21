@@ -35,6 +35,10 @@ class esDO {
 			"admin.users"			=> "Administrar usuarios",
 			"admin.slug"			=> "Admin",
 
+			"api.new"				=> "Nueva api",
+
+			"apps.form"				=> "Foumulario de aplicaciones",
+
 			"account.update"		=> "Actualizar cuenta",
 			"account.remove"		=> "Remover cuenta",
 			"credential.update"		=> "Actualizar credenciales",
@@ -54,6 +58,7 @@ class esDO {
 
 			"delete.org"			=> "Organización eliminada",
 			"delete.error"			=> "Error al tratar de eliminar el recurso",
+			"delete.successfull"	=> "Recurso eliminado correctamente",
 
 			"dealer.new"			=> "Registrar dealer",
 			"dealer.add"			=> "Agregar dealer",
@@ -117,6 +122,7 @@ class esDO {
 			"update.successfull" 	=> "Actualización realizada correctamente",
 			"update.password"		=> "Actualizar contraseña",
 
+			"url.base"			=> "Url base",
 			"user.add"			=> "Agregar usuario",
 			"user.create"		=> "Crear usuario",
 			"user.form"			=> "Formulario de usuario",
@@ -166,6 +172,8 @@ class esDO {
 			"password.old.bad"		=> "Contraseña actual invalida",
 			"password.same.bad"		=> "Contraseñas no coinciden",
 
+			"words.action"			=> "Acción",
+			"words.actions"			=> "Acciones",
 			"words.administration" 	=> "Adminstración",
 
 			"warranty.add"			=> "Nueva garantía",
@@ -183,6 +191,7 @@ class esDO {
 			"words.access"		=> "Accesos",
 			"words.authorize"	=> "Permisos",
 			"words.address"		=> "Dirección",
+			"words.app"			=> "Aplicaciones",
 			"words.domain"		=> "Dominio",
 			"words.to-access"	=> "Acceder",
 			"words.actions"		=> "Acciones",
@@ -190,8 +199,11 @@ class esDO {
 			"words.back"		=> "Regresar",
 			"words.contacts"	=> "Contactos",
 			"words.config"		=> "Configuración",
+			"words.connect"		=> "Conectar",
 			"words.companies"	=> "Empresas",
+			"words.comment"		=> "Comentario",
 			"words.corporations"	=> "Corporaciones",
+			"words.controller"		=> "Controlador",
 			"words.cellphone"		=> "Teléfono Celular",
 			"words.customer"	=> "Cliente",
 			"words.client"		=> "Cliente",
@@ -208,6 +220,8 @@ class esDO {
 			"words.email"     	=> "Correo Electrónico",
 			"words.entity"		=> "Entidad",
 			"words.entities"	=> "Entidades",
+			'words.disconnect'	=> "Desconectar",
+			"words.any"			=> "Cualquiera",
 			"words.form"		=> "Formulario",
 			"words.finder"		=> "Buscar",
 			"words.firstname"	=> "Nombre",
@@ -216,6 +230,7 @@ class esDO {
 			"words.group"		=> "Grupo",
 			"words.groups"		=> "Grupos",
 			"words.home"		=> "Inicio",
+			"words.handler"		=> "Manejador",
 			"words.icon"		=> "Icono",
 			"words.information"	=> "Información",
 			"words.insert"		=> "Insertar",
@@ -227,10 +242,12 @@ class esDO {
 			"words.manager"		=> "Administrar",
 			"words.mantenance"	=> "Mantenimiento",
 			"words.membership"	=> "Membresía",
+			"words.method"		=> "Método",
 			"words.name"		=> "Nombre",
 			"words.new"			=> "Nuevo",
 			"words.organization"	=> "Organización",
 			"words.organizations"	=> "Organizaciones",
+			"words.path"		=> "Ruta",
 			"words.phone"		=> "Teléfono",
 			"words.password"  	=> "Contraseña",
 			"words.pwd"  		=> "Contraseña",
@@ -247,6 +264,7 @@ class esDO {
 			"words.register"	=> "Registrar",
 			"words.retrieve"  	=> "Recuperar",
 			"words.remember"  	=> "Recuerda",
+			"words.return"		=> "Retornar",
 			"words.user"      	=> "Usuario",
 			"words.users"      	=> "Usuarios",
 			"words.update"		=> "Actualizar",
@@ -279,9 +297,14 @@ class esDO {
 			"seller.state.2" => "Registrada",
 			"seller.state.3" => "Desactivada",
 
-			'validation.email' => 'El campo :attribute debe ser una dirección de correo válida.',
-			'validation.required'  => 'El campo :attribute es obligatorio.',
-			'validation.unique'    => 'El valor del campo :attribute ya está en uso.',
+			"toggle.set.0"	=> ":name desactivada correctamente",
+			"toggle.set.1"	=> ":name activada correctamente",
+
+			'validation.email' 		=> 'El campo :attribute debe ser una dirección de correo válida.',
+			'validation.required'  	=> 'El campo :attribute es obligatorio.',
+			'validation.unique'    	=> 'El valor del campo :attribute ya está en uso.',
+
+			"verify.credentials"	=> "Verifique las credenciales suministradas",
 
     	];
 	}

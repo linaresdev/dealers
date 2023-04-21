@@ -59,7 +59,7 @@ class Login {
 		}		
 
 		$validator->errors()->add(
-            'login', 'Berifique las credenciales suministradas'
+            'login', __("verify.credentials")
         );
 
 		return back()->withErrors($validator)->withInput();
