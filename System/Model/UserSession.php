@@ -42,7 +42,7 @@ class UserSession extends Model {
 		    "method"    	=> request()->method(),
 		    "url"       	=> request()->fullUrl(),
 		    "host"        	=> request()->ip(),
-		    "httphost"  	=> request()->httpHost(),
+		    //"httphost"  	=> request()->httpHost(),
 		    "agent"    		=> request()->userAgent()
 		];
 	}
