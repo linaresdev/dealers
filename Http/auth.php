@@ -39,10 +39,10 @@ if( !Menu::load("apps")->has("items") && __segment(1, "warranty") ) {
     return redirect("/");
 }
 
-
 /*
 * 	SHARE VIEW */
 view()->share([
 	"UI" => $user
 ]);
 
+//dd($user->sessID());

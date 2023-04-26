@@ -7,6 +7,7 @@
  *---------------------------------------------------------
 */
 
+use Delta\Support\Guard;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -210,6 +211,53 @@ class User extends Authenticatable {
 
 	public function getDealers() {
 		return $this->groups()->where("type", "dealer")->get();
+	}
+
+	/*
+	* SESSION */
+	public function session() {
+		return $this->hasMany(UserSession::class, "user_id");
+	}
+
+	public function sessID( $guard="web" ) {
+		return auth($guard)->getSession()->getId();
+	}
+
+	public function getSession() {
+		return $this->session()->where("token", $this->sessID())->first() ?? null;
+	}
+
+	public function closeLastSession($type, $sessID ) {
+		if( ($sess = $this->session()->where("token", $sessID)->first()) ?? false ) {
+			$sess->activated = 2; $sess->save();
+		}
+	}
+
+	public function logout( $guard="web" ) {
+
+		if( ($sess = $this->getSession()) != null ) {
+			$sess->activated = 2;
+			$sess->save();
+		}
+
+		auth("web")->logout();
+
+		return redirect('/');
+	}
+
+	/*
+	* CURRENT */
+	public function currentDevice() {
+		return (new Guard)->device(request()->userAgent());
+	}
+	public function currentPlatform() {
+		return (new Guard)->getPlatform(request()->userAgent());
+	}
+	public function currentBrowser() {
+		return (new Guard)->getBrowser(request()->userAgent());
+	}
+	public function currentRobot() {
+		return (new Guard)->getRobot(request()->userAgent());
 	}
 }
 

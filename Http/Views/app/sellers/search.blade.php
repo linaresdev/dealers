@@ -2,9 +2,7 @@
 				
 				@foreach( $dealers as $dealer)
 					<tr>
-						<td class="ftool"><input type="checkbox"></td>
-
-						<td>
+						<td class="ps-2">
 							<a href="{{__url('seller/entity/'.$dealer->id)}}" 
 								class="bt">
 								<img src="{{__url($dealer->getMeta("logo"))}}" 

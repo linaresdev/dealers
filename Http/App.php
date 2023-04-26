@@ -133,11 +133,21 @@ $share["formback"] = (function($fieldNames){
 $this->app["view"]->share($share);
 
 /*
+* USERS */
+if( !function_exists("user") ) {
+    function user( $ID ) {
+        return (new \Delta\Model\User)->find($ID) ?? null;
+    }
+}
+
+/*
 * SESSION */
 if(!function_exists("login") ) {
     function login( $guard="web" ) {
         return auth($guard)->user();
     }
 }
+
+
 
 /* End of helper App.php */

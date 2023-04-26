@@ -19,6 +19,9 @@ form .error {
 	margin: 0 0;
 	font-size: 13px;
 }
+form .error.error-slow {
+	display: none;
+}
 
 /*
 * Avatar */

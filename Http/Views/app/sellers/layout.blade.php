@@ -1,11 +1,5 @@
 @extends( $skin->path("landing") )
 
-	@section("nav")
-
-	{!! Menu::tag("seller") !!}
-
-	@endsection
-
 	@section("body")
 
 		<header class="my-3">

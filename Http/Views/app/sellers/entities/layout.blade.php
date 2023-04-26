@@ -9,17 +9,19 @@
 
 		<header class="box-header">
 			<h4>
-				<img src="{{__url($ent->getMeta("logo"))}}" 
-					style="width: 48px; height:46px;"
-					class="avatar avatar-circle" 
-					alt="@">
-				{{$ent->group}}
+				<a href="{{__url('__entity')}}">
+					<img src="{{__url($ent->getMeta("logo"))}}" 
+						style="width: 48px; height:46px;"
+						class="avatar avatar-circle" 
+						alt="@">
+					{{$ent->group}}
+				</a>
 			</h4>
 		</header>
 
 		<ul class="nav box-nav">
 			<li class="nav-item">
-				<a href="{{__url('__entity')}}" class="nav-link">
+				<a href="{{__url('seller')}}" class="nav-link">
 					{!! __mdi("home") !!} 
 					{{__("words.home")}}
 				</a>

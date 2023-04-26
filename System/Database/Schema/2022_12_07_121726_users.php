@@ -68,22 +68,23 @@ return new class extends Migration {
             $table->engine = 'InnoDB';
         });
 
-        Schema::create('users_session', function (Blueprint $table) {
+        Schema::create('users_session', function ( Blueprint $table ) {
 
             $table->bigIncrements('id');
 
-            $table->bigInteger('user_id')->unsigned();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE')->onUpdate('CASCADE');
-
-            $table->string("payload", 75);
-
+            $table->bigInteger('user_id')->default(0)->unsigned();
+            $table->string("type")->default("news");
             $table->string("guard", 30)->default("web");
+            $table->string("token", 75)->nullable();
 
-            $table->string("ip_address", 45)->nullable();
+            $table->string("host", 45)->nullable();
+            $table->text("httphost")->nullable();
+            $table->text("url")->nullable();
+
             $table->text("agent")->nullable();
 
             $table->char("activated", 1)->default(1);
+            $table->json("action")->nullable();
 
             $table->timestamps();
 

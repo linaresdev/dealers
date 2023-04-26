@@ -32,12 +32,6 @@
 							{{__("warranty.add")}}
 						</a>
 					</li>
-
-					<li class="nav-item">
-						<a href="{{__url('__warranty/search')}}" class="nav-link">
-							{{__("words.search")}}
-						</a>
-					</li>
 				</ul>
 				
 			</header>

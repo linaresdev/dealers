@@ -1,24 +1,26 @@
-@extends( "delta::app.dealers.entities.layout" )
+@extends( "delta::app.sellers.entities.layout" )
 	
 	@section("content")
 
 	<article class="box-group">
 		<header class="box box-start">
 			<article class="box-body pt-4">
-				<div class="block">
-					
+				<div class="block">					
 
 					<h4>
 						<img src="{{__url($user->avatar)}}"
 						class="avatar avatar-circle" 
-						style="width: 64px;" 
+						style="width: 64px;float:left;margin:-10px 5px -5px 0;" 
 						alt="@">
-						{{$user->fullname}} <br>
 
-						<small>
-							{!! __mdi("email-outline") !!}  
-							{{$user->email}}
-						</small>
+						<div>
+							{{$user->fullname}} <br>
+
+							<small>
+								{!! __mdi("email-outline") !!}  
+								{{$user->email}}
+							</small>
+						</div>
 					</h4>
 				</div>
 

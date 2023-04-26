@@ -17,18 +17,48 @@ class UserSession extends Model {
 	protected $fillable = [
 		"id",
 		"user_id",
-		"payload",
+		"type",
 		"guard",
-		"ip_address",
+		"token",
+		"host",
+		"httphost",
+		"url",
 		"agent",
+		"action",
 		"activated",
 		"created_at",
 		"updated_at"
 	];
 
-	//public $timestamps = false;
+	public function setActionAttribute( $value ) {
+		if( is_array($value) ) {
+			$this->attributes['action'] = json_encode( $value );
+		}
+	}
 
-	//protected $dateFormat = 'U';
+	public function defaultAttributes() {
+
+		return [
+		    "method"    	=> request()->method(),
+		    "url"       	=> request()->fullUrl(),
+		    "host"        	=> request()->ip(),
+		    "httphost"  	=> request()->httpHost(),
+		    "agent"    		=> request()->userAgent()
+		];
+	}
+
+	public function news($type="news", $actions=[] ) {
+
+		$data 				= $this->defaultAttributes();
+		$data["type"]		= $type;
+		$data["user_id"] 	= auth("web")->user()->id ?? 0;
+		$data["token"]		= auth("web")->getSession()->getID() ?? null;
+		$data["action"] 	= $actions;
+		
+		return $this->create($data);
+	}
+
+	
 }
 
 /* End of Model UserSession.php */

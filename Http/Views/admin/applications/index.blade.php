@@ -52,35 +52,26 @@
 
 			</header>
 
-			<section class="box-body">
+			<section class="box-body bg-light pt-3">
 
 				{!! Alert::tag("{$app->type}-{$app->id}") !!}
 
 				<article class="block">
-					{!! $app->comment !!} 
-					<a href="{{__url("__admin/apps/$app->id/show")}}"> Ver mas..</a>
+					{!! $app->comment !!} 					
 				</article>
 
-				{{-- <article class="block border mx-3 mb-3 p-3">
-					<div>
-						<strong>METHOD:</strong>
-						<code>{{$app->method}}</code>
-					</div>
-					<div>
-						<strong>URL:</strong>
-						<code>{{__url($app->path)}}</code>
-					</div>
-					<div>
-						<strong>Token:</strong>
-						<code>{{$app->token}}</code>
-					</div>
-				</article> --}}
-
-				<article class="border-top px-3 py-2 bg-light">
-					Creado por nnn el {{$app->created_at}} 
-				</article>
-				
+				<article class="block">
+					<a href="{{__url("__admin/apps/$app->id/show")}}"
+						class="btn btn-sm btn-outline-primary"> 
+						Ver mas..
+					</a>
+				</article>				
 			</section>
+			<footer class="box-footer">
+				<article class="px-3 py-2">
+					Creado por {{user($app->id)->fullname}} el {{$app->created_at}} 
+				</article>
+			</footer>
 		</article>
 
 		@endforeach

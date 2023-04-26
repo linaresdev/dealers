@@ -42,6 +42,7 @@
 						{{__("words.return")}}
 					</a>
 				</article>
+				
 			</section>
 		</article>
 	@endsection

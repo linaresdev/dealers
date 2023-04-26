@@ -1,14 +1,18 @@
-@extends( "delta::app.dealers.entities.layout" )
+@extends( "delta::app.sellers.entities.layout" )
 	
 	@section("content")
 
 		<article class="box box-light">
 			<header class="box-header">
-				<h4>{{$title}}</h4>
+				<h4>{{$user->fullname}}</h4>
 			</header>
 
-			<section class="box-body">
+			<section class="box-body pt-2">
+				
 				<article class="block">
+
+					<h4>{{$title}}</h4>
+
 					<form action="{{__url("__now")}}" method="POST">
 						@csrf
 						<div class="form-check ms-3">

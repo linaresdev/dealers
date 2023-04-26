@@ -9,16 +9,22 @@ namespace Delta\Http\Support\Admin;
 */
 
 use Delta\Model\App;
+use Delta\Model\User;
 use Delta\Alert\Facade\Alert;
 
 class AppSupport {
 
 	protected $app;
 
+	protected $user;
+
 	protected $ranges;
 
-	public function __construct( App $app) {	
+	public function __construct( App $app, User $user) {	
+
 		$this->app = $app;
+
+		$this->user = $user;
 
 		$this->start 	= mt_rand(30, 60);
 		$this->end 		= mt_rand(60, 100);
@@ -68,6 +74,7 @@ class AppSupport {
 	}
 
 	public function show( $api ) {
+
 		$data["title"] 	= __("words.app");
 		$data["api"]	= $api;
 

@@ -100,6 +100,12 @@ class UserSupport {
 		$data["user"]		= $user;
 		$data["ent"] 		= $entity;
 
+		$data["isOn"] = (function($url){
+			if( $url == request()->path()) {
+				return " active";
+			}
+		});
+
 		return $data;
 	}
 
@@ -191,7 +197,14 @@ class UserSupport {
 		$data["title"] 	= __("user.rol");
 		$data["ent"]	= $ent;
 		$data["layout"] = "layout-md";
+		$data["user"]	= $user;
 		$data["rol"]	= $user->group($ent->slug)->pivot;
+		
+		$data["isOn"] = (function($url){
+			if( $url == request()->path()) {
+				return " active";
+			}
+		});
 
 		return $data;
 	}

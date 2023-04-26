@@ -8,6 +8,7 @@ namespace Delta\Http\Support;
  *---------------------------------------------------------
 */
 
+use Delta\Model\UserSession;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
@@ -34,10 +35,10 @@ class Login {
 
 		if( $login ) {
 
-			$user = ($auth = Auth::guard("web"))->user();
+			$user = ($auth = Auth::guard("web"))->user();			
 
+			## Validamos su estatu
 			if( $user->activated != 1 ) {
-
 				if( $user->activated == 0 ) {
 					$validator->errors()->add('login', __("auth.".$user->activated));
 				}
@@ -51,10 +52,25 @@ class Login {
 				$auth->logout();
 
 				return back()->withErrors($validator)->withInput();
-			}			
+			}
 
+			## Si existen sessiones aviertas la cerramos
+			$user->closeLastSession("login", $user->sessID());
+
+			## Actualizar Session ID
 			$request->session()->regenerate();
 
+			## Notificar Acceso
+			(new UserSession)->news("login", [
+				"subject" 	=> "Acceso a la cuenta $user->fullname",
+				"path" 		=> __CLASS__,
+				"device"	=> $user->currentDevice(),
+				"platform"	=> $user->currentPlatform(),
+				"browser"	=> $user->currentBrowser(),
+				"robot"		=> $user->currentRobot()
+			]);		
+
+			## Redirigir al usuario
             return redirect()->intended('/');
 		}		
 
@@ -66,9 +82,7 @@ class Login {
 	}
 
 	public function logout($guard) {
-		Auth::guard($guard)->logout();
-
-		return redirect('/');
+		return Auth::guard($guard)->user()->logout();
 	}
 }
 

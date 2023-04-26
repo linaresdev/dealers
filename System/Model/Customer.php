@@ -33,6 +33,10 @@ class Customer extends Model {
 		"created_at",
 		"updated_at"
 	];
+
+	public function countWarrantyActive() {
+		return $this->where("activated", 1)->count();
+	}
 }
 
 /* End of Model Customer.php */
