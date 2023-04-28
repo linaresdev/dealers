@@ -8,6 +8,7 @@ namespace Delta\Model;
  *---------------------------------------------------------
 */
 
+use Delta\Support\Guard;
 use Illuminate\Database\Eloquent\Model;
 
 class UserSession extends Model {
@@ -36,24 +37,34 @@ class UserSession extends Model {
 		}
 	}
 
+	public function getActionAttribute( $value ) {
+		return json_decode($value);
+	}
+
 	public function defaultAttributes() {
 
 		return [
 		    "method"    	=> request()->method(),
 		    "url"       	=> request()->fullUrl(),
 		    "host"        	=> request()->ip(),
-		    //"httphost"  	=> request()->httpHost(),
-		    "agent"    		=> request()->userAgent()
+		    "agent"    		=> request()->userAgent(),		    
 		];
 	}
 
 	public function news($type="news", $actions=[] ) {
 
+
+
 		$data 				= $this->defaultAttributes();
 		$data["type"]		= $type;
-		$data["user_id"] 	= auth("web")->user()->id ?? 0;
+		$data["user_id"] 	= ($user = auth("web")->user())->id ?? 0;
 		$data["token"]		= auth("web")->getSession()->getID() ?? null;
-		$data["action"] 	= $actions;
+
+		$actions["device"] 		= $user->currentDevice();
+		$actions["platform"] 	= $user->currentPlatform();
+		$actions["browser"]		= $user->currentBrowser();
+
+		$data["action"] 		= $actions;		
 		
 		return $this->create($data);
 	}

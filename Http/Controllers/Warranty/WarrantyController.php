@@ -35,8 +35,12 @@ class WarrantyController extends Controller {
 		}
 	}
 
-	public function home($org) {
+	public function home($org) { 
 		return $this->render("home", $this->support->home($org));
+	}
+
+	public function activate( $org, $warranty ) {
+		return $this->support->activate($org, $warranty);
 	}
 
 	public function addWarranty( $org ) {

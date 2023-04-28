@@ -19,8 +19,9 @@
 <body>
 	
 	<main role="lighter" class="login {{$layout}} {{$style}}">
+
 		
-		@includeIF("lighter::partial.navbar")		
+		@includeIF("lighter::partial.navbar2")		
 
 		<article class="wrapp">
 

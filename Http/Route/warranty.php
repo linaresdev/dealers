@@ -14,6 +14,7 @@ Route::get("/show/{__WID}", "WarrantyController@show");
 Route::prefix("{__orgID}")->group(function($route) {
     
 	Route::get("/", "WarrantyController@home");
+    Route::get("/activate/{__WID}", "WarrantyController@activate");
 
     Route::get("/show/{__WID}", "WarrantyController@show");
 

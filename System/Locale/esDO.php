@@ -108,11 +108,6 @@ class esDO {
 			"last.access"		=> "Último acceso",
 			"load.logo"			=> "Cargar logo",
 
-			"membership.mailship"	=> "Enviar solicitud de registro por correo electrónico.",
-			"membership.register.successfull"	=> "Membresía registrada correctamente",
-
-			"membership.register.error"	=> "Ocurrió un error; No fue posible registrar su membresía",
-
 			"upload.logo"		=> "Subir logo",	
 			"update.account"		=> "Actualizar cuenta",
 			"update.error"			=> "Error al tratar de aucalizar los datos",
@@ -140,8 +135,22 @@ class esDO {
 			"user.state.4"		=> "Eliminado",
 			"user.search"		=> "Buscar usuarios",
 
+			"membership.mailship"	=> "Enviar solicitud de registro por correo electrónico.",
+			"membership.register.successfull"	=> "Membresía registrada correctamente",
+
+			"membership.register.error"	=> "Ocurrió un error; No fue posible registrar su membresía",
+
 			"new.password"				=> "Nueva contraseña",
 			"new.confirm.password"		=> "Confirmar su nueva contraseña",
+
+			"news.add.user" 			=> "Se agrego un usuario en :path",
+			"news.user.remove"			=> "Se quitó el usuario de :path", 
+			"news.update.warranty" 		=> "Actualización de la garantía :warranty",
+			"news.register.warranty" 	=> "Registro de la garantía :warranty",
+			
+			"news.create.org"			=> "Registro de la organización :org",
+			"news.delete.org"			=> "Se elimino la organización :org",	
+			"news.update.org"			=> "Actualización de la organización :org",
 
 			"register.form"			=> "Formulario de registro",
 			"register.membership"	=> "Solicitud de registro",

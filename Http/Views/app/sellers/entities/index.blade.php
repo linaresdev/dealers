@@ -102,6 +102,29 @@
 		</section>
 	</article>
 
+	<article class="box box-light">
+		<header class="box-header">
+			<h4>Jobs</h4>
+		</header>
+		<section class="box-body">
+
+			<article class="">
+				<ul class="list-group list-group-flush">
+				@foreach($jobs as $job )
+					<li class="list-group-item d-flex justify-content-between align-items-start py-1">
+						<div class="ms-2 me-auto">
+							<a href="#">{{$job->action->subject}}</a>
+						</div>
+
+						<span>{{$job->created_at}}</span>
+					</li>
+				@endforeach
+				</ul>
+			</article>
+
+		</section>
+	</article>
+
 	
 
 	@endsection

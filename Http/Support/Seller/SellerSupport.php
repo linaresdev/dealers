@@ -9,6 +9,7 @@ namespace Delta\Http\Support\Seller;
 */
 
 use Delta\Model\Group;
+use Delta\Model\UserSession;
 use Delta\Alert\Facade\Alert;
 
 class SellerSupport {
@@ -106,6 +107,14 @@ class SellerSupport {
 			$org = $org->first();
 		}
 
+		(new UserSession)->news("jobs", [
+			"status" 	=> 200,
+			"action"	=> "Create",
+			"subject"	=> __("news.create.org", ["org" => $group->group]),
+			"registro"	=> $group->id,
+			"path"		=> request()->path(),
+		]);
+
 		Alert::prefix("system")->success(__("register.successfull"));
 
 		return redirect("seller");
@@ -126,6 +135,14 @@ class SellerSupport {
 		$meta["address"] 	= $request->address;
 
 		$dealer->updateMeta("dealer", $meta);
+
+		(new UserSession)->news("jobs", [
+			"status" 	=> 202,
+			"action"	=> "Update",
+			"subject"	=> __("news.update.org", ["org" => $dealer->group]), 
+			"registro"	=> $dealer->id,
+			"path"		=> request()->path(),
+		]);
 
 		Alert::prefix("system")->success(__("update.successfull"));
 
@@ -152,6 +169,14 @@ class SellerSupport {
 
 			$dealer->updateMeta("dealer", $meta);
 
+			(new UserSession)->news("jobs", [
+				"status" 	=> 202,
+				"action"	=> "Update",
+				"subject"	=> __("news.update.org", ["org" => $dealer->group]),
+				"registro"	=> $dealer->id,
+				"path"		=> request()->path(),
+			]);
+
 			Alert::prefix("system")->success(__("update.successfull"));
 
 			return redirect("seller");
@@ -163,10 +188,19 @@ class SellerSupport {
 	}
 
 	public function delete($org) {
+		
 		if( $org->delete() ) {
 			Alert::prefix("system")->success(__("delete.org"));
 			return back();
 		}
+
+		(new UserSession)->news("jobs", [
+			"status" 	=> 202,
+			"action"	=> "Delete",
+			"subject"	=> __("news.delete.org", [":org" => $dealer->group]),
+			"registro"	=> $dealer->id,
+			"path"		=> request()->path(),
+		]);
 
 		Alert::prefix("system")->danger(__("delete.error"));
 

@@ -81,7 +81,8 @@
 											{{__("words.information")}}
 										</a>
 										@if($warranty->state == 0)
-										<a href="#" class="dropdown-item">
+										<a href="{{__url('__warranty/activate/'.$warranty->id)}}" 
+											class="dropdown-item">
 											{{__("words.activate")}}
 										</a>
 										<a href="#" class="dropdown-item">

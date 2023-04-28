@@ -14,6 +14,7 @@ use Delta\Http\Support\Seller\EntitySupport;
 class EntityController extends Controller {
 
 	public function __construct( EntitySupport $support ) {	
+		
 		$this->boot($support);
 
 		app("urls")->addTag("urls", [

@@ -14,6 +14,47 @@ body{
 .alert .btn-close {float: right;}
 .alert.alert-slow {display: none;}
 
+/*
+* Login */
+[role=lighter] .login {
+	background: #fff;
+	border: 2px solid transparent;
+	box-shadow: 0 0 6px #aaa;
+	border-radius: 4px 4px;
+	color: #777;
+	margin: auto;
+	margin-top: 10%;
+	max-width: 420px;
+	overflow: hidden;
+}
+[role=lighter] .login.login-error {
+	border-color: #f8d7da;
+}
+[role=lighter] .login.login-error .error {
+	color: #842029;
+}
+[role=lighter] .login.login-warning {
+	border-color: #f5c2c7;
+}
+[role=lighter] .login.login-warning .error {
+	color: #664d03;
+}
+
+[role=lighter] .login .login-body {
+	padding: 20px 15px 7px 15px;
+}
+[role=lighter] .login .login-footer {
+	border-top: 1px solid #ddd;
+	padding: 3px 15px 10px 15px;
+}
+[role=lighter] .login .login-footer .tool a {
+	color: #996;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+
 form .error {
 	color: var(--bs-danger);
 	margin: 0 0;

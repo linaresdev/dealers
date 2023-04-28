@@ -8,9 +8,10 @@ namespace Delta\Http\Support\Warranty;
  *---------------------------------------------------------
 */
 
-
 use Delta\Model\Zona;
 use Delta\Model\Customer;
+use Delta\Model\UserSession;
+use Delta\Alert\Facade\Alert;
 
 class WarrantySupport {
 
@@ -45,6 +46,24 @@ class WarrantySupport {
 		return $data;
 	}
 
+	public function activate($org, $warranty) {
+
+		
+		if($warranty->update(["state" => 1])) {
+
+			(new UserSession)->news("jobs", [
+				"status" 	=> 202,
+				"action"	=> __("words.update"),
+				"subject"	=> __("news.update.warranty", ["warranty" => $org->group]),
+				"registro"	=> $org->id,
+				"author"		=> $warranty->user_id, 
+				"path"		=> request()->path(),
+			]);
+		}
+
+		return back();
+	}
+
 	public function show($org, $warranty) {
 		$data["title"] 		= __("words.warranty");
 		$data["org"]		= $org;
@@ -61,7 +80,7 @@ class WarrantySupport {
 					->get();
 	}
 
-	public function addWarranty( $org ) {		
+	public function addWarranty( $org ) {	
 		$data["title"] 		= __("warranty.form");
 		$data["org"] 		= $org;
 
@@ -95,6 +114,16 @@ class WarrantySupport {
 		$this->customer->sector = $request->sector;
 		
 		if($this->customer->save()) {
+
+			(new UserSession)->news("jobs", [
+				"status" 	=> 201,
+				"action"	=> "Create",
+				"subject"	=> __("news.create.org", ["org" => $org->group]),
+				"registro"	=> $org->id,
+				"user"		=> $user->id, 
+				"path"		=> request()->path(),
+			]);
+
 			return redirect(__url("warranty/__s2"));
 		}
 

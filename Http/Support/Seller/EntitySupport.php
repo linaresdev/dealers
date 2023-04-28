@@ -8,6 +8,7 @@ namespace Delta\Http\Support\Seller;
  *---------------------------------------------------------
 */
 
+use Delta\Model\UserSession;
 
 class EntitySupport {
 
@@ -17,6 +18,8 @@ class EntitySupport {
 	}
 
 	public function index($ent) {
+
+		//dd($ent->users()->get());
 
 		$data["title"] 		= __("words.entities");
 		$data["ent"]		= $ent;		
@@ -30,6 +33,8 @@ class EntitySupport {
 		$data["warranties_on"]	= $ent->customer->where("activated", 1)->count();
 		$data["warranties_off"]	= $ent->customer->where("activated", 0)->count();
 
+		$data["jobs"]		= $this->getJobs(6);
+
 		$data["isOn"] = (function($url){
 			if( $url == request()->path()) {
 				return " active";
@@ -37,6 +42,13 @@ class EntitySupport {
 		});
 
 		return $data;
+	}
+
+	public function getJobs($perpage) { 
+		return (new UserSession)->where("type", "jobs")
+								->where("user_id", auth("web")->user()->id)
+								->orderBY("id", "DESC")
+								->paginate($perpage);
 	}
 }
 

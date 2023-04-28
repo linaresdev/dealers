@@ -10,6 +10,7 @@ namespace Delta\Http\Support\Seller;
 
 use Delta\Model\User;
 use Delta\Model\UserReset;
+use Delta\Model\UserSession;
 use Delta\Alert\Facade\Alert;
 
 
@@ -29,7 +30,7 @@ class UserSupport {
 		]);
 	}
 
-	public function getUsersFrom($group) {
+	public function getUsersFrom( $group ) {
 		return $group->users()->orderBY('id', 'DESC')->paginate(10);
 	}
 
@@ -88,6 +89,15 @@ class UserSupport {
 			return redirect(__url("__entity/users"));
 		}
 
+		(new UserSession)->news("jobs", [
+			"status" 	=> 202,
+			"action"	=> "Create",
+			"subject"	=> "Se creo el usuario {$this->user->fullname}",
+			"registro"	=> $dealer->id,
+			"user"		=> $this->user->id, 
+			"path"		=> request()->path(),
+		]);
+
 		Alert::prefix("system")->success(__("register.successfull"));
 
 		return back();
@@ -139,7 +149,9 @@ class UserSupport {
 			new DealerMembershepFromMail($token, $authMailForm, $entity) 
 		);
 
-		Alert::prefix("system")->success("Solicitud enviada correctamente");
+		Alert::prefix("system")->success(
+			"Solicitud enviada correctamente"
+		);
 		
 		return back();
 	}
@@ -151,7 +163,7 @@ class UserSupport {
 
 		$data["layout"]	= "layout-sm";
 		
-		$data["isOn"] 	= (function($url){
+		$data["isOn"] 	= (function($url) {
 			if( $url == request()->path()) {
 				return " active";
 			}
@@ -184,15 +196,33 @@ class UserSupport {
 	public function syncUser($ent, $ID) {
 		$ent->syncUser($ID);
 
+		(new UserSession)->news("jobs", [
+			"status" 	=> 202,
+			"action"	=> "Sync User",
+			"subject"	=> "Se agrego un usuario en $ent->group",
+			"registro"	=> $ID,
+			"path"		=> request()->path(),
+		]);	
+
 		return redirect(__url("__entity/users"));
 	}
 
 	public function detachUser($ent, $ID) {
-		$ent->users()->detach($ID);		
+		
+		$ent->users()->detach($ID);	
+
+		(new UserSession)->news("jobs", [
+			"status" 	=> 202,
+			"action"	=> "Remove User",
+			"subject"	=> "Remover usuario $ent->group",
+			"registro"	=> $ID,
+			"path"		=> request()->path(),
+		]);	
+
 		return redirect(__url("__entity/users"));
 	}
 
-	public function rol( $ent, $user ) {		
+	public function rol( $ent, $user ) {	
 		
 		$data["title"] 	= __("user.rol");
 		$data["ent"]	= $ent;
@@ -228,6 +258,14 @@ class UserSupport {
 			Alert::prefix("system")->success(__("rol.update.successfull"));
 			return back();
 		}
+
+		(new UserSession)->news("jobs", [
+			"status" 	=> 202,
+			"action"	=> "Update Rol",
+			"subject"	=> "Actualización Rol $user->fullname",
+			"registro"	=> $user->id,
+			"path"		=> request()->path(),
+		]);
 
 		Alert::prefix("system")->error(__("rol.update.error"));
 		
