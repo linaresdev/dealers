@@ -84,6 +84,13 @@ $this->bootMiddleware(\Delta\Http\Middleware\Handler::class);
 $this->loadThemeDriver("Lighter/Driver.php");
 
 /*
+* GUARD APP */
+$this->app["config"]->set("auth.guards.app.driver", "session");
+$this->app["config"]->set("auth.guards.app.provider", "app");
+$this->app["config"]->set("auth.providers.app.driver", "eloquent");
+$this->app["config"]->set("auth.providers.app.model", Delta\Model\User::class);
+
+/*
 * Area Menu */
 Menu::createArea("nav-0", "Menu Lateral #0");
 Menu::createArea("navbar-0", "Menu Superio #0");
