@@ -21,6 +21,11 @@ class Handler {
    }
    public function groups() {
       return [
+         "app" => [
+            'throttle:api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \Delta\Http\Middleware\AppMiddleware::class,
+         ],
          "iweb" => [
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,

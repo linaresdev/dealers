@@ -26,7 +26,7 @@ class Driver {
       return [
       	"type"			=> "package",
       	"slug"			=> "dealer",
-      	"driver"		=> \Delta\Driver::class,
+      	"driver"		   => \Delta\Driver::class,
       	"token"			=> NULL,
       	"activated" 	=> 1,
       ];
