@@ -33,3 +33,7 @@ Route::prefix("warranty")->middleware("warranty")->namespace("Warranty")->group(
 	__DEALER__."/Http/Route/warranty.php"
 );
 
+
+Route::prefix("clients")->namespace("Warranty")->group(function(){
+	Route::get("/", "ClientController@index");
+});
