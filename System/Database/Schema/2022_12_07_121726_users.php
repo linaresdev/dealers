@@ -84,7 +84,7 @@ return new class extends Migration {
             $table->text("agent")->nullable();
 
             $table->char("activated", 1)->default(1);
-            $table->json("action")->nullable();
+            $table->json("action")->default('{}');
 
             $table->timestamps();
 
