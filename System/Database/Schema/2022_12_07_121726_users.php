@@ -72,7 +72,8 @@ return new class extends Migration {
 
             $table->bigIncrements('id');
 
-            $table->bigInteger('user_id')->default(0)->unsigned();
+            $table->bigInteger('user_id')->default(0);
+
             $table->string("type")->default("news");
             $table->string("guard", 30)->default("web");
             $table->string("token", 75)->nullable();
@@ -84,7 +85,7 @@ return new class extends Migration {
             $table->text("agent")->nullable();
 
             $table->char("activated", 1)->default(1);
-            $table->json("action")->default('{}');
+            $table->json("action");
 
             $table->timestamps();
 
