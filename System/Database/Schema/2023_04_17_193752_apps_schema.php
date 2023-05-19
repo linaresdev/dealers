@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->text('comment')->nullable();
             $table->enum('method',["GET", "POST","ANY"])->default("GET");
             $table->string('path', 100);
-            $table->string('token', 200)->unique();
+            $table->string('token', 200)->nullable();
             $table->text('hash');
             $table->string('controller');
             $table->boolean("state")->default(0);
