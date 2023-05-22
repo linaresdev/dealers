@@ -8,12 +8,17 @@ namespace Delta\Http\Controllers\Warranty;
  *---------------------------------------------------------
 */
 
+use Illuminate\Http\Request;
 use Delta\Http\Support\Warranty\ClientSupport;
 
 class ClientController extends Controller {	
 
 	public function __construct(ClientSupport $support ) {	
 		$this->boot($support);
+	}
+
+	public function login( Request $request ) {
+		
 	}
 
 	public function index() {

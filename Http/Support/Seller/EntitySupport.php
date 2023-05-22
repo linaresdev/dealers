@@ -18,7 +18,7 @@ class EntitySupport {
 	}
 
 	public function index($ent) {
-
+		
 		//dd($ent->users()->get());
 
 		$data["title"] 		= __("words.entities");

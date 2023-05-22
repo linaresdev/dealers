@@ -7,13 +7,23 @@
  *---------------------------------------------------------
 */
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Route;
 
+Route::post("login", "Warranty\WapiController@login");
 
-Route::prefix("warranty")->middleware("app")->group(function(){
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get("/warranty", "Warranty\WapiController@index");
 
-	Route::get("/", "WarrantyController@index");
-	Route::get("/terminate/{job}", "WarrantyController@terminate");
-
-	Route::post("/", "WarrantyController@store");
-
+    Route::get("/logout", "Warranty\WapiController@logout");
 });
+
+// Route::prefix("warranty")->middleware("app")->group(function(){
+
+// 	Route::get("/", "WarrantyController@index");
+// 	Route::get("/terminate/{job}", "WarrantyController@terminate");
+
+// 	Route::post("/", "WarrantyController@store");
+
+// });

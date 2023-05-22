@@ -11,6 +11,7 @@
 //     return (new Delta\Model\UserReset)->where("token", $token)->first() ?? abort(404);
 // });
 
+
 Route::bind("dealer", function($dealer) {
     return (new Delta\Model\Group)->where("type", "dealer")->where("slug", $dealer)->first() ?? abort(404);
 });

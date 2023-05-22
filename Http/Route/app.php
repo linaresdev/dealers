@@ -35,5 +35,11 @@ Route::prefix("warranty")->middleware("warranty")->namespace("Warranty")->group(
 
 
 Route::prefix("clients")->namespace("Warranty")->group(function(){
+
+	Route::get("login", "ClientController@login");
+
 	Route::get("/", "ClientController@index");
+
+	Route::get("/close/{niv}", "ClientController@close");
+	Route::get("/error/{niv}", "ClientController@error");
 });
