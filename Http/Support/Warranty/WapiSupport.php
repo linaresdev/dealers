@@ -64,8 +64,6 @@ class WapiSupport {
 			], 401);
 		}
 
-		return $request;
-
 		$user = User::where("email", $request->email)->first();
 
 		return response()->json([
