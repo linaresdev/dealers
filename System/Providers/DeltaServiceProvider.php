@@ -1,4 +1,5 @@
-<?php namespace Delta\Providers;
+<?php 
+namespace Delta\Providers;
 
 /*
  *---------------------------------------------------------
@@ -53,6 +54,7 @@ class DeltaServiceProvider extends ServiceProvider {
 	/*
 	* DRIVERS
 	* Load Drivers */
+
 	public function loadDrivers( $drivers ) {
 		foreach( $drivers as $driver ) {
 
@@ -75,17 +77,6 @@ class DeltaServiceProvider extends ServiceProvider {
 			}
 		}
 	}
-
-	/*
-	* ALIASES
-	* Load Alias */
-	// public function loadAlias( $alias=NULL ) {
-	// 	if(!empty($alias) && is_array($alias)) {
-	// 		foreach ($alias as $alia => $class) {
-	// 			AliasLoader::getInstance()->alias($alia, $class);
-	// 		}
-	// 	}
-	// }
 
 	public function loadThemeDriver($theme) {
 		require_once(__THEME__.$theme);
