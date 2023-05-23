@@ -8,66 +8,50 @@ namespace Delta\Http\Controllers\Warranty;
  *---------------------------------------------------------
 */
 
-use Delta\Model\User;
 use Delta\Model\Customer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Delta\Http\Support\Warranty\WapiSupport;
 
 class WapiController extends Controller
 {	
-	public function __construct( Customer $warranty ) {	
-		$this->warranty = $warranty;
+
+	protected $wapi;
+
+	public function __construct( WapiSupport $wapi ) {	
+		$this->wapi = $wapi;
 	}
 
 	public function login(Request $request ) {
-
-		$rule["email"] 		= "required|string|email|max:100";
-		$rule["password"] 	= "required|string";
-
-		if( ($validator = validator($request->all(), $rule))->fails() ) {
-			return response()->json([
-				"status" 	=> false,
-				"errors"	=> $validator->errors()->all()
-			], 400);
-		}
-
-		if( !Auth::attempt($request->only("email", "password")) ) {
-			return response()->json([
-				"status" 	=> false,
-				"errors"	=> ["Unauthorized"]
-			], 401);
-		}
-
-		$user = User::where("email", $request->email)->first();
-
-		return response()->json([
-			"status" 	=> true,
-			"message"	=> "User logged in successfully",
-			"data"		=> $user,
-			"token"		=> $user->createToken('API TOKEN')->plainTextToken
-		], 200 );
-		
+		return $this->wapi->attempt($request);		
 	}
 
-	public function index() {
-		return $this->warranty->all();
+	public function warranties() {
+		return $this->wapi->getWarranties();
+		// return response()->json([
+		// 	"status" 	=> true,
+		// 	"message"	=> "Garantías disponibles",
+		// 	"data" 		=> $this->support->all()
+		// ], 200);
 	}
 
 	public function show( Customer $warranty ) {
-		return $warranty;
+		return response()->json([
+			"status" 	=> true,
+			"message"	=> "Garantías disponibles",
+			"data" 		=> $warranty
+		], 200);
 	}
 
 	public function store( Request $request ) {
 		dd($request->all());
 	}
 
-	public function logout() {
-		auth()->user()->tokens()->delete();
+	public function close( $niv, $state ) {
+		return $this->wapi->closeWarranty($niv, $state );
+	}
 
-		return response()->json([
-			"status" 	=> true,
-			"message"	=> "User logged out successfully"
-		], 200 );
+	public function logout() {
+		return $this->wapi->logout();
 	}
 }
 

@@ -50,6 +50,17 @@ class EntitySupport {
 								->orderBY("id", "DESC")
 								->paginate($perpage);
 	}
+
+	public function close($niv, $state) {
+		return response()->json([
+			"state" => true,
+			"data" => [
+				"niv" => $niv,
+				"state" => $state
+			],
+			"data" => null
+		], 200);
+	}
 }
 
 /* End of Controller EntitySupport.php */
