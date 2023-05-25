@@ -39,6 +39,8 @@ class esDO {
 
 			"apps.form"				=> "Foumulario de aplicaciones",
 
+			"bay.date"				=> "Fecha de la venta",
+
 			"account.update"		=> "Actualizar cuenta",
 			"account.remove"		=> "Remover cuenta",
 			"credential.update"		=> "Actualizar credenciales",
@@ -145,6 +147,7 @@ class esDO {
 
 			"news.add.user" 			=> "Se agrego un usuario en :path",
 			"news.user.remove"			=> "Se quitó el usuario de :path", 
+			"news.delete.warranty"		=> "Garantía :warranty eliminda correctamente",
 			"news.update.warranty" 		=> "Actualización de la garantía :warranty",
 			"news.register.warranty" 	=> "Registro de la garantía :warranty",
 			
@@ -152,6 +155,7 @@ class esDO {
 			"news.delete.org"			=> "Se elimino la organización :org",	
 			"news.update.org"			=> "Actualización de la organización :org",
 
+			"register.date" 		=> "Fecha de registro",
 			"register.form"			=> "Formulario de registro",
 			"register.membership"	=> "Solicitud de registro",
 			"register.successfull" 	=> "Registro realizado correctamente",
@@ -235,6 +239,7 @@ class esDO {
 			"words.form"		=> "Formulario",
 			"words.finder"		=> "Buscar",
 			"words.firstname"	=> "Nombre",
+			'words.filter'		=> "Filtrar",
 			"words.functions"	=> "Funciones",
 			"words.fullname"	=> "Nombre completo",
 			"words.group"		=> "Grupo",
@@ -255,6 +260,7 @@ class esDO {
 			"words.membership"	=> "Membresía",
 			"words.method"		=> "Método",
 			"words.name"		=> "Nombre",
+			"words.niv"			=> "NIV",
 			"words.new"			=> "Nuevo",
 			"words.organization"	=> "Organización",
 			"words.organizations"	=> "Organizaciones",
@@ -307,7 +313,7 @@ class esDO {
 			"seller.state.0" => "Inactiva",
 			"seller.state.1" => "En proceso",
 			"seller.state.2" => "Registrada",
-			"seller.state.3" => "Desactivada",
+			"seller.state.3" => "Error",
 
 			"toggle.set.0"	=> ":name desactivada correctamente",
 			"toggle.set.1"	=> ":name activada correctamente",

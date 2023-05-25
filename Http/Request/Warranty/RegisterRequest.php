@@ -19,6 +19,7 @@ class RegisterRequest extends FormRequest {
 
     public function rules() {
         return [
+            "date" => "required|date",
             "niv" => [
             	"required",
             	"min:8",

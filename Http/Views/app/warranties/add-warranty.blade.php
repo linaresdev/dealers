@@ -53,7 +53,18 @@
 
 					<div class="pb-3">
 						<div class="row">
-							<div class="col-lg-4 col-md-4 col-sm-4">
+							<div class="col-lg-6 col-md-6 mb-1">
+								<div class="form-floating">
+									<input type="date" 
+										name="date"
+										value="{{old('date')}}"
+										class="form-control{{$isError('date')}}"
+										placeholder="DATE"
+										autocomplete="off">
+									<label for="niv">{{__("bay.date")}}</label>
+								</div>					
+							</div>
+							<div class="col-lg-6 col-md-6 mb-1">
 								<div class="form-floating">
 									<input type="text" 
 										name="niv"
@@ -64,7 +75,7 @@
 									<label for="niv">NIV</label>
 								</div>					
 							</div>
-							<div class="col-lg-4 col-md-4 col-sm-4">
+							<div class="col-lg-6 col-md-6 mb-1">
 								<div class="form-floating">
 									<input type="text" 
 										name="rnc"
@@ -76,7 +87,7 @@
 								</div>					
 							</div>
 
-							<div class="col-lg-4 col-md-4 col-sm-4">
+							<div class="col-lg-6 col-md-6 mb-1">
 								<div class="form-floating">
 									<input type="text" 
 										name="cellphone"
@@ -91,54 +102,57 @@
 						</div>
 					</div>
 
-					<div class="">
-						<div class="form-floating">
-							<input type="text" 
-								name="customer"
-								value="{{old('customer')}}"
-								class="form-control{{$isError('customer')}}"
-								placeholder="{{__('customer.name')}}">
-							<label for="customer">{{__("customer.name")}}</label>
+					<div class="row mb-3">
+						<div class="col-lg-6 col-md-6 mb-1">
+							<div class="form-floating">
+								<input type="text" 
+									name="customer"
+									value="{{old('customer')}}"
+									class="form-control{{$isError('customer')}}"
+									placeholder="{{__('customer.name')}}">
+								<label for="customer">{{__("customer.name")}}</label>
+							</div>
 						</div>
-					</div>
 
-					<div class="">
-						<div class="form-floating">
-							<input type="text" 
-								name="email"
-								value="{{old('email')}}"
-								class="form-control{{$isError('email')}}"
-								placeholder="{{__('words.email')}}">
-							<label for="email">{{__('words.email')}}</label>
+						<div class="col-lg-6 col-md-6 mb-1">
+							<div class="form-floating">
+								<input type="text" 
+									name="email"
+									value="{{old('email')}}"
+									class="form-control{{$isError('email')}}"
+									placeholder="{{__('words.email')}}">
+								<label for="email">{{__('words.email')}}</label>
+							</div>
 						</div>
-					</div>
 
-					<div class="pb-3">
-						<div class="form-floating">
-							<input type="text" 
-								name="address"
-								value="{{old('address')}}"
-								class="form-control{{$isError('address')}}"
-								placeholder="{{__('words.address')}}"
-								autocomplete="off">
-							<label for="address">{{__('words.address')}}</label>
+
+						<div class="col-lg-6 col-md-6 mb-1">
+							<div class="form-floating">
+								<input type="text" 
+									name="address"
+									value="{{old('address')}}"
+									class="form-control{{$isError('address')}}"
+									placeholder="{{__('words.address')}}"
+									autocomplete="off">
+								<label for="address">{{__('words.address')}}</label>
+							</div>
 						</div>
-					</div>
-					<div class="pb-2">
-						<div class="form-floating">
-							<input type="text" 
-								name="sector"
-								list="zone" 
-								value="{{old('sector')}}"
-								class="form-control{{$isError('sector')}}"
-								placeholder="{{__('words.sector')}}"
-								autocomplete="off"
-								onkeyup="loadZone(this)">
-							<label for="sector">{{__('words.sector')}}</label>
+						<div class="col-lg-6 col-md-6 mb-1">
+							<div class="form-floating">
+								<input type="text" 
+									name="sector"
+									list="zone" 
+									value="{{old('sector')}}"
+									class="form-control{{$isError('sector')}}"
+									placeholder="{{__('words.sector')}}"
+									autocomplete="off"
+									onkeyup="loadZone(this)">
+								<label for="sector">{{__('words.sector')}}</label>
+							</div>
+							<datalist id="zone">
+								<option>{{__("search.zone")}}...</option>
+							</datalist>
 						</div>
-						<datalist id="zone">
-							<option>{{__("search.zone")}}...</option>
-						</datalist>
 					</div>
 
 					<div class="pb-3">

@@ -401,16 +401,21 @@ form .error.error-slow {
 	bottom: -2px;
 }
 
+.table .uplink-0 span,
 .table .uplink-0 [class*="mdi mdi-"] {
-	color: var(--bs-info);
+	color: var(--bs-warning);
 }
+.table .uplink-1 span,
 .table .uplink-1 [class*="mdi mdi-"] {
 	color: var(--bs-primary);
 }
+.table .uplink-2 span,
 .table .uplink-2 [class*="mdi mdi-"] {
 	color: var(--bs-success);
 }
-.table .uplink-2 [class*="mdi mdi-"] {
+
+.table .uplink-3 span,
+.table .uplink-3 [class*="mdi mdi-"] {
 	color: var(--bs-danger);
 }
 

@@ -41,9 +41,16 @@
 							<tr>
 								<td class="py-1 px-2">
 									{!! __mdi("calendar") !!} 
-									{{__("words.date")}}
+									{{__("bay.date")}}
 								</td>
-								<td class="py-1 px-2">{{$warranty->updated_at}}</td>
+								<td class="py-1 px-2">{{$warranty->date}}</td>
+							</tr>
+							<tr>
+								<td class="py-1 px-2">
+									{!! __mdi("calendar") !!} 
+									{{__("register.date")}}
+								</td>
+								<td class="py-1 px-2">{{$warranty->created_at}}</td>
 							</tr>
 							<tr>
 								<td class="py-1 px-2">

@@ -9,12 +9,17 @@
 
 Route::get('/', "WarrantyController@index");
 
+
 Route::get("/show/{__WID}", "WarrantyController@show");
 
 Route::prefix("{__orgID}")->group(function($route) {
     
 	Route::get("/", "WarrantyController@home");
+    Route::get("/search/{src}", "WarrantyController@searchWarranty");
+    Route::get('/filter/{field}', "WarrantyController@filter");
+
     Route::get("/activate/{__WID}", "WarrantyController@activate");
+    Route::get("/delete/{__WID}", "WarrantyController@delete");
 
     Route::get("/show/{__WID}", "WarrantyController@show");
 

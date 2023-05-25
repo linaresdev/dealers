@@ -39,6 +39,14 @@ class WarrantyController extends Controller {
 		return $this->render("home", $this->support->home($org));
 	}
 
+	public function searchWarranty( $org, $query ) {
+		return $this->support->search( $org, $query, $this->user()->id, $this->path );
+	}
+
+	public function filter( $org, $field ) {
+		return $this->support->setFilter($org, $field );
+	}
+
 	public function activate( $org, $warranty ) {
 		return $this->support->activate($org, $warranty);
 	}
@@ -61,6 +69,10 @@ class WarrantyController extends Controller {
 
 	public function show( $org, $warranty ) {
 		return $this->render("show",$this->support->show($org, $warranty));
+	}
+
+	public function delete( $org, $warranty ) {
+		return $this->support->delete($org, $warranty);
 	}
 }
 
