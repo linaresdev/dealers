@@ -26,10 +26,10 @@ class WapiSupport {
 
 		if( ($register = $data->count()) > 0 ) {
 
-			$message = "[ $register ] Registros pendientes";
+			$message = "$register Registros pendientes";
 
 			if( $register == 1 ) {
-				$message = "[ $register ] Registro pendiente";
+				$message = "$register  Registro pendiente";
 			}
 
 			return response()->json([
