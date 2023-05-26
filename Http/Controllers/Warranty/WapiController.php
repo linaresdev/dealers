@@ -27,11 +27,6 @@ class WapiController extends Controller
 
 	public function warranties() {
 		return $this->wapi->getWarranties();
-		// return response()->json([
-		// 	"status" 	=> true,
-		// 	"message"	=> "Garantías disponibles",
-		// 	"data" 		=> $this->support->all()
-		// ], 200);
 	}
 
 	public function show( Customer $warranty ) {

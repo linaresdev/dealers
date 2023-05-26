@@ -22,7 +22,7 @@ class WapiSupport {
 
 	public function getWarranties() {
 
-		$data = $this->warranty->where("state", "0");
+		$data = $this->warranty->where("state", "1");
 
 		if( ($register = $data->count()) > 0 ) {
 
@@ -68,7 +68,7 @@ class WapiSupport {
 
 		return response()->json([
 			"status" 	=> true,
-			"message"	=> "User logged in successfully",
+			"message"	=> "Cuaenta autenticada",
 			"data"		=> $user,
 			"token"		=> $user->createToken('API TOKEN')->plainTextToken
 		], 200 );
