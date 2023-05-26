@@ -35,13 +35,15 @@ class WapiSupport {
 			return response()->json([
 				"state" 	=> true,
 				"message"	=> $message,
-				"data" 		=> $data->get()->chunk(3)
+				"data" 		=> $data->get()
 			], 200);
 		}
-		return response()->json([
-			"state" 	=> false,
-			"message"	=> "Sin registro en transito",
-		], 200);
+		else() {
+			return response()->json([
+				"state" 	=> false,
+				"message"	=> "Sin registro en transito",
+			], 200);			
+		}
 	
 	}
 
@@ -52,14 +54,14 @@ class WapiSupport {
 
 		if( ($validator = validator($request->all(), $rule))->fails() ) {
 			return response()->json([
-				"status" 	=> false,
+				"state" 	=> false,
 				"errors"	=> $validator->errors()->all()
 			], 400);
 		}
 
 		if( !Auth::attempt($request->only("email", "password")) ) {
 			return response()->json([
-				"status" 	=> false,
+				"state" 	=> false,
 				"errors"	=> ["Unauthorized"]
 			], 401);
 		}
@@ -67,8 +69,8 @@ class WapiSupport {
 		$user = User::where("email", $request->email)->first();
 
 		return response()->json([
-			"status" 	=> true,
-			"message"	=> "Cuaenta autenticada",
+			"state" 	=> true,
+			"message"	=> "Cuenta autenticada",
 			"data"		=> $user,
 			"token"		=> $user->createToken('API TOKEN')->plainTextToken
 		], 200 );
