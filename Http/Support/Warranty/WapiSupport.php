@@ -71,8 +71,8 @@ class WapiSupport {
 		return response()->json([
 			"state" 	=> true,
 			"message"	=> "Cuenta autenticada",
-			"data"		=> $user,
 			"token"		=> $user->createToken('API TOKEN')->plainTextToken
+			"data"		=> auth()->user(),
 		], 200 );
 	}
 
@@ -93,13 +93,13 @@ class WapiSupport {
 			auth()->user()->tokens()->delete();
 
 			return response()->json([
-				"status" 	=> true,
+				"state" 	=> true,
 				"message"	=> "User logged out successfully"
 			], 200 );			
 		}
 
 		return response()->json([
-			"status" 	=> false,
+			"state" 	=> false,
 			"message"	=> "Already logged out"
 		], 200 );
 	}
