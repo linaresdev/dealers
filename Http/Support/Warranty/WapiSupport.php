@@ -35,15 +35,14 @@ class WapiSupport {
 			return response()->json([
 				"state" 	=> true,
 				"message"	=> $message,
-				"data" 		=> $data->get()
+				"data" 	=> $data->get()
 			], 200);
 		}
-		else() {
-			return response()->json([
-				"state" 	=> false,
-				"message"	=> "Sin registro en transito",
-			], 200);			
-		}
+		
+		return response()->json([
+			"state" 	=> false,
+			"message"	=> "Sin registro en transito",
+		], 200);
 	
 	}
 
@@ -71,19 +70,15 @@ class WapiSupport {
 		return response()->json([
 			"state" 	=> true,
 			"message"	=> "Cuenta autenticada",
-			"token"		=> $user->createToken('API TOKEN')->plainTextToken
-			"data"		=> auth()->user(),
+			"token"		=> $user->createToken('API TOKEN')->plainTextToken,
+			"data"		=> auth()->user()
 		], 200 );
 	}
 
 	public function closeWarranty( $niv, $state ) {
 		return response()->json([
 			"state" => true,
-			"message" => "Successfull Warranty",
-			"data" => [
-				"niv" => $niv,
-				"state" => $state
-			]
+			"message" => "Successfull Warranty"
 		], 200);
 	}
 

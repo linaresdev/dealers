@@ -37,8 +37,7 @@ class WapiController extends Controller
 		], 200);
 	}
 
-	public function store( Request $request ) {
-		dd($request->all());
+	public function store( Request $request ) {;
 	}
 
 	public function close( $niv, $state ) {
