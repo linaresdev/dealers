@@ -75,11 +75,39 @@ class WapiSupport {
 		], 200 );
 	}
 
-	public function closeWarranty( $niv, $state ) {
-		return response()->json([
-			"state" => true,
-			"message" => "Successfull Warranty"
-		], 200);
+	public function closeWarranty( $request ) {
+		if($request->has("job")) {
+
+			$jobs = json_decode($request->get("job"));
+
+			if( !empty( $jobs ) ) { 
+				
+				if( $this->closeJobs($jobs) != false ) {
+					return response()->json([						
+						"state" => true,
+						"message" => "Jobs cerrados corretamente"
+					], 200);					
+				}
+				else {
+					return response()->json([
+						"state" => false,
+						"message" => "Error al tratar de cerrar los jobs"
+					], 500);
+				}
+
+			}
+		}
+	}
+
+	public function closeJobs( $jobs ) {
+		foreach($jobs as $niv => $state) {
+			$store = $this->warranty->where("niv", $niv)->first() ?? false;
+			if($store) {
+				$store->update(["state" => $state]);
+			}
+		}
+
+		return true;
 	}
 
 	public function logout() {

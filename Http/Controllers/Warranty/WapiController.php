@@ -40,8 +40,8 @@ class WapiController extends Controller
 	public function store( Request $request ) {;
 	}
 
-	public function close( $niv, $state ) {
-		return $this->wapi->closeWarranty($niv, $state );
+	public function close( Request $request ) {
+		return $this->wapi->closeWarranty( $request );
 	}
 
 	public function logout() {

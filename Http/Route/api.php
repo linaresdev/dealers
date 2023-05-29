@@ -15,7 +15,7 @@ Route::post("login", "Warranty\WapiController@login");
 
 Route::middleware('auth:sanctum')->group(function() {
     Route::get("/warranty", "Warranty\WapiController@warranties");
-    Route::get("/close/{niv}/{state}", "Warranty\WapiController@close");
+    Route::get("/close", "Warranty\WapiController@close");
 
     Route::get("/logout", "Warranty\WapiController@logout");
 });
