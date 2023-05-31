@@ -29,6 +29,20 @@
 					
 					<h4>{{ $org->group }}</h4>
 
+					@if($warranty->state == 2 )
+					<small class="py-2 d-block text-secondary">
+						{{__("warranty.confirmed", [
+							"date" => $warranty->created_at
+						])}} 
+					</small>
+					@elseif($warranty->state == 3 )
+					<small class="py-2 d-block text-secondary">
+						{{__("warranty.bad.confirm", [
+							"date" => $warranty->created_at
+						])}} 
+					</small>
+					@endif
+
 					<table class="table border">
 						<thead class="bg-light border-top">
 							<tr>

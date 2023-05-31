@@ -2,14 +2,6 @@
 
 		@section("content")	
 
-			<article class="block">
-				<a href="{{__url("seller/register")}}" 
-					class="btn btn-primary btn-sm">
-					{!! __mdi("storefront-plus") !!}
-					{!! __("dealer.new") !!}
-				</a>
-			</article>
-
 			<article class="block">				
 				<input type="text"
 					name="src"
@@ -18,11 +10,11 @@
 					onkeyup="srcDealer(this)">				
 			</article>
 
-			<div class="table-responsive">
+			<div class="table-responsive" style="min-height: 250px;">
 			<table class="table">
 				<thead class="bg-light border-top">
 					<tr>
-						<th class="py-2">{{__("words.name")}}</th>
+						<th class="py-2 px-2">{{__("words.name")}}</th>
 						<th class="py-2 toggled-sm">{{__("words.phone")}}</th>
 						<th class="py-2 toggled-sm">{{__("words.email")}}</th>
 						<th class="action py-2">{{__("words.actions")}}</th>
@@ -55,8 +47,7 @@
 									{!! __mdi("progress-wrench mdi-action") !!}
 								</a>
 
-								<div class="dropdown-menu headering">
-									
+								<div class="dropdown-menu headering">									
 									<div class="dropdown-header">
 										{!! __mdi("storefront-outline") !!}
 										{{$dealer->group}}
@@ -74,12 +65,9 @@
 										{!! __mdi("cog") !!}
 										{{__("words.manager")}}
 									</div>
-									<a href="{{__url('seller/'.$dealer->id.'/users')}}" class="dropdown-item">
-										{{__("words.users")}}
-									</a>
 
 									<a href="{{__url('seller/delete/'.$dealer->id)}}" 
-										class="dropdown-item">
+										class="dropdown-item text-danger">
 										{{__("words.delete")}}
 									</a>
 								</div>

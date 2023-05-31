@@ -80,6 +80,7 @@ class UserSupport {
 		$this->user->user 		= $request->user;
 		$this->user->email 		= $request->email;
 		$this->user->password 	= $request->password;
+		$this->user->activated  = 1;
 
 		if($this->user->save()) {
 			$this->user->orgSync($dealer->id);

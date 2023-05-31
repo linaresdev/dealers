@@ -31,6 +31,10 @@ foreach( (new \Delta\Http\Menu\Handler())->menu() as $menu ) {
 
 ## ORGANIZATION ACCES
 
+if( __segment(1, env("APP_ADMIN_SLUG")) ) {
+    if( $user->org("admin") == null ) abort(404);
+}
+
 if( !Menu::load("apps")->has("items") && __segment(1, "seller") ) {
     return redirect("/");
 }

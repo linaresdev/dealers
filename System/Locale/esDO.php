@@ -197,6 +197,8 @@ class esDO {
 			"warranty.manager"	=> "Gestionar garantias",
 			"warranty.register"	=> "Registrar garantía",
 			"warranty.search"	=> "Buscar garantía",
+			"warranty.confirmed"	=> "Garantía registrada el :date",
+			"warranty.bad-confirm" => "Garantía no fue registrada, verifique los datos suministrados",
 
 			"words.admin"		=> "Administrador",
 			"words.add"			=> "Agregar",

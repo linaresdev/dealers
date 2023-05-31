@@ -27,7 +27,7 @@ class RegisterRequest extends FormRequest {
             	"unique:\Delta\Model\Customer,niv"
             ],
             "customer"	=> "required",
-            "address"   => "required",
+            "address"   => "required|max:50",
             "rnc"		=> "required",
             "email"		=> "required|email",
             "cellphone"	=> "required",

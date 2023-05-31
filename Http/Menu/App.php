@@ -27,11 +27,21 @@ class App extends Accessor {
 	public function authorize( $login ) {
 
 		$navSellers = $login->groups->where("type", "organization");
-
+		
 		foreach($navSellers as $key => $row ) {
-			$this->items[$key]["icon"] 	= "mdi-".$row->icon;
-			$this->items[$key]["label"] 	= __("words.".$row->slug);
-			$this->items[$key]["url"] 	= __url($row->slug);
+			if( $row->slug != "warranty" ) {
+				$this->items[$key]["icon"] 	= "mdi-".$row->icon;
+				$this->items[$key]["label"] 	= __("words.".$row->slug);
+				$this->items[$key]["url"] 		= __url($row->slug);
+			}
+
+			if( $row->slug == "warranty" ) {
+				foreach($login->orgParents($row->id) as $k => $ent ) {
+					$this->items[20 + $k]["icon"] 	= "mdi-".$ent->icon;
+					$this->items[20 + $k]["label"] 	= $ent->group;
+					$this->items[20 + $k]["url"] 	= __url("warranty/".$ent->id);
+				}
+			}					
 		}
 
 	}

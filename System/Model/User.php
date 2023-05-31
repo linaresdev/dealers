@@ -125,7 +125,7 @@ class User extends Authenticatable {
 
     public function orgParents($ID) {
     	return $this->groups->where("parent", $ID);
-    }
+    }    
 
     public function orgHasParents($ID) {
     	return ($this->groups->where("parent", $ID)->count() > 0);  

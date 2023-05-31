@@ -18,10 +18,10 @@ class SellerMiddleware {
 	];
 
     public function handle($request, Closure $next, $guard = "web") {
-
+        
         if( ($auth = Auth::guard($guard))->check() ) {
             $user = $auth->user();
-
+            
             if( ($seller = $user->org("seller")) == null ) {
 
                 Alert::prefix("system")->warning( __("access.deny") );

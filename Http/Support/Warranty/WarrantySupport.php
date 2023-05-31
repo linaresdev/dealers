@@ -128,6 +128,22 @@ class WarrantySupport {
 		return (new Zona)->where("description", $description)->first()->code;
 	}
 
+	public function filterFieldRNC($value) {
+		$value = trim($value);
+		$value = str_replace('-', null, $value);
+		$value = str_replace(' ', null, $value);
+
+		return $value;
+	}
+
+	public function filterFieldPhone($value) {		
+		$value = trim($value);
+		$value = str_replace('-', null, $value);
+		$value = str_replace(' ', null, $value);
+
+		return $value;
+	}
+
 	public function saveWarranty( $org, $request, $user ) {
 
 		$this->customer->date 		= $request->date;
@@ -135,9 +151,9 @@ class WarrantySupport {
 		$this->customer->user_id 	= $user->id;
 		$this->customer->niv 		= $request->niv;
 		$this->customer->customer 	= $request->customer;
-		$this->customer->rnc 		= $request->rnc;
+		$this->customer->rnc 		= $this->filterFieldRNC($request->rnc);
 		$this->customer->email 		= $request->email;
-		$this->customer->cellphone 	= $request->cellphone;
+		$this->customer->cellphone 	= $this->filterFieldPhone($request->cellphone);
 		$this->customer->niv 		= $request->niv;
 		$this->customer->address 	= $request->address;
 		$this->customer->code 		= $this->getCodeFromDescription($request->sector);
