@@ -27,9 +27,10 @@ class App extends Accessor {
 	public function authorize( $login ) {
 
 		$navSellers = $login->groups->where("type", "organization");
-		
+
 		foreach($navSellers as $key => $row ) {
-			if( $row->slug != "warranty" ) {
+
+			if( !in_array($row->slug, ["profiler", "warranty"]) ) {
 				$this->items[$key]["icon"] 	= "mdi-".$row->icon;
 				$this->items[$key]["label"] 	= __("words.".$row->slug);
 				$this->items[$key]["url"] 		= __url($row->slug);

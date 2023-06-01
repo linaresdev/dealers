@@ -9,6 +9,7 @@ namespace Delta\Http\Support\Seller;
 */
 
 use Delta\Model\User;
+use Delta\Model\Group;
 use Delta\Model\UserReset;
 use Delta\Model\UserSession;
 use Delta\Alert\Facade\Alert;
@@ -74,7 +75,9 @@ class UserSupport {
 	}
 
 	public function userCreate( $dealer, $request ) {
-
+		$profiler = (new Group)->where("slug", "profiler")->first() ?? null;
+		$warranty = (new Group)->where("slug", "warranty")->first() ?? null;
+		
 		$this->user->fullname 	= $request->firstname.' '.$request->lastname;
 		$this->user->publicname = $request->firstname;
 		$this->user->user 		= $request->user;
@@ -83,6 +86,9 @@ class UserSupport {
 		$this->user->activated  = 1;
 
 		if($this->user->save()) {
+			
+			$this->user->orgSync($warranty->id);
+			$this->user->orgSync($warranty->id);
 			$this->user->orgSync($dealer->id);
 
 			Alert::prefix("system")->success( __("register.successfull") );

@@ -10,6 +10,8 @@ namespace Delta\Http\Controllers\Admin\Users;
 
 use Delta\Http\Request\User\Register;
 use Delta\Http\Support\Admin\UserSupport;
+use Delta\Http\Request\Admin\Users\CredentialRequest;
+use Delta\Http\Request\Admin\Users\PasswordRequest;
 
 class UserController extends Controller {	
 
@@ -33,6 +35,20 @@ class UserController extends Controller {
 	
 	public function create( Register $request ) {
 		return $this->support->create( $this->user(), $request );
+	}
+
+	public function credential($user) {
+		return $this->render("update.credential", $this->support->account($user));
+	}
+	public function credentialUpdate($user, CredentialRequest $request) {
+		return $this->support->credentialUpdate($user, $request);
+	}
+
+	public function password($user) {
+		return $this->render("update.password", $this->support->account($user));
+	}
+	public function passwordUpdate($user, PasswordRequest $request) {
+		return $this->support->passwordUpdate($user, $request);
 	}
 }
 

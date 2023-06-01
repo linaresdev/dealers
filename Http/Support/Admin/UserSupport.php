@@ -18,7 +18,7 @@ class UserSupport {
 		$this->user = $user;
 	}
 
-	public function getUser($perpage=10) {
+	public function getUser( $perpage=10 ) {
 		$data = $this->user->where("activated", "<", 4);
 		$data->orderBY("id", "DESC");
 
@@ -76,6 +76,34 @@ class UserSupport {
 
 		return back()->withInput();
 
+	}
+
+	public function account( $user ) {
+
+		$data['title'] 	= __("words.mantenance");
+		$data["user"]	= $user;
+		
+		return $data;
+	}
+
+	public function credentialUpdate($user, $request) {
+		
+		if( $user->update($request->except("_token")) ) {
+			return redirect()->to(__url("__admin/users"));
+		}
+
+		return back();
+	}
+
+	public function passwordUpdate($user, $request) {
+
+		$user->password = $request->pwd;
+
+		if( $user->save() ) {
+			return redirect()->to(__url("__admin/users"));
+		}
+
+		return back();
 	}
 }
 

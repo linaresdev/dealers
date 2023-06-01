@@ -92,19 +92,19 @@
 												{!! __mdi("account-cog") !!}
 												{{ __("words.mantenance") }}
 											</div>
-											<a href="{{__url("__users/$user->id")}}" 
+											<a href="{{__url("__users/$user->id/update/credential")}}" 
 												class="dropdown-item ident">
 												{{__("edit.credentials")}}
 											</a>
-											<a href="{{__url("__users/$user->id")}}" 
+											<a href="{{__url("__users/$user->id/update/password")}}" 
 												class="dropdown-item ident">
 												{{__("edit.password")}}
 											</a>
-											<a href="{{__url("__users/$user->id")}}" 
+											<a href="{{__url("__users/$user->id/expired/password")}}" 
 												class="dropdown-item ident">
 												{{__("request.edit-password")}}
 											</a>
-											<a href="{{__url("__users/$user->id")}}" 
+											<a href="{{__url("__users/update/$user->id/send/password-reset")}}" 
 												class="dropdown-item ident">
 												{{__("send.edit-password")}}
 											</a>

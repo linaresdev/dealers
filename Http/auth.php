@@ -27,8 +27,6 @@ foreach( (new \Delta\Http\Menu\Handler())->menu() as $menu ) {
     }
 }
 
-
-
 ## ORGANIZATION ACCES
 
 if( __segment(1, env("APP_ADMIN_SLUG")) ) {
@@ -48,5 +46,8 @@ if( !Menu::load("apps")->has("items") && __segment(1, "warranty") ) {
 view()->share([
 	"UI" => $user
 ]);
+
+
+
 
 //dd($user->sessID());

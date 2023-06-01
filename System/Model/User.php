@@ -123,6 +123,10 @@ class User extends Authenticatable {
     	return $this->groups->where("type", "organization")->where("slug", $slug)->first() ?? null;
     }
 
+    public function orgHas($slug) {
+    	return ($this->org($slug) != null);
+    }
+
     public function orgParents($ID) {
     	return $this->groups->where("parent", $ID);
     }    

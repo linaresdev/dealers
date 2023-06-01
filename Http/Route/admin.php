@@ -54,6 +54,14 @@ Route::prefix("/organizations")->namespace("Domain")->group(function($route){
 Route::prefix("/users")->namespace("Users")->group( function($route) {
     Route::get("/", "UserController@index");
 
+    Route::prefix("{__usrID}/update")->group(function() {
+        Route::get("/credential", "UserController@credential");
+        Route::post("/credential", "UserController@credentialUpdate");
+
+        Route::get("/password", "UserController@password");
+        Route::post("/password", "UserController@passwordUpdate");
+    });
+
     Route::get("config/{key}/{value}", "UserController@config");
 
     ## Register Users

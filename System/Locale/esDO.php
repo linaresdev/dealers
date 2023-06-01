@@ -270,7 +270,7 @@ class esDO {
 			"words.phone"		=> "Teléfono",
 			"words.password"  	=> "Contraseña",
 			"words.pwd"  		=> "Contraseña",
-			"words.rpwd"		=> "Confirmar contraseña",
+			"words.rpwd"		=> "confirmar contraseña",
 			"words.public"		=> "Público",
 			"words.publicname"	=> "Nombre publico",
 			"words.private"		=> "Privado",
