@@ -8,6 +8,7 @@ namespace Delta\Http\Controllers\Admin\Users;
  *---------------------------------------------------------
 */
 
+use Illuminate\Http\Request;
 use Delta\Http\Request\User\Register;
 use Delta\Http\Support\Admin\UserSupport;
 use Delta\Http\Request\Admin\Users\CredentialRequest;
@@ -19,11 +20,15 @@ class UserController extends Controller {
 		$this->boot($app);
 	}
 
-	public function index() {
+	public function index() {		
 		return $this->render("index", $this->support->index());
 	}
 
-	public function config($key, $value) {
+	public function setUser($user, $state ) {
+		return $this->support->setUser($user, $state );
+	}
+
+	public function config( $key, $value ) {
 		return $this->support->setUserConfig( $this->user(), $key, $value);
 	}
 
@@ -49,6 +54,33 @@ class UserController extends Controller {
 	}
 	public function passwordUpdate($user, PasswordRequest $request) {
 		return $this->support->passwordUpdate($user, $request);
+	}
+
+	public function passwordExpire($user) {
+		return $this->render(
+			"password.expire", $this->support->account($user)
+		);
+	}
+
+	public function passwordExpireDelete($user, $id) { dd($id);
+		return $this->support->passwordExpireDelete($user, $id);
+	}
+
+	public function passwordExpireCreate( $user, Request $request ) {
+		$request->validate([
+			"date"	=> "required|date",
+			"time"	=> "required"
+		]);
+
+		return $this->support->passwordExpireCreate($user, $request);
+	}
+
+	public function delete($user) {
+		return $this->render("delete", $this->support->account($user));
+	}
+
+	public function deleteForever( $user ) {
+		return $this->support->deleteForever($user);
 	}
 }
 

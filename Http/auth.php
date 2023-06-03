@@ -16,7 +16,6 @@ if( $user->activated != 1 )  {
     return redirect('/login')->withErrors($validator);
 }
 
-
 ## AUTH USER CONFIGS
 $user->loadConfig();
 

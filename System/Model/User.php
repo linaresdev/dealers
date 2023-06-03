@@ -231,6 +231,14 @@ class User extends Authenticatable {
 		return $this->session()->where("token", $this->sessID())->first() ?? null;
 	}
 
+	public function passwordExpire() {
+		return (new UserSession)
+			->where("user_id", $this->id)
+			->where("type", "password-expire")
+			->where("activated", 1)
+			->first() ?? null;
+	}
+
 	public function closeLastSession($type, $sessID ) {
 		if( ($sess = $this->session()->where("token", $sessID)->first()) ?? false ) {
 			$sess->activated = 2; $sess->save();

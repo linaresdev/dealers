@@ -4,7 +4,7 @@ define("__DEALER__", realpath(__DIR__."/../"));
 define("__THEME__", __DEALER__."/System/Themes/");
 
 $this->mergeConfigFrom(__DIR__."/app.php", "admin");
-
+$this->app["config"]->set("app.timezone", "America/Santo_Domingo");
 
 /*
 * DRIVERS */

@@ -54,13 +54,29 @@ Route::prefix("/organizations")->namespace("Domain")->group(function($route){
 Route::prefix("/users")->namespace("Users")->group( function($route) {
     Route::get("/", "UserController@index");
 
-    Route::prefix("{__usrID}/update")->group(function() {
-        Route::get("/credential", "UserController@credential");
-        Route::post("/credential", "UserController@credentialUpdate");
+    Route::prefix("{__usrID}")->group(function($route){ 
 
-        Route::get("/password", "UserController@password");
-        Route::post("/password", "UserController@passwordUpdate");
+        Route::prefix("update")->group(function() {
+            Route::get("credential", "UserController@credential");
+            Route::post("credential", "UserController@credentialUpdate");
+
+            Route::get("password", "UserController@password");
+            Route::post("password", "UserController@passwordUpdate");
+        });
+
+        Route::get("password/expired", "UserController@passwordExpire");
+        Route::post("password/expired", "UserController@passwordExpireCreate");
+        
+        Route::get(
+            "password/expired/{id}/delete", "UserController@passwordExpireDelete"
+        );;
+
+        Route::get("delete", "UserController@delete");
+        Route::get("delete/forever", "UserController@deleteForever");
+
     });
+
+    Route::get("/set/{__usrID}/{state}", "UserController@setUser");
 
     Route::get("config/{key}/{value}", "UserController@config");
 
