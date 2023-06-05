@@ -20,14 +20,14 @@ class esDO {
 
 	function lines() {
 		return [
-
 			"access.0"				=> "Público",
 			"access.1" 				=> "Privado",
 			"access.deny"			=> "Acceso denegado",
 
 			"access.resources.empty"	=> "Su posee recursos asignado para esta solicitud",
 
-			"auth.0"				=> "Cuenta desabilitada",
+			"auth.0"				=> "Cuenta deshabilitada",
+			"auth.1"				=> "Cuenta activada",
 			"auth.2"				=> "Cuenta bloqueada",
 			"auth.3"				=> "Cuenta enviada a legales",
 
@@ -60,6 +60,7 @@ class esDO {
 
 			"delete.org"			=> "Organización eliminada",
 			"delete.error"			=> "Error al tratar de eliminar el recurso",
+			"delete.forever"		=>"Eliminado permanente",
 			"delete.successfull"	=> "Recurso eliminado correctamente",
 
 			"dealer.new"			=> "Registrar dealer",
@@ -121,7 +122,20 @@ class esDO {
 
 			"url.base"			=> "Url base",
 			"user.add"			=> "Agregar usuario",
+
+			"user.st0.successfull"		=> "Cueta deshabilitada correctamente",
+			"user.st1.successfull"		=> "Cueta activada correctamente",
+			"user.st2.successfull"		=> "Cueta bloqueada correctamente",
+
+			"user.st0.error"		=> "Error al tratar de deshabilitada la cuenta",
+			"user.st1.error"		=> "Error al tratar de activar la cuenta",
+			"user.st2.error"		=> "Error al tratar de bloquear la cuenta",
+
 			"user.create"		=> "Crear usuario",
+			"user.delete.successfull" => "Cuenta :account eliminada",
+			"user.delete.error" => "Error al trata de liminara laCuenta :account",
+			"user.delete.forever" => "Cuenta destruida",
+
 			"user.form"			=> "Formulario de usuario",
 			"user.groups"		=> "Mis grupos de usuarios",
 			"user.new"			=> "Nuevo usuario",
@@ -149,11 +163,16 @@ class esDO {
 			"news.user.remove"			=> "Se quitó el usuario de :path", 
 			"news.delete.warranty"		=> "Garantía :warranty eliminda correctamente",
 			"news.update.warranty" 		=> "Actualización de la garantía :warranty",
+			"news.update.user"			=> "Se actualizo los datos de la cuenta :name",
 			"news.register.warranty" 	=> "Registro de la garantía :warranty",
 			
+			"news.create.user"			=> "Se Registro la cuenta :name nueca en la base de datos",
+			"news.delete.user"			=> "Cuenta eliminada de los registros",
 			"news.create.org"			=> "Registro de la organización :org",
 			"news.delete.org"			=> "Se elimino la organización :org",	
 			"news.update.org"			=> "Actualización de la organización :org",
+			"news.expire.password"		=> "Expirar contraseña",
+			"news.validity.programmer"	=> "Programador de tiempo de vijencia",
 
 			"register.date" 		=> "Fecha de registro",
 			"register.form"			=> "Formulario de registro",
@@ -184,6 +203,7 @@ class esDO {
 			"password.confirm"		=> "Confirmar contraseña",
 			"password.old.bad"		=> "Contraseña actual invalida",
 			"password.same.bad"		=> "Contraseñas no coinciden",
+			"programmer.change.password" => "Programador de cambio de contraseña",
 
 			"words.action"			=> "Acción",
 			"words.actions"			=> "Acciones",
@@ -213,6 +233,7 @@ class esDO {
 			"words.activate"	=> "Activar",
 			"words.activated"	=> "{1} Activos|{2} Activas",
 			"words.back"		=> "Regresar",
+			'words.block'		=> "Bloquear",
 			"words.contacts"	=> "Contactos",
 			"words.config"		=> "Configuración",
 			"words.connect"		=> "Conectar",
@@ -232,6 +253,7 @@ class esDO {
 			"words.dealers"		=> "Dealers",
 			"words.delete"		=> "Eliminar",
 			"words.description"	=> "Descripción",
+			"words.disable"		=> "Deshabilitar",
 			"words.edit"		=> "Editar",
 			"words.email"     	=> "Correo Electrónico",
 			"words.entity"		=> "Entidad",
@@ -247,6 +269,7 @@ class esDO {
 			"words.group"		=> "Grupo",
 			"words.groups"		=> "Grupos",
 			"words.home"		=> "Inicio",
+			'words.hour'		=> "Hora",
 			"words.handler"		=> "Manejador",
 			"words.icon"		=> "Icono",
 			"words.inactive"	=> "{1} Inactivos|{2} Inactivas",
@@ -301,6 +324,7 @@ class esDO {
 			"words.seller"		=> "Vendedor",
 			"words.see"			=> "Ver",
 			"words.search"		=> "Buscar",
+			"words.time"		=> "Tiempo",
 
 			"works.group"		=> "Grupo de trabajo",
 

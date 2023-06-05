@@ -34,7 +34,7 @@ class Group extends Model {
    }
 
    public function org( $slug ) {
-      return $this->where("type", "organization")->where("slug", $slug)->first();
+      return $this->where("type", "organization")->where("slug", $slug)->first() ?? null;
    }
 
    public function getOrgUsers($slug) {

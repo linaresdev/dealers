@@ -794,9 +794,6 @@ form .error.error-slow {
 .box.box-light .box-body .action .dropdown .dropdown-menu .dropdown-item {
 	font-size: 14px;
 }
-.box.box-light .box-body .action .dropdown .dropdown-menu .dropdown-item.ident {
-	padding-left: 30px;
-}
 
 /*
 * Box Group */

@@ -52,6 +52,11 @@
 			</header>
 
 			<section class="box-body">
+
+				<article class="px-3">
+					{!! Alert::tag("system") !!}
+				</article>
+
 				<article class="pb-3">
 					<table class="table">
 						<thead>
@@ -79,7 +84,46 @@
 
 								<td>--</td>
 
-								<td>{{ __("user.state.".$user->activated) }}</td>
+								<td>
+									<div class="dropdown dropstart dropdown-text">
+										<a href="#" class="dropdown-toggle btn btn-sm btn-light py-0 px-1 border-0" 
+											data-bs-toggle="dropdown">
+											{{ __("user.state.".$user->activated) }}
+										</a>
+										<div class="dropdown-menu">
+											<div class="dropdown-header">
+												{{$user->fullname}}
+											</div>
+											<a href="{{__url('__users/set/'.$user->id."/0")}}" class="dropdown-item ps-4">
+												@if($user->activated == 0)
+												{!! __mdi("checkbox-marked-circle-outline") !!}
+												{{__("auth.0")}}
+												@else
+												{!! __mdi("checkbox-blank-circle-outline") !!}
+												{{__("words.disable")}}
+												@endif
+											</a>
+											<a href="{{__url('__users/set/'.$user->id."/1")}}" class="dropdown-item ps-4">
+												@if($user->activated == 1)
+												{!! __mdi("checkbox-marked-circle-outline") !!}
+												{{__("auth.1")}}
+												@else
+												{!! __mdi("checkbox-blank-circle-outline") !!}
+												{{__("words.activate")}}
+												@endif
+												
+											</a>
+											<a href="{{__url('__users/set/'.$user->id."/2")}}" class="dropdown-item ps-4">
+												@if($user->activated == 2)
+												{!! __mdi("checkbox-marked-circle-outline") !!}
+												{{__("auth.2")}}
+												@else
+												{!! __mdi("checkbox-blank-circle-outline") !!}
+												{{__("words.block")}}
+												@endif												
+											</a>
+										</div>
+								</td>
 								<td class="action">
 									<div class="dropdown dropstart">
 										<a href="#" class="dropdown-toggle" 
@@ -93,19 +137,19 @@
 												{{ __("words.mantenance") }}
 											</div>
 											<a href="{{__url("__users/$user->id/update/credential")}}" 
-												class="dropdown-item ident">
+												class="dropdown-item ps-4">
 												{{__("edit.credentials")}}
 											</a>
 											<a href="{{__url("__users/$user->id/update/password")}}" 
-												class="dropdown-item ident">
+												class="dropdown-item ps-4">
 												{{__("edit.password")}}
 											</a>
-											<a href="{{__url("__users/$user->id/expired/password")}}" 
-												class="dropdown-item ident">
+											<a href="{{__url("__users/$user->id/password/expired")}}" 
+												class="dropdown-item ps-4">
 												{{__("request.edit-password")}}
 											</a>
 											<a href="{{__url("__users/update/$user->id/send/password-reset")}}" 
-												class="dropdown-item ident">
+												class="dropdown-item ps-4">
 												{{__("send.edit-password")}}
 											</a>
 
@@ -114,7 +158,7 @@
 												{{ __("user.groups") }}
 											</div>
 											<a href="{{__url("__groups/$user->id")}}" 
-												class="dropdown-item ident">
+												class="dropdown-item ps-4">
 												{{__("admin.groups")}}
 											</a>
 
@@ -123,8 +167,12 @@
 												{{ __("words.security") }}
 											</div>
 											<a href="{{__url("__groups/$user->id")}}" 
-												class="dropdown-item ident">
+												class="dropdown-item ps-4">
 												{{__("words.access")}}
+											</a>
+											<a href="{{__url("__users/$user->id/delete")}}" 
+												class="btn btn-outline-danger btn-sm d-block mx-2 text-start ps-3">
+												{{__("words.delete")}}
 											</a>
 										</div>
 									</div>

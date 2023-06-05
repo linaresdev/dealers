@@ -52,14 +52,12 @@ class UserSession extends Model {
 	}
 
 	public function news($type="news", $actions=[] ) {
-
-
-
 		$data 				= $this->defaultAttributes();
 		$data["type"]		= $type;
 		$data["user_id"] 	= ($user = auth("web")->user())->id ?? 0;
 		$data["token"]		= auth("web")->getSession()->getID() ?? null;
 
+		$actions["path"]		= request()->path();
 		$actions["device"] 		= $user->currentDevice();
 		$actions["platform"] 	= $user->currentPlatform();
 		$actions["browser"]		= $user->currentBrowser();
@@ -68,7 +66,6 @@ class UserSession extends Model {
 		
 		return $this->create($data);
 	}
-
 	
 }
 
