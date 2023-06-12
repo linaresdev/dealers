@@ -191,6 +191,11 @@ class esDO {
 
 			"required.all"			=> "Todos los campos son requeridos",
 
+			"retrieve.password"		=> "Recuperación de contraseña",
+			"retrieve.unknown"		=> "No fui yo, Reporta",
+
+			"report.retrieve"		=> "Reporte de recupración",
+
 			"rol.form"					=> "Formulario de funciones",
 			"rol.update.error"			=> "Error al tratar de actualizar lso permisos",
 			"rol.update.successfull"	=> "Permisos actualizados correctamente", 
@@ -199,11 +204,18 @@ class esDO {
 			"organization.name"		=> "Nombre de la organización",
 			"organization.update"	=> "Actualizar organización",
 
-			"password.update"		=> "Actualizar contraseña",
-			"password.confirm"		=> "Confirmar contraseña",
-			"password.old.bad"		=> "Contraseña actual invalida",
-			"password.same.bad"		=> "Contraseñas no coinciden",
-			"programmer.change.password" => "Programador de cambio de contraseña",
+			"password.update"				=> "Actualizar contraseña",
+			"password.updated.successfull" 	=> "Contraseña actualizada",
+			"password.updated.programmer" 	=> "Actualización de contraseña programada",
+			"password.updated.required"		=> "Actualización de contraseña requerida",
+
+			"password.expired.deleted"		=> "Actualización de contraseña programada desactivada",
+
+			"password.confirm"				=> "Confirmar contraseña",
+			"password.old.bad"				=> "Contraseña actual invalida",
+			"password.same.bad"				=> "Contraseñas no coinciden",
+
+			"programmer.change.password" 	=> "Programador de cambio de contraseña",
 
 			"words.action"			=> "Acción",
 			"words.actions"			=> "Acciones",
@@ -329,10 +341,12 @@ class esDO {
 			"works.group"		=> "Grupo de trabajo",
 
 			"send.edit-password"	=> "Enviar cambio de contraseña.",
+			"send.password.reset"	=> "Enviar solicitud de actualización de contraseña",
 			"search.users"			=> "Buscar usuarios",
 			"search.empty"			=> "Búsqueda sin resultados",
 			"search.zone"			=> "Buscar zona o sector",
 			"send.membership"		=> "Enviar membresía",
+			"send.retrieve"			=> "Envio de recuperación exitoso",
 
 			"success.delete" => "",
 			"seller.membership.validate.bad" => "Solicitud ",
@@ -340,6 +354,9 @@ class esDO {
 			"seller.state.1" => "En proceso",
 			"seller.state.2" => "Registrada",
 			"seller.state.3" => "Error",
+
+			"security.department"	=> "Departamento de seguridad",
+			"security.notification"	=> "Notificación de seguridad",
 
 			"toggle.set.0"	=> ":name desactivada correctamente",
 			"toggle.set.1"	=> ":name activada correctamente",

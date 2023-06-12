@@ -63,7 +63,13 @@
 							<td>{{$temporizador->created_at->format("Y-m-d")}}</td>
 							<td>{{$temporizador->created_at->format("H:i:s")}}</td>
 							<td>
-								Iniciará {{$temporizador->created_at->diffForHumans()}}
+								@if( $temporizador->created_at->isFuture() )
+									{{__("words.wait")}}...
+								@else
+									{{__("words.notificating")}}
+									{{now()->parse($temporizador->created_at)->diffForHumans()}}
+								@endif
+								
 							</td>
 							<td class="action">
 								<a href="{{__url('__now/'.$temporizador->id.'/delete')}}" 

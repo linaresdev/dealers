@@ -13,6 +13,11 @@ use Delta\Model\Group;
 use Delta\Model\UserSession;
 use Delta\Alert\Facade\Alert;
 
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
+
+use Delta\Http\Email\Admin\RetrievePassword;
+
 class UserSupport {
 
 	protected $user;
@@ -36,7 +41,6 @@ class UserSupport {
 	}
 
 	public function share() {
-
 		return [
 			"layout" => "layout-md",
 			"hasError" => function($name) {
@@ -123,7 +127,7 @@ class UserSupport {
 		
 		$data['title'] 	= __("words.mantenance");
 		$data["user"]	= $user;
-		
+
 		return $data;
 	}
 
@@ -145,6 +149,7 @@ class UserSupport {
 	public function passwordUpdate($user, $request) {
 
 		$user->password = $request->pwd;
+
 
 		if( $user->save() ) {
 			return redirect()->to(__url("__admin/users"));
@@ -171,6 +176,30 @@ class UserSupport {
 		]);
 
 		Alert::prefix("system")->success(__("register.successfull"));
+
+		return back();
+	}
+
+	public function passwordExpireDelete( $user, $id ) {
+		(new UserSession)->find($id)->delete();
+
+		Alert::prefix("system")->success(__("pwd.expired.delete"));
+
+		return back();
+	}
+
+	public function sendPasswordReset($user) {
+
+		$token = \Str::random(28);
+
+		if( (new UserSession)->retrievePassword($user, $token) ) {
+			
+			Mail::to($user)->send( 
+				new RetrievePassword( $user, $token ) 
+			);	
+
+			Alert::prefix("system")->success(__("send.retrieve"));		
+		}
 
 		return back();
 	}

@@ -17,6 +17,14 @@ Route::prefix("membership")->middleware("web")->group( function() {
 	Route::post("/from/{dealer}/{token}","MembershipController@create");
 });
 
+## RETRIEVE PASSWORD
+Route::prefix("retrieve")->group(function(){
+	Route::get("password/{token}", "RetrieveController@password");
+	Route::post("password/{token}", "RetrieveController@passwordUpdate");
+
+	Route::get("password/{token}/unknown", "RetrieveController@passwordUnknown");
+});
+
 Route::prefix("profiler")->middleware("web")->group(
 	__DEALER__."/Http/Route/profile.php"
 );

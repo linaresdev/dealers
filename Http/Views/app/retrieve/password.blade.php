@@ -1,6 +1,6 @@
-@extends( "delta::app.profilers.layout" )
+@extends( $skin->path("landing") )
 
-	@section("content")
+	@section("body")
 
 		<article class="box box-light">
 
@@ -11,17 +11,6 @@
 			<section class="box-body">
 				<article class="block">
 					<form action="{{__url('__now')}}" method="POST">
-
-						<div class="pt-3">
-							{!! $errors->first(
-								"oldpwd", '<p class="error"> :message </p>'
-							) !!}
-							<input type="password" 
-								name="oldpwd"
-								value="{{old("oldpwd")}}"
-								class="form-control bg-light"
-								placeholder="{{__("old.password")}}">
-						</div>
 
 						<div class="pt-3">
 							{!! $errors->first(
@@ -44,12 +33,10 @@
 								placeholder="{{__("password.confirm")}}">
 						</div>
 
-						<div class="pb-3">
-							
+						<div class="pb-3">							
 							<input type="hidden" name="id" value="{{$user->id}}">
-
+							<input type="hidden" name="token" value="{{$token}}">
 							@csrf
-
 							<button class="btn btn-primary">
 								{{__("words.update")}}
 							</button>							

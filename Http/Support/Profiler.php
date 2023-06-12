@@ -8,6 +8,7 @@ namespace Delta\Http\Support;
  *---------------------------------------------------------
 */
 
+use Delta\Model\UserSession;
 
 class Profiler {	
 
@@ -93,8 +94,27 @@ class Profiler {
 	public function savePassword( $user, $request ) {
 		
 		$user->password = $request->pwd;
+		$validity = new UserSession;
 
 		if($user->save()) {
+			(new UserSession)->news("jobs", [
+				"status" 	=> 200,
+				"action"	=> __("password.update"),
+				"subject"	=> __("password.update.successfull"),
+				"user_id"	=> $user->id,
+			]);
+
+			if(($expwd = $user->passwordExpire()) != null ) {
+
+				if($expwd->passwordExpiredClose()) {					
+					(new UserSession)->news("jobs", [
+						"status" 		=> 200,
+						"action"		=> __("password.update.programmer"),
+						"subject"		=> __("password.expired.deleted"),
+						"user_id"		=> $user->id
+					]);
+				}
+			}
 
 			auth("web")->logout();
 

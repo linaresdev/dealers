@@ -21,7 +21,7 @@ Route::prefix("{__usrID}")->group( function($route) {
         Route::post("/account/address", "ProfilerController@updateAddress");
 
         Route::get("/password", "ProfilerController@updatePassword"); 
-        Route::post("/password", "ProfilerController@savePassword");        
+        Route::post("/password", "ProfilerController@savePassword");          
     });
 
     Route::get("/config", "ProfilerController@userConfig");

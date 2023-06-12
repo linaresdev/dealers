@@ -69,7 +69,9 @@ Route::prefix("/users")->namespace("Users")->group( function($route) {
         
         Route::get(
             "password/expired/{id}/delete", "UserController@passwordExpireDelete"
-        );;
+        );
+
+        Route::get("/send/password/reset", "UserController@sendPasswordReset");
 
         Route::get("delete", "UserController@delete");
         Route::get("delete/forever", "UserController@deleteForever");

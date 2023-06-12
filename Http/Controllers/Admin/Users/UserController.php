@@ -62,7 +62,7 @@ class UserController extends Controller {
 		);
 	}
 
-	public function passwordExpireDelete($user, $id) { dd($id);
+	public function passwordExpireDelete($user, $id) {
 		return $this->support->passwordExpireDelete($user, $id);
 	}
 
@@ -73,6 +73,10 @@ class UserController extends Controller {
 		]);
 
 		return $this->support->passwordExpireCreate($user, $request);
+	}
+
+	public function sendPasswordReset($user) {
+		return $this->support->sendPasswordReset($user);
 	}
 
 	public function delete($user) {

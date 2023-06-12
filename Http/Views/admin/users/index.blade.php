@@ -148,7 +148,7 @@
 												class="dropdown-item ps-4">
 												{{__("request.edit-password")}}
 											</a>
-											<a href="{{__url("__users/update/$user->id/send/password-reset")}}" 
+											<a href="{{__url("__users/$user->id/send/password/reset")}}" 
 												class="dropdown-item ps-4">
 												{{__("send.edit-password")}}
 											</a>
