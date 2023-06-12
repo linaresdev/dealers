@@ -18,8 +18,6 @@ class EntitySupport {
 	}
 
 	public function index($ent) {
-		
-		//dd($ent->users()->get());
 
 		$data["title"] 		= __("words.entities");
 		$data["ent"]		= $ent;		
@@ -40,7 +38,7 @@ class EntitySupport {
 				return " active";
 			}
 		});
-
+		
 		return $data;
 	}
 
