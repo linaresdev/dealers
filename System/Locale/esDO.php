@@ -98,6 +98,7 @@ class esDO {
 			"form.error.unique"		=> "El :attribute suministrado existe en nuestro registros",
 			"form.error.dimensions"	=> "El :attribute no cumple con la dimension permitida",
 			"form.error.img-max"	=> "El :attribute supera en peso permitido",
+			"form.error.mimes"		=> "El :attribute solo admite :values",
 
 			"group.new"			=> "Nuevo grupo",
 			"group.data"		=> "Información del grupo",
