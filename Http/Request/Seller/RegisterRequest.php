@@ -23,7 +23,7 @@ class RegisterRequest extends FormRequest {
         	"group"		=> "required",
             "logo"      =>[
                 "max:300",
-                File::types(['jpeg','jpg','jpeg','gif']),
+                File::types(['png','jpg','jpeg','bmp','gif']),
                 Rule::dimensions()->maxWidth(1000)->maxHeight(600)
             ],
             "phone"		=> "required",
