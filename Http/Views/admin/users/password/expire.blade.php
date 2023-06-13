@@ -21,24 +21,12 @@
 				<form action="{{__url('__now')}}" method="POST">
 					@csrf
 					<div class="row">
-						<div class="col-lg-4">
-							<div class="py-2">
+						<div class="col-lg-6">
+							<div class="input-group">
 								<input type="date"
 									name="date"
-									value="{{old("date")}}" 
+									value="{{old('date')}}" 
 									class="form-control">
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="py-2">
-								<input type="time"
-									name="time"
-									value="{{old("time")}}" 
-									class="form-control">
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="py-2">
 								<button type="submit" class="btn btn-secondary">
 									{{__("words.create")}}
 								</button>
@@ -53,7 +41,6 @@
 					<thead>
 						<tr>
 							<th>{{__("words.date")}}</th>
-							<th>{{__("words.hour")}}</th>
 							<th>{{__("words.state")}}</th>
 							<th class="action">{{__("words.action")}}</th>
 						</tr>
@@ -61,12 +48,11 @@
 					<tbody>
 						<tr>
 							<td>{{$temporizador->created_at->format("Y-m-d")}}</td>
-							<td>{{$temporizador->created_at->format("H:i:s")}}</td>
 							<td>
 								@if( $temporizador->created_at->isFuture() )
 									{{__("words.wait")}}...
 								@else
-									{{__("words.notificating")}}
+									{{__("register.old")}}
 									{{now()->parse($temporizador->created_at)->diffForHumans()}}
 								@endif
 								

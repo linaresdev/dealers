@@ -162,7 +162,7 @@ class UserSupport {
 
 		$mark = now()->createFromFormat(
 			'Y-m-d H:i', 
-			$request->date.' '.$request->time, 
+			$request->date.' 00:00', 
 			config("app.timezone")
 		); 
 

@@ -42,7 +42,7 @@ class Login {
 			
 			if( ($expwd = $user->passwordExpire()) != null ) {
 				if( $expwd->created_at->isPast() ) {
-					Alert::prefix("system")->warning(__("password.update.required"));
+					Alert::prefix("system")->warning(__("password.updated.required"));
 				}
 			}
 

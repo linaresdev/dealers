@@ -96,6 +96,8 @@ class esDO {
 			"form.error.exists"		=> "El campo :attribute no existe en nuestros registros",
 			"form.error.required"	=> "El campo :attribute es requerido",
 			"form.error.unique"		=> "El :attribute suministrado existe en nuestro registros",
+			"form.error.dimensions"	=> "El :attribute no cumple con la dimension permitida",
+			"form.error.img-max"	=> "El :attribute supera en peso permitido",
 
 			"group.new"			=> "Nuevo grupo",
 			"group.data"		=> "Información del grupo",
@@ -180,6 +182,7 @@ class esDO {
 			"register.successfull" 	=> "Registro realizado correctamente",
 			"register.error"		=> "Error al tratar de registrar los datos",
 			"register.sendmail"		=> "Enviar solicitud de registro",
+			"register.old"			=> "Registrado",
 
 
 			"request.edit-password" => "Solicitar cambio de contraseña",
@@ -299,6 +302,7 @@ class esDO {
 			"words.name"		=> "Nombre",
 			"words.niv"			=> "NIV",
 			"words.new"			=> "Nuevo",
+			"words.notificating"	=> "Notificación",
 			"words.organization"	=> "Organización",
 			"words.organizations"	=> "Organizaciones",
 			"words.path"		=> "Ruta",

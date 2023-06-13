@@ -68,8 +68,7 @@ class UserController extends Controller {
 
 	public function passwordExpireCreate( $user, Request $request ) {
 		$request->validate([
-			"date"	=> "required|date",
-			"time"	=> "required"
+			"date"	=> "required|date"
 		]);
 
 		return $this->support->passwordExpireCreate($user, $request);

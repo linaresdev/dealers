@@ -41,7 +41,15 @@
 								name="logo"
 								id="logo" 
 								class="form-control"
-								placeholder="{{__("words.file")}}">					
+								placeholder="{{__('words.file')}}"
+								accept="image/png,
+										image/jpeg,
+										image/jpg,
+										image/gif,
+										application/png,
+										application/jpg,
+										application/jpeg,
+										application/gif">		
 						</div>
 					</div>
 
