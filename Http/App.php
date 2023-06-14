@@ -15,6 +15,7 @@ $this->loadGrammary($LANG, "esDO");
 /*
 * MACRO PATH */
 app("urls")->addTag("paths", [
+    "__sys"    => __DEALER__."/System",
     "__meta"    => __DEALER__."/System/Meta",
     "__cdn"     => "apps/cdn",
     "__uploads" => "apps/uploads"
@@ -154,6 +155,5 @@ if(!function_exists("login") ) {
         return auth($guard)->user();
     }
 }
-
 
 /* End of helper App.php */

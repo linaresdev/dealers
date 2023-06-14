@@ -45,8 +45,3 @@ if( !Menu::load("apps")->has("items") && __segment(1, "warranty") ) {
 view()->share([
 	"UI" => $user
 ]);
-
-
-
-
-//dd($user->sessID());

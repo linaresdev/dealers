@@ -1,11 +1,19 @@
 @extends("delta::admin.layout")
+		
+	@section("body")
 
-	@section("content")
+		<article class="box box-light">
+			<header class="box-header">
+				<h4>{{$title}}</h4>
+			</header>
 
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<section class="box-body">
+				<article class="bg-secondary p-2">
+					<video style="width: 100%;" controls autoplay>
+						<source src="{{__url('__lightmedia/preview.webm')}}" type="video/webm">
+						Tu navegador no  soporta video.
+					</video>
+				</article>
+			</section>
+		</article>
 	@endsection

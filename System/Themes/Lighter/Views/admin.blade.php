@@ -26,8 +26,7 @@
 			
 			<nav class="lighter-nav">
 				@yield("nav", "Nav Body")
-			</nav>
-			
+			</nav>	
 
 			<section class="lighter-body">
 				
@@ -72,8 +71,6 @@
 		</article>
 
 	</article>
-
-
 
 @section("js")
 

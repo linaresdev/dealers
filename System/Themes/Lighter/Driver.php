@@ -21,7 +21,8 @@ foreach($configs as $key => $value) {
 /*
 * MACRO URLS */
 app("urls")->addTag("urls", [
-	"__lighter" => "lighter/assets",
+	"__lighter"    => "lighter/assets",
+    "__lightmedia" => "lighter/media",
     ":avatar_path" => "__lighter/images"
 ]);
 
@@ -52,7 +53,8 @@ $this->app["view"]->share([
 /*
 * Public && Assets */
 $publishes = [
-    __DIR__."/Public/Assets" => base_path("public/lighter/assets")
+    __DIR__."/Public/Assets" => base_path("public/lighter/assets"),
+    __DIR__."/Public/Media" => base_path("public/lighter/media")
 ];
 
 $this->publishes($publishes, "lighter");
