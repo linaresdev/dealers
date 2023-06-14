@@ -9,6 +9,7 @@ namespace Delta\Http\Controllers\Seller;
 */
 
 use Illuminate\Http\Request;
+use Delta\Http\Request\Seller\LogoRequest;
 use Delta\Http\Support\Seller\SellerSupport;
 use Delta\Http\Request\Seller\UpdateRequest;
 use Delta\Http\Request\Seller\RegisterRequest;
@@ -49,7 +50,7 @@ class SellerController extends Controller {
 		return $this->render("update.logo", $this->support->editLogo($this->user(), $dealer));
 	}
 
-	public function updateLogo( $dealer, Request $request ) {
+	public function updateLogo( $dealer, LogoRequest $request ) {
 		return $this->support->updateLogo( $this->user(), $dealer, $request );
 	}
 

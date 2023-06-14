@@ -5,7 +5,6 @@
 
 	<form action="{{__url('__now')}}" 
 		method="POST"
-		accept="image/*"
 		enctype="multipart/form-data" 
 		class="box-group">
 

@@ -158,7 +158,7 @@ class SellerSupport {
 	}
 
 	public function updateLogo( $user, $dealer, $request ) {
-
+		
 		if( $request->hasFile("logo") ) {
 
 			$name = "logo.".$request->logo->getClientOriginalExtension();

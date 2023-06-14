@@ -30,7 +30,6 @@
 
 	<form action="{{__url('__now')}}" 
 		method="POST"
-		accept="image/*"
 		enctype="multipart/form-data" 
 		class="box-group">
 
@@ -57,7 +56,15 @@
 								name="logo"
 								id="logo" 
 								class="form-control"
-								placeholder="{{__("words.file")}}">	
+								placeholder="{{__('words.file')}}"
+								accept="image/png,
+										image/jpeg,
+										image/jpg,
+										image/gif,
+										application/png,
+										application/jpg,
+										application/jpeg,
+										application/gif">
 
 							<button class="btn btn-secondary">
 								{{__("words.update")}}
