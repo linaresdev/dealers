@@ -35,6 +35,8 @@ class esDO {
 			"admin.users"			=> "Administrar usuarios",
 			"admin.slug"			=> "Admin",
 
+			"add.users"				=> "Agregar usuarios",
+
 			"api.new"				=> "Nueva api",
 
 			"apps.form"				=> "Foumulario de aplicaciones",
@@ -95,7 +97,7 @@ class esDO {
 
 			"form.error.exists"		=> "El campo :attribute no existe en nuestros registros",
 			"form.error.required"	=> "El campo :attribute es requerido",
-			"form.error.unique"		=> "El :attribute suministrado existe en nuestro registros",
+			"form.error.unique"		=> "El campo :attribute existe en nuestro registros",
 			"form.error.dimensions"	=> "El :attribute no cumple con la dimension permitida",
 			"form.error.img-max"	=> "El :attribute supera en peso permitido",
 			"form.error.mimes"		=> "El :attribute solo admite :values",

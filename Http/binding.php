@@ -20,6 +20,10 @@ Route::bind("__usrID", function($ID){
     return (new \Delta\Model\User)->find($ID) ?? abort(404);
 });
 
+Route::bind("__gID", function($ID) {
+    return (new \Delta\Model\Group)->find($ID) ?? abort(404);
+});
+
 Route::bind("__WID", function($ID){
     return (new \Delta\Model\Customer)->find($ID) ?? abort(404);
 });

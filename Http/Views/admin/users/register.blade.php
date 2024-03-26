@@ -139,7 +139,12 @@
 
 					<div class="">
 						@csrf
-						<button type="submit" class="btn btn-outline-secondary">
+						<a href="{{__url('admin/users')}}" 
+							class="btn btn-sm btn-outline-danger rounded-pill px-3">
+							{!! __mdi("close") !!} {{__("words.close")}}
+						</a>
+						<button type="submit" 
+							class="btn btn-sm btn-light rounded-pill px-3 border">
 							{!! __mdi("content-save") !!}
 							{{__("user.create")}}
 						</button>

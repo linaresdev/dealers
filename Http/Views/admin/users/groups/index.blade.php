@@ -6,7 +6,12 @@
 
 	<article class="box box-light">
 		<header class="box-header pb-3">
-			<a href="{{__url('__users/groups/new')}}" class="btn btn-secondary btn-sm">
+			<a href="{{__url('admin/users')}}" 
+                class="btn btn-sm btn-light rounded-pill px-3 border">
+                {{__("words.users")}}
+            </a>
+			<a href="{{__url('__users/groups/new')}}" 
+				class="btn btn-sm btn-light rounded-pill px-3 border">
 				{!! __mdi("account-multiple-plus") !!}
 				{{__('group.new')}}
 			</a>
@@ -41,10 +46,15 @@
 										</a>
 
 										<div class="dropdown-menu">
-											<a href="#" class="dropdown-item">
+											<a href="{{__url('admin/users/groups/'.$group->id)}}" class="dropdown-item">
+												<span class="mdi mdi-account-group-outline"></span>	
+												{{__("admin.users")}}
+											</a>
+											<h6 class="dropdown-header">{{__("words.mantenance")}}</h6>
+											<a href="#" class="dropdown-item ps-4">
 												{{__("words.edit")}}
 											</a>
-											<a href="#" class="dropdown-item">
+											<a href="#" class="dropdown-item ps-4">
 												{{__("words.delete")}}
 											</a>
 										</div>

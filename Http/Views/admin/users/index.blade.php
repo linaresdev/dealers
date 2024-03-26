@@ -39,12 +39,13 @@
 
 		<article class="box box-light">
 			<header class="box-header">
-				<div class="btn-group">
-					<a href="{{__url("__users/register")}}" 
-						class="btn btn-outline-secondary btn-sm">
+				<div class="py-2">
+					<a href="{{__url('__users/register')}}" 
+						class="btn btn-sm btn-light rounded-pill px-3 border">
 						{!! __mdi("account-plus") !!} {{__("user.new")}}
 					</a>
-					<a href="{{__url('__groups/')}}" class="btn btn-outline-secondary btn-sm">
+					<a href="{{__url('__groups/')}}" 
+						class="btn btn-sm btn-light rounded-pill px-3 border">
 						{!! __mdi("account-group") !!} 
 						{{__("words.groups")}}
 					</a>					
@@ -153,11 +154,11 @@
 												{{__("send.edit-password")}}
 											</a>
 
-											<div class="dropdown-header">
+											<!-- <div class="dropdown-header">
 												{!! __mdi("account-group") !!}
 												{{ __("user.groups") }}
-											</div>
-											<a href="{{__url("__groups/$user->id")}}" 
+											</div> -->
+											<!-- <a href="{{__url("__users/$user->id/groups")}}" 
 												class="dropdown-item ps-4">
 												{{__("admin.groups")}}
 											</a>
@@ -169,7 +170,7 @@
 											<a href="{{__url("__groups/$user->id")}}" 
 												class="dropdown-item ps-4">
 												{{__("words.access")}}
-											</a>
+											</a> -->
 											<a href="{{__url("__users/$user->id/delete")}}" 
 												class="btn btn-outline-danger btn-sm d-block mx-2 text-start ps-3">
 												{{__("words.delete")}}

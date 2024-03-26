@@ -35,6 +35,7 @@ app("urls")->addTag("urls", [
 * ADMIN MACRO URLS */
 for ($i=1;$i<=5;  $i++) {  
     $segments["__s$i"] = __segment($i);
+    $segments["{s$i}"] = __segment($i);
 }
 app("urls")->addTag("urls", $segments);
 

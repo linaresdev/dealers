@@ -14,6 +14,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class RegisterRequest extends FormRequest {
 
 	public function authorize() {
+        
         return true;
     }
 
@@ -38,7 +39,7 @@ class RegisterRequest extends FormRequest {
 
     public function attributes() {
         return [
-            "niv"           => __("words.reference"),
+            "niv"           => "NIV",
             "customer"      => __("client.name"),
             "address"       => __("client.address"),
             "rnc"           => __("client.rnc"),
@@ -55,16 +56,18 @@ class RegisterRequest extends FormRequest {
         ];
     }
 
-    public function withValidator( $validator ) {
+    // public function withValidator( $validator ) {
 
-        $validator->after( function ( $validator ) {
-            if( $validator->errors()->any() ) {
-                $validator->errors()->add(
-                    'noty', 'Todos los campos son requeridos'
-                ); 
-            }            
-        });
-    }
+    //     $validator->after( function ( $validator ) {
+            
+    //         if( $validator->errors()->any() ) 
+    //         {
+    //             $validator->errors()->add(
+    //                 'noty', 'Todos los campos son requeridos'
+    //             ); 
+    //         }            
+    //     });
+    // }
 }
 
 /* End of RegisterRequest.php */

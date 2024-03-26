@@ -193,17 +193,20 @@ class User extends Authenticatable {
 		return ($this->groups->where("type", "rol")->where("slug", $slug)->count() > 0);
 	}
 
-	public function rol($slug) {
-		
-		$data = $this->groups->where("type", "rol")
-					->where("slug", $slug)->first();
-
-		$data->view 	= $data->pivot->view;
-		$data->insert 	= $data->pivot->insert;
-		$data->update 	= $data->pivot->update;
-		$data->delete 	= $data->pivot->delete;
-
-		return $data;
+	public function rol($slug) 
+	{
+		if( $this->isRol($slug))
+		{
+			$data = $this->groups->where("type", "rol")
+						->where("slug", $slug)->first();
+			
+			$data->view 	= $data->pivot->view;
+			$data->insert 	= $data->pivot->insert;
+			$data->update 	= $data->pivot->update;
+			$data->delete 	= $data->pivot->delete;
+	
+			return $data;
+		}
 	}
 
 	public function hasDealer() {

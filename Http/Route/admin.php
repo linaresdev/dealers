@@ -74,8 +74,11 @@ Route::prefix("/users")->namespace("Users")->group( function($route) {
         Route::get("/send/password/reset", "UserController@sendPasswordReset");
 
         Route::get("delete", "UserController@delete");
-        Route::get("delete/forever", "UserController@deleteForever");
-
+        Route::get("delete/forever", "UserController@deleteForever"); 
+        
+        Route::prefix("groups")->group( function($route){
+            Route::get('/', "UserGroupController@index");
+        });
     });
 
     Route::get("/set/{__usrID}/{state}", "UserController@setUser");
@@ -89,7 +92,13 @@ Route::prefix("/users")->namespace("Users")->group( function($route) {
     ## User Group
     Route::prefix("groups")->group( function() {
         Route::get('/', "UserGroupController@index");
-        Route::post('/new', "UserGroupController@create");
+        Route::post('/new', "UserGroupController@create");  
+        
+        Route::prefix("{__gID}")->group(function($route)
+        {
+            Route::get("/", "UserGroupController@getShowGroup");
+            Route::get("/toggle/{__usrID}/{rol}", "UserGroupController@toggleUserRol");
+        });
     });    
 });
 

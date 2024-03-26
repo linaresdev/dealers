@@ -23,6 +23,16 @@ class UserGroupController extends Controller {
 	public function create() {
 		return $this->render("groups.create", $this->support->create());
 	}
+
+	public function getShowGroup( $group )
+	{
+		return $this->render("groups.show", $this->support->getShowGroup($group));
+	}
+
+	public function toggleUserRol($group, $user, $rol )
+	{
+		return $this->support->toggleUserRol($group, $user, $rol);
+	}
 }
 
 /* End of Controller UserGroupController.php */

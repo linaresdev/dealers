@@ -42,6 +42,14 @@
 				<form action="{{__url('__now')}}" method="POST">
 					@csrf
 
+					@if($errors->any())
+					<div class="mb-3 px-3 py-2 border border-danger rounded">
+						@foreach($errors->all() as $row )
+							<p class=" text-danger m-0 p-0">{{$row}}</p>
+						@endforeach
+					</div>
+					@endif
+
 					@if( $errors->has("noty") )
 					
 					<div class="alert alert-danger">
