@@ -14,7 +14,6 @@ use Illuminate\Foundation\Http\FormRequest;
 class RegisterRequest extends FormRequest {
 
 	public function authorize() {
-        
         return true;
     }
 
@@ -28,7 +27,7 @@ class RegisterRequest extends FormRequest {
             	"unique:\Delta\Model\Customer,niv"
             ],
             "customer"	=> "required",
-            "address"   => "required|max:50",
+            "address"   => "required|max:40",
             "rnc"		=> "required",
             "email"		=> "required|email",
             "cellphone"	=> "required",

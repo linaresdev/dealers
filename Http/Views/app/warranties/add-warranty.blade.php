@@ -80,7 +80,7 @@
 										class="form-control{{$isError('niv')}}"
 										placeholder="NIV"
 										autocomplete="off">
-									<label for="niv">NIV</label>
+									<label for="niv">NIV/Referencia</label>
 								</div>					
 							</div>
 							<div class="col-lg-6 col-md-6 mb-1">
