@@ -32,7 +32,6 @@ class RegisterRequest extends FormRequest {
             "email"		=> "required|email",
             "cellphone"	=> "required",
             "sector"    => ["required", new ZoneRul()],
-            "address"   => "required"
         ];
     }
 
