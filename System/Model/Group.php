@@ -118,6 +118,10 @@ class Group extends Model {
       return $this->hasMany(Customer::class, "group_id");
    }
 
+   public function warrantyTotal() {
+      return $this->customer()->count();
+   }
+
    public function addCustomer($data) {
       return $this->customer()->create($data);
    }

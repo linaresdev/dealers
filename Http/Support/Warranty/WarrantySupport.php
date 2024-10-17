@@ -18,6 +18,8 @@ class WarrantySupport {
 
 	protected $customer;
 
+	protected $warrantyCount = 0;
+
 	public function __construct( Customer $customer ) {	
 		$this->customer = $customer;
 	}
@@ -66,10 +68,12 @@ class WarrantySupport {
 		
 		//dd($this->filterBy());
 
+
 		$data["title"] 			= $org->group;
 		$data["org"] 			= $org;
 		
 		$data["warranties"] 	= $this->getWarranty($org->id,5);
+		$data["warrantyCount"]	= $this->warrantyCount;
 		$data["filter"] 		= $this->filterBy();
 
 		return $data;
@@ -101,12 +105,16 @@ class WarrantySupport {
 		return $data;
 	}
 
-	public function getWarranty($ID, $take) {
-		return $this->customer
+	public function getWarranty($ID, $take) 
+	{
+		$data = $this->customer
 					->where("group_id", $ID)
-					->orderBY("id", "DESC")
-					->take($take)
-					->get();
+					->orderBY("id", "DESC");
+
+		if( ($this->warrantyCount = $data->count()) > 0 )
+		{
+			return $data->take($take)->get();
+		}
 	}
 
 	public function addWarranty( $org ) {	

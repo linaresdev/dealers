@@ -15,7 +15,6 @@ class DealerController extends Controller {
 
 	public function __construct( Dealer $support ) {
 		$this->boot($support);
-		
 	}
 
 	public function index( $dealer ) {

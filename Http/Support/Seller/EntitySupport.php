@@ -27,9 +27,9 @@ class EntitySupport {
 		$data["users_on"] 	= $ent->users()->where("activated", 1)->count();
 		$data["users_off"] 	= $ent->users()->where("activated", 0)->count();
 
-		$data["warranties"]	= $ent->customer;
-		$data["warranties_on"]	= $ent->customer->where("activated", 1)->count();
-		$data["warranties_off"]	= $ent->customer->where("activated", 0)->count();
+		$data["warranties"]		= $ent->customer;
+		$data["warranties_on"]	= $ent->customer()->where("state", 2)->count();
+		$data["warranties_off"]	= $ent->customer->where("state", "<", 2)->count();
 
 		$data["jobs"]		= $this->getJobs(6);
 

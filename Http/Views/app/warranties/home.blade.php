@@ -36,7 +36,7 @@
 				
 			</header>
 
-			<article class="box-body">
+			<article class="box-body">				
 
 				<div class="block">
 					<div class="input-group">
@@ -79,6 +79,15 @@
 						
 					</div>					
 				</div>
+
+				@if( $warrantyCount > 1)
+				<div class="block">
+					<span class="badge text-bg-secondary">
+						{{$warrantyCount}}
+					</span>
+					registros a la fecha.
+				</div>
+				@endif
 				
 				<table class="table table-hover">
 					<thead class="bg-light border-top">

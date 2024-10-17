@@ -13,7 +13,7 @@ use Delta\Http\Request\Warranty\RegisterRequest;
 
 class WarrantyController extends Controller {
 
-	public function __construct( WarrantySupport $support ) {
+	public function __construct( WarrantySupport $support ) { 
 		$this->boot($support);	
 
 		app("urls")->addTag("urls", [
@@ -35,7 +35,7 @@ class WarrantyController extends Controller {
 		}
 	}
 
-	public function home($org) { 
+	public function home($org) {
 		return $this->render("home", $this->support->home($org));
 	}
 

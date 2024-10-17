@@ -8,7 +8,7 @@
 				<header class="box-header text-center">
 					<h4>{{__("words.warranty")}}</h4>
 				</header>
-
+				
 				<section class="box-body">
 					<article class="block">
 						<ul class="list-group list-group-flush">

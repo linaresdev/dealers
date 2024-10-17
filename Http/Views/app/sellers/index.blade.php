@@ -34,7 +34,7 @@
 								{{$dealer->group}}
 							</a>
 						</td>
-
+						
 						<td class="toggled-sm">{{$dealer->getMeta("phone")}}</td>
 						<td class="toggled-sm">{{$dealer->getMeta("email")}}</td>
 
