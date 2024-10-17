@@ -101,6 +101,7 @@
 						</tr>
 					</thead>
 					<tbody id="itemsource">
+						@if(!empty($warranties))
 						@foreach( $warranties as $warranty )
 						<tr>
 							<td class="py-1 px-2">
@@ -149,7 +150,8 @@
 								</div>
 							</td>
 						</tr>
-						@endforeach
+						@endforeach						
+						@endif
 					</tbody>
 				</table>
 				
