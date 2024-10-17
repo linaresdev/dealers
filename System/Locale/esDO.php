@@ -98,9 +98,11 @@ class esDO {
 			"form.error.exists"		=> "El campo :attribute no existe en nuestros registros",
 			"form.error.required"	=> "El campo :attribute es requerido",
 			"form.error.unique"		=> "El campo :attribute existe en nuestro registros",
-			"form.error.dimensions"	=> "El :attribute no cumple con la dimension permitida",
+			"form.error.dimensions"	=> "El campo :attribute no cumple con la dimension permitida",
 			"form.error.img-max"	=> "El :attribute supera en peso permitido",
 			"form.error.mimes"		=> "El :attribute solo admite :values",
+			"form.error.max"		=> "El campo :attribute supera la cantidad de caracteres permitidos",
+			"form.error.numeric"		=> "El campo :attribute solo admite números",
 
 			"group.new"			=> "Nuevo grupo",
 			"group.data"		=> "Información del grupo",

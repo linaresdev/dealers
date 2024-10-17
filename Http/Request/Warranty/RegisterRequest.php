@@ -30,13 +30,14 @@ class RegisterRequest extends FormRequest {
             "address"   => "required|max:40",
             "rnc"		=> "required",
             "email"		=> "required|email",
-            "cellphone"	=> "required",
+            "cellphone"	=> ["required", "numeric"],
             "sector"    => ["required", new ZoneRul()],
         ];
     }
 
     public function attributes() {
         return [
+            "date"          => __("words.date"),
             "niv"           => "NIV",
             "customer"      => __("client.name"),
             "address"       => __("client.address"),
@@ -51,21 +52,10 @@ class RegisterRequest extends FormRequest {
             "required"  => __("form.error.required"),
             "unique"    => __("form.error.unique"),
             "exists"    => __("form.error.exists"),
+            "max"       => __("form.error.max"),
+            "numeric"   => __("form.error.numeric"),
         ];
     }
-
-    // public function withValidator( $validator ) {
-
-    //     $validator->after( function ( $validator ) {
-            
-    //         if( $validator->errors()->any() ) 
-    //         {
-    //             $validator->errors()->add(
-    //                 'noty', 'Todos los campos son requeridos'
-    //             ); 
-    //         }            
-    //     });
-    // }
 }
 
 /* End of RegisterRequest.php */
