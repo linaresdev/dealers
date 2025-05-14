@@ -1,5 +1,5 @@
 
-					@foreach( $warranties as $warranty )
+					@foreach( $warranties as $key => $warranty )
 						<tr>
 							<td class="py-1 px-2">
 								<a href="{{__url('__warranty/show/'.$warranty->id)}}" 

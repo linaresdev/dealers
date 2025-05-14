@@ -21,7 +21,7 @@ Route::prefix("{__orgID}")->group(function($route) {
     Route::get("/activate/{__WID}", "WarrantyController@activate");
     Route::get("/delete/{__WID}", "WarrantyController@delete");
 
-    Route::get("/show/{__WID}", "WarrantyController@show");
+    Route::get("/show/{wID}", "WarrantyController@show");
 
     Route::prefix("ajax")->group( function() {       
         Route::get("{opt}/{arg?}", "AjaxController@index");

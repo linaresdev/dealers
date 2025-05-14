@@ -42,9 +42,8 @@ class WarrantySupport {
 		
 		$data = $this->customer
 				->where("group_id", $org->id)
-				->where("user_id", $userID)
 				->where($this->filterBy(), "LIKE", '%'.$src.'%')->get();
-
+		
 		return view($path."search", ["warranties" => $data]);
 	}
 
@@ -99,9 +98,10 @@ class WarrantySupport {
 	}
 
 	public function show($org, $warranty) {
+
 		$data["title"] 		= __("words.warranty");
 		$data["org"]		= $org;
-		$data["warranty"] 	= $warranty;
+		$data["warranty"] 	= $org->customer->where("id", $warranty)->first() ?? abort(404);
 
 		return $data;
 	}
@@ -118,7 +118,8 @@ class WarrantySupport {
 		}
 	}
 
-	public function addWarranty( $org ) {	
+	public function addWarranty( $org ) {
+
 		$data["title"] 		= __("warranty.form");
 		$data["org"] 		= $org;
 
