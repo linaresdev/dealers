@@ -165,6 +165,8 @@
 		@parent<script>
 
 			function queryItem( inp ) {
+				console.log("{{__url('__warranty/search')}}/"+inp.value);
+				
 				jQuery.get("{{__url('__warranty/search')}}/"+inp.value, function(data) {
 					jQuery("#itemsource").html( data );
 				});

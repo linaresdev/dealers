@@ -9,6 +9,36 @@
 
 Route::get("/", "HomeController@home");
 
+Route::get("/report", function(){
+
+    $Delta = (new \Delta\Model\Group)->find(11)->customer()->where("state", 0)->get();
+
+    // foreach( $Delta as $row ) {
+    //     $row->update(["state" => 1]);
+    // }
+
+    dd($Delta);
+
+    $group = (new \Delta\Model\Group)->where("type", "dealer")->get();
+    $data["title"] = "Reporte";
+
+    foreach($group as $row) {
+        $dealer = $row->group;
+
+        $total = $row->customer->count();
+        $close = $row->customer()->where("state", 2)->count();
+        
+        $data["dealers"][] = [
+            "ID"    => $row->id,
+            "name"  => $row->group,
+            "total" => $total,
+            "close" => $close
+        ];
+    }
+
+    return view("delta::admin.reporte", $data);
+});
+
 Route::get("/sluggable/{slug}", "AjaxController@sluggable");
 
 Route::prefix("/organizations")->namespace("Domain")->group(function($route){

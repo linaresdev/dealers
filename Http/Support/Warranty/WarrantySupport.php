@@ -39,11 +39,12 @@ class WarrantySupport {
 	}
 
 	public function search($org, $src, $userID, $path ) {
-
+		
 		$data = $this->customer
 				->where("group_id", $org->id)
+				->where("user_id", $userID)
 				->where($this->filterBy(), "LIKE", '%'.$src.'%')->get();
-
+				
 		return view($path."search", ["warranties" => $data]);
 	}
 
