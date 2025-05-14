@@ -13,12 +13,6 @@ Route::get("/report", function(){
 
     $Delta = (new \Delta\Model\Group)->find(11)->customer()->where("state", 0)->get();
 
-    // foreach( $Delta as $row ) {
-    //     $row->update(["state" => 1]);
-    // }
-
-    dd($Delta);
-
     $group = (new \Delta\Model\Group)->where("type", "dealer")->get();
     $data["title"] = "Reporte";
 
